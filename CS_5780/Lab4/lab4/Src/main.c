@@ -70,6 +70,7 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+int data = 0;
 
 /* USER CODE END PFP */
 
@@ -107,6 +108,12 @@ int main(void)
 	RCC->APB1ENR |= RCC_APB1ENR_USART3EN;
 	RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
 	
+	/*Enable LED*/
+	RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
+	
+	/*All LEDs in General Purpose Output Mode*/
+	GPIOC->MODER = 0x55000; 
+	
 	/*Enable Pins 10 & 11 with alternate function 4*/
 	GPIOB->AFR[1] |= 0x4400; //Computer Systems!
 	
@@ -125,8 +132,35 @@ int main(void)
 	
   while (1)
   {
-		TXcharUSART('x');
-		HAL_Delay(400);
+		//Makes sure that the received data is valid
+		if((USART3->ISR & (0x1 << 5)) == 1<<5)
+		{
+			data = USART3->RDR; //Loads data into local variable
+			
+			/*Check validity of data*/
+			if(data == 114 || data == 111 || data == 103 || data == 98 || data == 0) /*Red, Orange, Green, Blue*/
+			{
+				switch(data) {
+					case 114: GPIOC->ODR ^= 0x40; //RED
+						break;
+					case 111: GPIOC->ODR ^= 0x100; //ORANGE
+						break;
+					case 103: GPIOC->ODR ^= 0x200; //GREEN
+						break;
+					case 98: GPIOC->ODR ^= 0x80; //BLUE
+						break;
+				}				
+			}
+			else
+			{
+				/*Make sure TDR Reg is valid*/
+				if((USART1->ISR & (0x1 << 7)) == 1<<7)
+				{
+					USART3->TDR = 'E';
+				}
+				
+			}
+		}	
   }
 }
 
