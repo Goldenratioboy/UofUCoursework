@@ -272,7 +272,11 @@ void USART3_4_IRQHandler(){
 		{
 			flag = 1;
 		}
-		else start();
+		else {
+			TXcharUSART('E');
+			start();
+			reset();
+		}
 		
 	}
 	else
@@ -282,6 +286,16 @@ void USART3_4_IRQHandler(){
 			// Exits when transmit complete
 		}
 		data = USART3->RDR;
+		
+		if(data == 48 || data == 49 || data == 50)
+		{
+			TXcharUSART(globalData);
+			TXcharUSART(data);
+		}
+		else
+		{
+			TXcharUSART('E');
+		}
 		flag = 0;
 		start();
 	}

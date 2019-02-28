@@ -3,7 +3,7 @@
 <title>Static Call Graph - [lab4\lab4.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image lab4\lab4.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Feb 28 13:51:10 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Feb 28 14:00:22 2019
 <BR><P>
 <H3>Maximum Stack Usage =        164 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -347,15 +347,18 @@ Global Symbols
 <P><STRONG><a name="[27]"></a>SystemInit</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, system_stm32f0xx.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f072xb.o(.text)
 </UL>
-<P><STRONG><a name="[41]"></a>TXcharUSART</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(i.TXcharUSART))
+<P><STRONG><a name="[3e]"></a>TXcharUSART</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(i.TXcharUSART))
 <BR><BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start
+<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_4_IRQHandler
 </UL>
 
-<P><STRONG><a name="[23]"></a>USART3_4_IRQHandler</STRONG> (Thumb, 66 bytes, Stack size 4 bytes, main.o(i.USART3_4_IRQHandler))
+<P><STRONG><a name="[23]"></a>USART3_4_IRQHandler</STRONG> (Thumb, 118 bytes, Stack size 4 bytes, main.o(i.USART3_4_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART3_4_IRQHandler &rArr; start
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isValid
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isValid
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TXcharUSART
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f072xb.o(RESET)
 </UL>
@@ -365,7 +368,7 @@ Global Symbols
 
 <P><STRONG><a name="[4f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[3e]"></a>isValid</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.isValid))
+<P><STRONG><a name="[40]"></a>isValid</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.isValid))
 <BR><BR>[Called By]<UL><LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_4_IRQHandler
 </UL>
 
@@ -375,20 +378,21 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start
-<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[40]"></a>reset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, main.o(i.reset))
+<P><STRONG><a name="[41]"></a>reset</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, main.o(i.reset))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_4_IRQHandler
 </UL>
 
 <P><STRONG><a name="[3f]"></a>start</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, main.o(i.start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TXcharUSART
+<BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TXcharUSART
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_4_IRQHandler
