@@ -70,7 +70,9 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-int data = 0;
+volatile int data = 0;
+volatile int globalData = 0;
+volatile int flag = 0;
 
 /* USER CODE END PFP */
 
@@ -79,11 +81,26 @@ int data = 0;
 
 /* USER CODE END 0 */
 
+/*Helper method to determine validity of c. Makes sure that it is a valid led char
+	1 return is true
+	0 return is false
+*/
+
+int isValid(char c)
+{
+	if(c == 114 || c == 103 || c == 111 || c == 98)
+	{
+		return 1;
+	}
+	else return 0;
+}
+
+
 void TXcharUSART(char c){
 	//Transmitting data by checking 7th bit for exit or continue
 	
 	
-	while((USART3->ISR | (0 << 7)) == 0) /*Code works for single char without this, BE WARY!*/
+	while((USART3->ISR & (0x1 << 7)) == 0)
 	{
 			/*Exits once the flag is updated*/
 	}
@@ -91,6 +108,23 @@ void TXcharUSART(char c){
 	/*Assign value to transmit register*/
 	USART3->TDR = c;
 	
+}
+
+
+/*Start Prompt for the program*/
+void start()
+{
+	TXcharUSART('C');
+	TXcharUSART('M');
+	TXcharUSART('D');
+	TXcharUSART('?');
+}
+
+/*Resets global variables for new LED Command*/
+void reset()
+{
+	data = 0;
+	globalData = 0;
 }
 /**
   * @brief  The application entry point.
@@ -129,41 +163,129 @@ int main(void)
 	
 	/*Enable USART, all other registers become READ ONLY*/
 	USART3->CR1 |= 0x1;
+	USART3->CR1 |= (1 << 5);
+  //USART3->CR1 |= (1 << 7);	
+	
+	NVIC_EnableIRQ(USART3_4_IRQn);
+	NVIC_SetPriority(USART3_4_IRQn, 1);
+	
+	
+	start();
 	
   while (1)
-  {
-		//Makes sure that the received data is valid
-		if((USART3->ISR & (0x1 << 5)) == 1<<5)
-		{
-			data = USART3->RDR; //Loads data into local variable
-			
-			/*Check validity of data*/
-			if(data == 114 || data == 111 || data == 103 || data == 98 || data == 0) /*Red, Orange, Green, Blue*/
-			{
-				switch(data) {
-					case 114: GPIOC->ODR ^= 0x40; //RED
-						break;
-					case 111: GPIOC->ODR ^= 0x100; //ORANGE
-						break;
-					case 103: GPIOC->ODR ^= 0x200; //GREEN
-						break;
-					case 98: GPIOC->ODR ^= 0x80; //BLUE
-						break;
-				}				
+  {	
+		
+			//Check validity of data
+			if(data == 48 || data == 49 || data == 50) //Red, Orange, Green, Blue/
+			{		
+						switch (globalData) {
+							case 114:
+								if(data == 48)
+								{
+									GPIOC->ODR &= (0 << 7); //Turns off red led
+									reset();
+								}
+								else if(data == 49)
+								{
+									GPIOC->ODR |= 0x40; //Turns on red led
+									reset();
+								}
+								else if(data == 50)
+								{
+									GPIOC->ODR ^= 0x40; //Toggles red led
+									reset();
+								}
+								break;
+							case 103:
+								if(data == 48)
+								{
+									GPIOC->ODR &= (0 << 10); //Turns off green led
+									reset();
+								}
+								else if(data == 49)
+								{
+									GPIOC->ODR |= 0x200; //Turns on green led
+									reset();
+								}
+								else if(data == 50)
+								{
+									GPIOC->ODR ^= 0x200; //Toggles green led
+									reset();
+								}
+								break;
+								
+							case 111:
+								if(data == 48)
+								{
+									GPIOC->ODR &= (0 << 9); //Turns off orange led
+									reset();
+								}
+								else if(data == 49)
+								{
+									GPIOC->ODR |= 0x100; //Turns on orange led
+									reset();
+								}
+								else if(data == 50)
+								{
+									GPIOC->ODR ^= 0x100; //Toggles orange led
+									reset();
+								}
+								break;
+								
+							case 98:
+								if(data == 48)
+								{
+									GPIOC->ODR &= (0 << 8); //Turns off orange led
+									reset();
+								}
+								else if(data == 49)
+								{
+									GPIOC->ODR |= 0x80; //Turns on orange led
+									reset();
+								}
+								else if(data == 50)
+								{
+									GPIOC->ODR ^= 0x80; //Toggles orange led
+									reset();
+								}
+								break;
+						}
 			}
-			else
-			{
-				/*Make sure TDR Reg is valid*/
-				if((USART1->ISR & (0x1 << 7)) == 1<<7)
-				{
-					USART3->TDR = 'E';
-				}
-				
-			}
-		}	
+		
   }
 }
 
+void USART3_4_IRQHandler(){
+	
+	if(flag == 0)
+	{
+
+		//USART3->TDR = 'S';
+		while((USART3->ISR & (0x1 << 5)) == 0)
+		{
+			// Exits when transmit complete
+		}
+		globalData = USART3->RDR;
+		
+		//If data is invalid we will not set the flag
+		if(isValid(globalData) == 1)
+		{
+			flag = 1;
+		}
+		else start();
+		
+	}
+	else
+	{
+		while((USART3->ISR & (0x1 << 5)) == 0)
+		{
+			// Exits when transmit complete
+		}
+		data = USART3->RDR;
+		flag = 0;
+		start();
+	}
+}	
 
 /**
   * @brief System Clock Configuration
