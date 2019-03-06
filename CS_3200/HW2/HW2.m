@@ -8,7 +8,7 @@ f(x) = x^2; %Sample function for testing
 %Arbitrarily picked values
 x0 = 1;
 x1 = 2;
-x2 = 10;
+x2 = 10;    
 
 %Lagrange Values
 l0 = ((x-x1)*(x-x2))/((x0-x1)*(x0-x2));
