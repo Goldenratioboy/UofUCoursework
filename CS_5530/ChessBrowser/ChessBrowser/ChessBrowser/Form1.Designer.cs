@@ -56,7 +56,9 @@ namespace ChessBrowser
                     {
                         MySqlCommand command = conn.CreateCommand();
 
-                        command.CommandText = "INSERT INTO Players (Name, Elo) values (@Name, @Elo)";
+                        command.CommandText = "INSERT INTO Players (Name, Elo) SELECT * FROM " +
+                            "(SELECT @Name, @Elo) as temp WHERE NOT EXISTS (" +
+                            "SELECT Name FROM Players WHERE Name = @Name) LIMIT 1";
 
                         command.Parameters.Add(new MySqlParameter("@Name", entry.Key));
                         command.Parameters.Add(new MySqlParameter("@Elo", entry.Value));
@@ -67,11 +69,23 @@ namespace ChessBrowser
 
 
 
+                    /*Add Events and Games to Database*/
                     foreach (ChessGame game in games)
                     {
+                        MySqlCommand command2 = conn.CreateCommand();
+
+                        command2.CommandText = "Insert ignore into Events(Name,Site,Date) values(@Name,@Site,@Date)";
+
+                        command2.Parameters.Add(new MySqlParameter("@Name", game.getEventName()));
+                        command2.Parameters.Add(new MySqlParameter("@Site", game.getSite()));
+                        command2.Parameters.Add(new MySqlParameter("@Date", Convert.ToDateTime(game.getEventDate())));
+
+                        command2.ExecuteNonQuery();
 
                         /*Games Query*/
                         /*
+                        MySqlCommand command = conn.CreateCommand();
+
                         command.CommandText = "Insert ignore into Games(Result,Moves,BlackPlayer,WhitePlayer,eID) values(@Result,@Moves,@BlackPlayer,@WhitePlayer,@eID)";
 
                         command.Parameters.Add(new MySqlParameter("@Result", game.getResult()));
@@ -82,6 +96,7 @@ namespace ChessBrowser
 
                         command.ExecuteNonQuery();
                         */
+
                     }
 
                     // Use this to tell the GUI that one work step has completed:
