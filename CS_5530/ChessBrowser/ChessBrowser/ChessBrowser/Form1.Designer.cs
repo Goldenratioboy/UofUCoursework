@@ -52,6 +52,7 @@ namespace ChessBrowser
                     conn.Open();
 
 
+                    /*Add Players to database, need to add ELO in if it is higher*/
                     foreach(KeyValuePair<string, int> entry in Players)
                     {
                         MySqlCommand command = conn.CreateCommand();
@@ -72,6 +73,30 @@ namespace ChessBrowser
                     /*Add Events and Games to Database*/
                     foreach (ChessGame game in games)
                     {
+                        WorkStepCompleted();
+
+                        /*Update White Elos if we find a better elo*/
+                        MySqlCommand command = conn.CreateCommand();
+
+                        command.CommandText = "Update Players set Elo = @Elo where (Name = @Name and Elo < @Elo)";
+
+                        command.Parameters.Add(new MySqlParameter("@Name", game.getWhite()));
+                        command.Parameters.Add(new MySqlParameter("@Elo", game.getWhiteElo()));
+
+                        command.ExecuteNonQuery();
+
+                        /*Update Black Elos if we find a better elo*/
+
+                        MySqlCommand command1 = conn.CreateCommand();
+
+                        command1.CommandText = "Update Players set Elo = @Elo where (Name = @Name and Elo < @Elo)";
+
+                        command1.Parameters.Add(new MySqlParameter("@Name", game.getBlack()));
+                        command1.Parameters.Add(new MySqlParameter("@Elo", game.getBlackElo()));
+
+                        command1.ExecuteNonQuery();
+
+                        /*Events Query*/
                         MySqlCommand command2 = conn.CreateCommand();
 
                         command2.CommandText = "Insert ignore into Events(Name,Site,Date) values(@Name,@Site,@Date)";
@@ -82,21 +107,23 @@ namespace ChessBrowser
 
                         command2.ExecuteNonQuery();
 
+
                         /*Games Query*/
-                        /*
-                        MySqlCommand command = conn.CreateCommand();
+                        MySqlCommand command3 = conn.CreateCommand();
 
-                        command.CommandText = "Insert ignore into Games(Result,Moves,BlackPlayer,WhitePlayer,eID) values(@Result,@Moves,@BlackPlayer,@WhitePlayer,@eID)";
+                        command3.CommandText = "Insert into Games(Result,Moves,BlackPlayer,WhitePlayer,eID) values(@Result,@Moves," +
+                            "(select pID from Players where Name = @BlackPlayer),"+ //Gets pID for BlackPlayer based on name
+                            "(select pID from Players where Name = @WhitePlayer)," + //Gets pID for WhitePlayer based on name
+                            "(select eID from Events where Name = @EventName)" + //Gets eID from Events based on event name
+                            ")";
 
-                        command.Parameters.Add(new MySqlParameter("@Result", game.getResult()));
-                        command.Parameters.Add(new MySqlParameter("@Moves", game.getMoves()));
-                        command.Parameters.Add(new MySqlParameter("@BlackPlayer", game.getBlack()));
-                        command.Parameters.Add(new MySqlParameter("@WhitePlayer", game.getWhite()));
-                        command.Parameters.Add(new MySqlParameter("@eID", game.getResult())); //Need eID here
+                        command3.Parameters.Add(new MySqlParameter("@Result", game.getResult()));
+                        command3.Parameters.Add(new MySqlParameter("@Moves", game.getMoves()));
+                        command3.Parameters.Add(new MySqlParameter("@BlackPlayer", game.getBlack()));
+                        command3.Parameters.Add(new MySqlParameter("@WhitePlayer", game.getWhite()));
+                        command3.Parameters.Add(new MySqlParameter("@EventName", game.getEventName())); //Need eID here
 
-                        command.ExecuteNonQuery();
-                        */
-
+                        command3.ExecuteNonQuery();
                     }
 
                     // Use this to tell the GUI that one work step has completed:
@@ -150,6 +177,167 @@ namespace ChessBrowser
                     //       then parse the results into an appropriate string
                     //       and return it.
                     //       Remember that the returned string must use \r\n newlines
+                    if (showMoves == true)
+                    {
+                        //Append listOfMoves to query
+                        /*big boy query*/
+                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
+                            ",Result,Moves from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and " +
+                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening";
+
+                        //Date query to append
+                        //and Date between @StartDate and @EndDate
+
+
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                        /*Winner filter*/
+                        if (winner == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Result", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Result", (winner[0])));
+                        }
+
+                        /*White text filter*/
+                        if (white == "") //White Player name box blank
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@wName", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@wName", white));
+                        }
+
+                        /*Black text filter*/
+                        if (black == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@bName", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@bName", black));
+                        }
+
+                        /*Moves filter*/
+                        if (opening == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Opening", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Opening", opening + "%"));
+                        }
+
+                        /*Date Filter
+                        if(useDate == true)
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", startDate));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", endDate));
+                        }
+                        else
+                        {
+                            DateTime colonialTimes = new DateTime(1753, 2, 1);
+                            DateTime futureFuture = new DateTime(8000, 1, 1);
+
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", colonialTimes));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", futureFuture));
+                        }
+                        */
+
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+
+                        while (rdr.Read())
+                        {
+                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " + rdr[3] + "\r\n" + "Black: " +
+                                "" + rdr[4] + "\r\n" + "Result: " + rdr[5] + "\r\n" + rdr[6]+ "\r\n\r\n";
+
+                            numRows++;
+                        }
+                    }
+                    else //Regular query
+                    {
+
+                        /*big boy query*/
+                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
+                            ",Result from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and " +
+                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening";
+
+                        //Date query to append
+                        //and Date between @StartDate and @EndDate
+
+
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                        /*Winner filter*/
+                        if(winner == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Result", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Result", (winner[0])));
+                        }
+                         
+                        /*White text filter*/
+                        if(white == "") //White Player name box blank
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@wName", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@wName", white));
+                        }
+
+                        /*Black text filter*/
+                        if(black == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@bName", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@bName", black));
+                        }
+
+                        /*Moves filter*/
+                        if(opening == "")
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Opening", "%"));
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@Opening", opening + "%"));
+                        }
+
+                        /*Date Filter
+                        if(useDate == true)
+                        {
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", startDate));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", endDate));
+                        }
+                        else
+                        {
+                            DateTime colonialTimes = new DateTime(1753, 2, 1);
+                            DateTime futureFuture = new DateTime(8000, 1, 1);
+
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", colonialTimes));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", futureFuture));
+                        }
+                        */
+                            
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+
+                        while (rdr.Read())
+                        {
+                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " + rdr[3] + "\r\n" + "Black: " + rdr[4] + "\r\n" + "Result: " + rdr[5] + "\r\n\r\n";
+
+                            numRows++;
+                        }
+                                          
+                    }
+                    
                 }
                 catch (Exception e)
                 {
