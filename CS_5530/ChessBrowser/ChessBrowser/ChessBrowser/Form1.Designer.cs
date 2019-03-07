@@ -67,9 +67,6 @@ namespace ChessBrowser
                         command.ExecuteNonQuery();
                     }
                     
-
-
-
                     /*Add Events and Games to Database*/
                     foreach (ChessGame game in games)
                     {
@@ -103,7 +100,7 @@ namespace ChessBrowser
 
                         command2.Parameters.Add(new MySqlParameter("@Name", game.getEventName()));
                         command2.Parameters.Add(new MySqlParameter("@Site", game.getSite()));
-                        command2.Parameters.Add(new MySqlParameter("@Date", Convert.ToDateTime(game.getEventDate())));
+                        command2.Parameters.Add(new MySqlParameter("@Date", game.getEventDate()));
 
                         command2.ExecuteNonQuery();
 
@@ -114,14 +111,15 @@ namespace ChessBrowser
                         command3.CommandText = "Insert into Games(Result,Moves,BlackPlayer,WhitePlayer,eID) values(@Result,@Moves," +
                             "(select pID from Players where Name = @BlackPlayer),"+ //Gets pID for BlackPlayer based on name
                             "(select pID from Players where Name = @WhitePlayer)," + //Gets pID for WhitePlayer based on name
-                            "(select eID from Events where Name = @EventName)" + //Gets eID from Events based on event name
+                            "(select eID from Events where Name = @EventName and Date = @EventDate)" + //Gets eID from Events based on event name
                             ")";
 
                         command3.Parameters.Add(new MySqlParameter("@Result", game.getResult()));
                         command3.Parameters.Add(new MySqlParameter("@Moves", game.getMoves()));
                         command3.Parameters.Add(new MySqlParameter("@BlackPlayer", game.getBlack()));
                         command3.Parameters.Add(new MySqlParameter("@WhitePlayer", game.getWhite()));
-                        command3.Parameters.Add(new MySqlParameter("@EventName", game.getEventName())); //Need eID here
+                        command3.Parameters.Add(new MySqlParameter("@EventName", game.getEventName()));
+                        command3.Parameters.Add(new MySqlParameter("@EventDate", game.getEventDate()));
 
                         command3.ExecuteNonQuery();
                     }
@@ -182,8 +180,9 @@ namespace ChessBrowser
                         //Append listOfMoves to query
                         /*big boy query*/
                         string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
-                            ",Result,Moves from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and " +
-                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening";
+                            ",Result,Moves from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and" +
+                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
+                            "and Date between @StartDate and @EndDate";
 
                         //Date query to append
                         //and Date between @StartDate and @EndDate
@@ -231,21 +230,18 @@ namespace ChessBrowser
                             cmd.Parameters.Add(new MySqlParameter("@Opening", opening + "%"));
                         }
 
-                        /*Date Filter
+                        /*Date Filter*/
                         if(useDate == true)
                         {
-                            cmd.Parameters.Add(new MySqlParameter("@StartDate", startDate));
-                            cmd.Parameters.Add(new MySqlParameter("@EndDate", endDate));
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", start));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", end));
                         }
                         else
                         {
-                            DateTime colonialTimes = new DateTime(1753, 2, 1);
-                            DateTime futureFuture = new DateTime(8000, 1, 1);
-
-                            cmd.Parameters.Add(new MySqlParameter("@StartDate", colonialTimes));
-                            cmd.Parameters.Add(new MySqlParameter("@EndDate", futureFuture));
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", "1753-1-1"));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", "9999-1-1"));
                         }
-                        */
+                        
 
                         MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -263,10 +259,8 @@ namespace ChessBrowser
                         /*big boy query*/
                         string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
                             ",Result from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and " +
-                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening";
-
-                        //Date query to append
-                        //and Date between @StartDate and @EndDate
+                            "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
+                            "and Date between @StartDate and @EndDate";
 
 
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -311,21 +305,18 @@ namespace ChessBrowser
                             cmd.Parameters.Add(new MySqlParameter("@Opening", opening + "%"));
                         }
 
-                        /*Date Filter
+                        /*Date Filter*/
                         if(useDate == true)
                         {
-                            cmd.Parameters.Add(new MySqlParameter("@StartDate", startDate));
-                            cmd.Parameters.Add(new MySqlParameter("@EndDate", endDate));
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", start));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", end));
                         }
                         else
                         {
-                            DateTime colonialTimes = new DateTime(1753, 2, 1);
-                            DateTime futureFuture = new DateTime(8000, 1, 1);
-
-                            cmd.Parameters.Add(new MySqlParameter("@StartDate", colonialTimes));
-                            cmd.Parameters.Add(new MySqlParameter("@EndDate", futureFuture));
+                            cmd.Parameters.Add(new MySqlParameter("@StartDate", "1753-1-1"));
+                            cmd.Parameters.Add(new MySqlParameter("@EndDate", "9999-1-1"));
                         }
-                        */
+                        
                             
                         MySqlDataReader rdr = cmd.ExecuteReader();
 
