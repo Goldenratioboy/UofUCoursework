@@ -179,10 +179,12 @@ namespace ChessBrowser
                     {
                         //Append listOfMoves to query
                         /*big boy query*/
-                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
-                            ",Result,Moves from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and" +
+                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer), (Select Elo from Players where pID = BlackPlayer)" +
+                            ",(Select Name from Players where pID = WhitePlayer)," +
+                            "(Select Elo from Players where pID = WhitePlayer),Result,Moves from Events as e natural join Games where Result like @Result and " +
+                            "(Select Name from Players where pID = BlackPlayer) like @bName and" +
                             "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
-                            "and Date between @StartDate and @EndDate";
+                            "and Date >= @StartDate and Date <= @EndDate";
 
                         //Date query to append
                         //and Date between @StartDate and @EndDate
@@ -247,8 +249,9 @@ namespace ChessBrowser
 
                         while (rdr.Read())
                         {
-                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " + rdr[3] + "\r\n" + "Black: " +
-                                "" + rdr[4] + "\r\n" + "Result: " + rdr[5] + "\r\n" + rdr[6]+ "\r\n\r\n";
+                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " + rdr[3] + " (" + rdr[4] + ")" +
+                                "" + "\r\n" + "Black: " +
+                                "" + rdr[5] + " (" + rdr[6] + ")" + "\r\n" + "Result: " + rdr[7] + "\r\n" + rdr[8]+ "\r\n\r\n";
 
                             numRows++;
                         }
@@ -257,10 +260,12 @@ namespace ChessBrowser
                     {
 
                         /*big boy query*/
-                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer),(Select Name from Players where pID = WhitePlayer)" +
-                            ",Result from Events as e natural join Games where Result like @Result and (Select Name from Players where pID = BlackPlayer) like @bName and " +
+                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer), (Select Elo from Players where pID = BlackPlayer)" +
+                            ",(Select Name from Players where pID = WhitePlayer)," +
+                            "(Select Elo from Players where pID = WhitePlayer),Result from Events as e natural join Games where Result like @Result and " +
+                            "(Select Name from Players where pID = BlackPlayer) like @bName and" +
                             "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
-                            "and Date between @StartDate and @EndDate";
+                            "and Date >= @StartDate and Date <= @EndDate";
 
 
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -322,7 +327,8 @@ namespace ChessBrowser
 
                         while (rdr.Read())
                         {
-                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " + rdr[3] + "\r\n" + "Black: " + rdr[4] + "\r\n" + "Result: " + rdr[5] + "\r\n\r\n";
+                            parsedResult += "Event: " + rdr[0] + "\r\n" + "Site: " + rdr[1] + "\r\n" + "Date: " + rdr[2] + "\r\n" + "White: " +
+                                "" + rdr[3] + " ("+ rdr[4] +")"+ "\r\n" + "Black: " + rdr[5] + " (" + rdr[6] + ")" + "\r\n" + "Result: " + rdr[7] + "\r\n\r\n";
 
                             numRows++;
                         }
