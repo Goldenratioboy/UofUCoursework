@@ -179,9 +179,10 @@ namespace ChessBrowser
                     {
                         //Append listOfMoves to query
                         /*big boy query*/
-                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer), (Select Elo from Players where pID = BlackPlayer)" +
-                            ",(Select Name from Players where pID = WhitePlayer)," +
-                            "(Select Elo from Players where pID = WhitePlayer),Result,Moves from Events as e natural join Games where Result like @Result and " +
+                        string sql = "Select e.Name,Site,Date," +
+                            "(Select Name from Players where pID = WhitePlayer)," +
+                            "(Select Elo from Players where pID = WhitePlayer),(Select Name from Players where pID = BlackPlayer), " +
+                            "(Select Elo from Players where pID = BlackPlayer),Result,Moves from Events as e natural join Games where Result like @Result and " +
                             "(Select Name from Players where pID = BlackPlayer) like @bName and" +
                             "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
                             "and Date >= @StartDate and Date <= @EndDate";
@@ -260,9 +261,10 @@ namespace ChessBrowser
                     {
 
                         /*big boy query*/
-                        string sql = "Select e.Name,Site,Date,(Select Name from Players where pID = BlackPlayer), (Select Elo from Players where pID = BlackPlayer)" +
-                            ",(Select Name from Players where pID = WhitePlayer)," +
-                            "(Select Elo from Players where pID = WhitePlayer),Result from Events as e natural join Games where Result like @Result and " +
+                        string sql = "Select e.Name,Site,Date," +
+                            "(Select Name from Players where pID = WhitePlayer)," +
+                            "(Select Elo from Players where pID = WhitePlayer),(Select Name from Players where pID = BlackPlayer), (Select Elo from Players where pID = BlackPlayer)" +
+                            ",Result from Events as e natural join Games where Result like @Result and " +
                             "(Select Name from Players where pID = BlackPlayer) like @bName and" +
                             "(Select Name from Players where pID = WhitePlayer) like @wName and Moves like @Opening " +
                             "and Date >= @StartDate and Date <= @EndDate";
