@@ -187,25 +187,25 @@ int main(void)
 		yData = (yHigh << 8) | (yLow);
 		
 		//Measure xData
-		if(xData > 700)
+		if(xData > 500)
 		{
 			GPIOC->ODR |= 0x200; //Green
 			GPIOC->ODR &= ~(1 << 8);
 		}
-		else
+		else if(xData < -100)
 		{
 			GPIOC->ODR |= 0x100; //Orange
 			GPIOC->ODR &= ~(1 << 9);
 		}
 		
 		//Measure yData
-		if(yData > 700)
+		if(yData > 500)
 		{
 			GPIOC->ODR |= 0x40; //Red
 			GPIOC->ODR &= ~(1 << 7);
 			
 		}
-		else
+		else if (yData < -500)
 		{
 			GPIOC->ODR |= 0x80; //Blue
 			GPIOC->ODR &= ~(1 << 6);
