@@ -79,10 +79,10 @@ void SystemClock_Config(void);
 
 /* USER CODE END 0 */
 
-volatile int xData = 0;
+volatile int16_t xData = 0;
 volatile int xLow = 0;
 volatile int xHigh = 0;
-volatile int yData = 0;
+volatile int16_t yData = 0;
 volatile int yLow = 0;
 volatile int yHigh = 0;
 volatile int flag = 0;
@@ -187,25 +187,25 @@ int main(void)
 		yData = (yHigh << 8) | (yLow);
 		
 		//Measure xData
-		if(xData > 500)
+		if(xData > 800)
 		{
 			GPIOC->ODR |= 0x200; //Green
 			GPIOC->ODR &= ~(1 << 8);
 		}
-		else if(xData < -100)
+		else if(xData < -800)
 		{
 			GPIOC->ODR |= 0x100; //Orange
 			GPIOC->ODR &= ~(1 << 9);
 		}
 		
 		//Measure yData
-		if(yData > 500)
+		if(yData > 800)
 		{
 			GPIOC->ODR |= 0x40; //Red
 			GPIOC->ODR &= ~(1 << 7);
 			
 		}
-		else if (yData < -500)
+		else if (yData < -800)
 		{
 			GPIOC->ODR |= 0x80; //Blue
 			GPIOC->ODR &= ~(1 << 6);
