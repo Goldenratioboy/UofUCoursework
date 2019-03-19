@@ -40,6 +40,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -78,12 +79,19 @@ void SystemClock_Config(void);
 
 /* USER CODE END 0 */
 
-volatile int xLow;
-volatile int xHigh;
-volatile int xData;
-volatile int yLow;
-volatile int yData;
+volatile int xData = 0;
+volatile int xLow = 0;
+volatile int xHigh = 0;
+volatile int yData = 0;
+volatile int yLow = 0;
+volatile int yHigh = 0;
 volatile int flag = 0;
+
+void I2C_Write();
+int I2C_Read();
+
+void I2C_gWrite(int nBytes, int* data);
+int* I2C_gRead(int nBytes, int* data);
 
 /**
   * @brief  The application entry point.
@@ -113,15 +121,17 @@ int main(void)
 	GPIOB->OTYPER |= (1 << 11);
 	
 	// Activating I2C2_SDA and I2C2_SCL
-	GPIOB->AFR[1] |= (1 << 12);
-	GPIOB->AFR[1] |= (5 << 20);
+	GPIOB->AFR[1] |= (1 << 12); // PB11
+	GPIOB->AFR[1] |= (5 << 20); // PB13
 	
 	// Set PB14 to output, push-pull output type, initialize/set pin high
 	GPIOB->MODER |= (1 << 28);
+	GPIOC->OTYPER &= ~(1 << 14);
 	GPIOB->ODR |= (1 << 14);
 	
 	// Set PC0 to output, push-pull output type, initialize/set pin high
 	GPIOC->MODER |= 1;
+	GPIOC->OTYPER &= ~(1 << 0);
 	GPIOC->ODR |= 1;
 	
 	// Enable GPIO General Purpose Output mode
@@ -139,126 +149,190 @@ int main(void)
 	
 	// Enable I2C Peripheral in PE bit in CR1
 	I2C2->CR1 |= 1;
-	
-	
+
   /* Configure the system clock */
   SystemClock_Config();
 
   while (1)
   {
-		/*GYRO INITITIALIZE*/
-		if(I2C_FLAG_TXIS & (1 << 1) && flag == 0)
+		int arr[2];
+		arr[0] = 0x20;
+		arr[1] = 0xB;
+		
+		I2C_gWrite(2, arr);
+		//I2C_gRead(2, arr);
+		
+		//Write into x Reg
+		int xArr[1];
+		xArr[0] = 0xa8;
+		I2C_gWrite(1, xArr);
+		
+		//Read from xReg
+		int xDataArray[2];
+		I2C_gRead(2, xDataArray);
+		xLow = xDataArray[0];
+		xHigh = xDataArray[1];
+		xData = (xHigh << 8) | (xLow);
+		
+		//Write into y Reg
+		int yArr[1];
+		yArr[0] = 0xaa;
+		I2C_gWrite(1, yArr);
+		
+		//Read from xReg
+		int yDataArray[2];
+		I2C_gRead(2, yDataArray);
+		yLow = yDataArray[0];
+		yHigh = yDataArray[1];
+		yData = (yHigh << 8) | (yLow);
+		
+		//Measure xData
+		if(xData > 700)
 		{
-			//I2C2->TXDR |= 0x0F; // writing address of who_am_i register
-			I2C2->TXDR |= 0x20; // gyroscope axes
-			//I2C2->TXDR |= (1 << 4); // PD enable
-			//I2C2->TXDR |= 0xA8; // Write into Output X
-			//GPIOC->ODR |= 0x40; // red
+			GPIOC->ODR |= 0x200; //Green
+			GPIOC->ODR &= ~(1 << 8);
 		}
-		if(I2C_FLAG_TC & (1 << 6) && flag == 0)
+		else
 		{
-			//GPIOC->ODR |= 0x200; // green
-			// Clear SADD and NBYTES
-			I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
-			// Set SADD and NBYTES
-			I2C2->CR2 |= (0x6B << 1) | (8 << 16);
-			// Read operation in RD_WRN
-			I2C2->CR2 |= (1 << 10); 	
-			// Start
-			I2C2->CR2 |= (1 << 13);
+			GPIOC->ODR |= 0x100; //Orange
+			GPIOC->ODR &= ~(1 << 9);
 		}
 		
-		/*Read from Gyro and modify PD bit*/
-		if(I2C_FLAG_RXNE & (1 << 2) && flag == 0)
+		//Measure yData
+		if(yData > 700)
 		{
-			GPIOC->ODR |= 0x100; // orange
-			if(I2C_FLAG_TC & (1 << 6))
-			{
-				GPIOC->ODR |= 0x80; // blue
-				I2C2->RXDR |= I2C_RXDR_RXDATA | (1 << 4); //Activates PD bit
-				
-				// Stop condition
-				I2C2->CR2 |= (1 << 14);
-				flag = 1;
-			}
-		}
-		
-		
-	/*Read x and y data, starting with just x*/ 
-		if(I2C_FLAG_TXIS & (1 << 1) && flag == 1)
-		{
-			I2C2->TXDR = 0x28; //Writing memory address to be able to read xLow
-		}
-		if(I2C_FLAG_TC & (1 << 6) && flag == 1)
-		{
-			//GPIOC->ODR |= 0x200; // green
-			// Clear SADD and NBYTES
-			I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
-			// Set SADD and NBYTES
-			I2C2->CR2 |= (0x6B << 1) | (8 << 16);
-			// Read operation in RD_WRN
-			I2C2->CR2 |= (1 << 10); 	
-			// Start
-			I2C2->CR2 |= (1 << 13);
-		}
+			GPIOC->ODR |= 0x40; //Red
+			GPIOC->ODR &= ~(1 << 7);
 			
-		if(I2C_FLAG_RXNE & (1 << 2) && flag == 1)
-		{
-			GPIOC->ODR |= 0x100; // orange
-			if(I2C_FLAG_TC & (1 << 6))
-			{
-				GPIOC->ODR |= 0x80; // blue
-				xLow = I2C_RXDR_RXDATA;
-				
-				// Stop condition
-				I2C2->CR2 |= (1 << 14);
-			}
 		}
-		/*Reading xHigh*/
-		if(I2C_FLAG_TXIS & (1 << 1) && flag == 1)
+		else
 		{
-			I2C2->TXDR = 0x29; //Writing memory address to be able to read xHigh
-		}
-		if(I2C_FLAG_TC & (1 << 6) && flag == 1)
-		{
-			//GPIOC->ODR |= 0x200; // green
-			// Clear SADD and NBYTES
-			I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
-			// Set SADD and NBYTES
-			I2C2->CR2 |= (0x6B << 1) | (8 << 16);
-			// Read operation in RD_WRN
-			I2C2->CR2 |= (1 << 10); 	
-			// Start
-			I2C2->CR2 |= (1 << 13);
-		}
-			
-		if(I2C_FLAG_RXNE & (1 << 2) && flag == 1)
-		{
-			GPIOC->ODR |= 0x100; // orange
-			if(I2C_FLAG_TC & (1 << 6))
-			{
-				GPIOC->ODR |= 0x80; // blue
-				xHigh = I2C_RXDR_RXDATA;
-				
-				// Stop condition
-				I2C2->CR2 |= (1 << 14);
-				xData = (xHigh << 8) | xLow;
-			}
+			GPIOC->ODR |= 0x80; //Blue
+			GPIOC->ODR &= ~(1 << 6);
 		}
 		
-		if(xData < 0)
-		{
-			GPIOC->ODR |= 0x40; // red
-		}
-		else 
-		{
-			GPIOC->ODR |= 0x200; // green
-		}
-		
+		HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
 
+void I2C_gWrite(int nBytes, int* data){
+	// Clear SADD and NBYTES
+	I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
+	// Set SADD and NBYTES
+	I2C2->CR2 |= (0x6B << 1) | (nBytes << 16);
+	// Write operation in RD_WRN
+	I2C2->CR2 &= ~(1 << 10); 	
+	// Start
+	I2C2->CR2 |= (1 << 13);
+	
+	// Wait for TXIS
+	
+	int i;
+	
+	for(i = 0; i < nBytes; i++){
+		while(!(I2C2->ISR & I2C_FLAG_TXIS))
+		{
+			//Check if NACKF was reason we broke out
+			if(I2C2->ISR & (1 << 4))
+			{
+				//GPIOC->ODR |= 0x200; // green
+			}
+		}
+		// Write to register address in L3GD20
+		I2C2->TXDR = data[i]; 
+	}
+		
+		while(!(I2C2->ISR & I2C_FLAG_TC)) {	}
+		
+		//GPIOC->ODR |= 0x80; // blue
+}
+
+int* I2C_gRead(int nBytes, int* data){
+	// Clear SADD and NBYTES
+	I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
+	// Set SADD and NBYTES
+	I2C2->CR2 |= (0x6B << 1) | (nBytes << 16);
+	// Read operation in RD_WRN
+	I2C2->CR2 |= (1 << 10); 	
+	// Start
+	I2C2->CR2 |= (1 << 13);
+	
+	int i = 0;
+	
+	for(i = 0; i < nBytes; i++){
+		while(!(I2C2->ISR & I2C_FLAG_RXNE))
+		{
+			if(I2C2->ISR & (1 << 4))
+			{
+				GPIOC->ODR |= 0x40; // red
+			}
+		}
+		data[i] = I2C2->RXDR;
+	}
+
+	while(!(I2C2->ISR & (1 << 6))) {	}
+	
+	//GPIOC->ODR |= 0x40; // red
+	
+	return data;
+}
+
+
+
+
+
+void I2C_Write(){
+	// Clear SADD and NBYTES
+	I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
+	// Set SADD and NBYTES
+	I2C2->CR2 |= (0x6B << 1) | (1 << 16);
+	// Write operation in RD_WRN
+	I2C2->CR2 &= ~(1 << 10); 	
+	// Start
+	I2C2->CR2 |= (1 << 13);
+	
+	// Wait for TXIS
+	while(!(I2C2->ISR & I2C_FLAG_TXIS))
+	{
+		//Check if NACKF was reason we broke out
+		if(I2C2->ISR & (1 << 4))
+		{
+			//GPIOC->ODR |= 0x200; // green
+		}
+	}
+	
+	// Writing address of who_am_i register
+	I2C2->TXDR = 0x0F; 
+	
+	while(!(I2C2->ISR & I2C_FLAG_TC)) {	}
+	
+	//GPIOC->ODR |= 0x80; // blue
+}
+
+int I2C_Read(){
+	// Clear SADD and NBYTES
+	I2C2->CR2 &= ~((0x7F << 16) | (0x3FF << 0));
+	// Set SADD and NBYTES
+	I2C2->CR2 |= (0x6B << 1) | (1 << 16);
+	// Read operation in RD_WRN
+	I2C2->CR2 |= (1 << 10); 	
+	// Start
+	I2C2->CR2 |= (1 << 13);
+	
+	// Wait for RXNE
+	while(!(I2C2->ISR & I2C_FLAG_RXNE))
+	{
+		if(I2C2->ISR & (1 << 4))
+		{
+			//GPIOC->ODR |= 0x100; // orange
+		}
+	}
+
+	while(!(I2C2->ISR & (1 << 6))) {	}
+	
+	return I2C2->RXDR;
+}
 /**
   * @brief System Clock Configuration
   * @retval None

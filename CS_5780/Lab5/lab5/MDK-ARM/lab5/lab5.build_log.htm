@@ -22,58 +22,21 @@ Dialog DLL:      TARMCM1.DLL V1.14.0.0
  
 <h2>Project:</h2>
 C:\Users\Jonathan\Documents\School\currentSemester\CS_5780\Lab5\lab5\MDK-ARM\lab5.uvprojx
-Project File Date:  03/06/2019
+Project File Date:  03/17/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'lab5'
 compiling main.c...
-../Src/main.c(1): error:  #20: identifier "Skip" is undefined
-  Skip to content
-../Src/main.c(1): error:  #65: expected a ";"
-  Skip to content
-../Src/main.c(3): error:  #7: unrecognized token
-  Search or jump to…
-../Src/main.c(9): error:  #7: unrecognized token
-   @Goldenratioboy Sign out
-../Src/main.c(14): error:  #7: unrecognized token
-  @alecadair alecadair lab 5 working
-../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f072xb.h(126): warning:  #12-D: parsing restarts here after previous syntax error
-  } IRQn_Type;
-../Drivers/CMSIS/Include/core_cm0.h(629): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(640): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE void NVIC_DisableIRQ(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(653): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE uint32_t NVIC_GetPendingIRQ(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(664): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE void NVIC_SetPendingIRQ(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(675): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(688): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
-../Drivers/CMSIS/Include/core_cm0.h(712): error:  #20: identifier "IRQn_Type" is undefined
-  __STATIC_INLINE uint32_t NVIC_GetPriority(IRQn_Type IRQn)
-../Drivers/CMSIS/Include/core_cm0.h(777): error:  #20: identifier "SysTick_IRQn" is undefined
-    NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Interrupt */
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(86): error:  #20: identifier "IRQn_Type" is undefined
-  void HAL_NVIC_SetPriority(IRQn_Type IRQn,uint32_t PreemptPriority, uint32_t SubPriority);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(87): error:  #20: identifier "IRQn_Type" is undefined
-  void HAL_NVIC_EnableIRQ(IRQn_Type IRQn);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(88): error:  #20: identifier "IRQn_Type" is undefined
-  void HAL_NVIC_DisableIRQ(IRQn_Type IRQn);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(101): error:  #20: identifier "IRQn_Type" is undefined
-  uint32_t HAL_NVIC_GetPriority(IRQn_Type IRQn);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(102): error:  #20: identifier "IRQn_Type" is undefined
-  uint32_t HAL_NVIC_GetPendingIRQ(IRQn_Type IRQn);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(103): error:  #20: identifier "IRQn_Type" is undefined
-  void HAL_NVIC_SetPendingIRQ(IRQn_Type IRQn);
-../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h(104): error:  #20: identifier "IRQn_Type" is undefined
-  void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn);
-../Src/main.c(53): error:  #5: cannot open source input file "alecs_led_lib.h": No such file or directory
-  #include "alecs_led_lib.h"
-../Src/main.c: 1 warning, 21 errors
-"lab5\lab5.axf" - 21 Error(s), 1 Warning(s).
+../Src/main.c(90): warning:  #1295-D: Deprecated declaration I2C_Write - give arg types
+  void I2C_Write();
+../Src/main.c(91): warning:  #1295-D: Deprecated declaration I2C_Read - give arg types
+  int I2C_Read();
+../Src/main.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=2696 RO-data=240 RW-data=32 ZI-data=1024  
+FromELF: creating hex file...
+"lab5\lab5.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -96,8 +59,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
