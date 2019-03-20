@@ -182,7 +182,7 @@ int main(void)
 							case 114:
 								if(data == 48)
 								{
-									GPIOC->ODR &= (0 << 7); //Turns off red led
+									GPIOC->ODR &= ~(1 << 6); //Turns off red led
 									reset();
 								}
 								else if(data == 49)
@@ -199,7 +199,7 @@ int main(void)
 							case 103:
 								if(data == 48)
 								{
-									GPIOC->ODR &= (0 << 10); //Turns off green led
+									GPIOC->ODR &= ~(1 << 9); //Turns off green led
 									reset();
 								}
 								else if(data == 49)
@@ -217,7 +217,7 @@ int main(void)
 							case 111:
 								if(data == 48)
 								{
-									GPIOC->ODR &= (0 << 9); //Turns off orange led
+									GPIOC->ODR &= ~(1 << 8); //Turns off orange led
 									reset();
 								}
 								else if(data == 49)
@@ -235,17 +235,17 @@ int main(void)
 							case 98:
 								if(data == 48)
 								{
-									GPIOC->ODR &= (0 << 8); //Turns off orange led
+									GPIOC->ODR &= ~(1 << 7); //Turns off blue led
 									reset();
 								}
 								else if(data == 49)
 								{
-									GPIOC->ODR |= 0x80; //Turns on orange led
+									GPIOC->ODR |= 0x80; //Turns on blue led
 									reset();
 								}
 								else if(data == 50)
 								{
-									GPIOC->ODR ^= 0x80; //Toggles orange led
+									GPIOC->ODR ^= 0x80; //Toggles blue led
 									reset();
 								}
 								break;
