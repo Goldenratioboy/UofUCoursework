@@ -14,10 +14,11 @@ for j=1:N
     B = rand(N, nrhs);
     X = zeros (N, nrhs);
 
-    //Loop through
+    %Loop through
     tic
     for i = 1: nrhs
-        X(:,i) = bsub(U, fsub(L, P*B(:,i)));
+        temp = fsub(L, P*B(:,i));
+        X(:,i) = bsub(U, temp);
     end
     toc
 
