@@ -1,14 +1,9 @@
 %% Back Substitution Function Algorithm 4 in Notes
 function [x] = bsub(U, y)
 
-N = size(U);
+[~,N] = size(U); %Take 1 dimension of U put it in N
 
-x = zeros(N);
-
-%Display Statements
-disp(size(y))
-disp(size(U(N,N)))
-disp(size(U))
+x = zeros(N,1); %1D Array for X of zeros
 
 x(N) = y(N)/U(N,N);
 

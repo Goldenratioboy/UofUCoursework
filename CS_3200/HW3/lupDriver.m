@@ -1,7 +1,7 @@
-%%LUP Driver
-N = 5;
+%% LUP Driver
+N = 5; % USER CAN CHANGE THIS VALUE
 
-nrhs = 4;
+nrhs = 4; % USER CAN SET ARBITRARY NRHS VALUE
 
 A = rand(N, N);
 B = rand(N, nrhs);
@@ -18,4 +18,5 @@ X2 = A\B;
 
 %Relative Error
 relativeError = norm(X-X2)./norm(X2);
+disp('Relative Error:')
 disp(relativeError);
