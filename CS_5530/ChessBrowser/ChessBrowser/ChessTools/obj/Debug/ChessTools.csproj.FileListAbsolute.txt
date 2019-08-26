@@ -1,6 +1,0 @@
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\bin\Debug\ChessTools.dll
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\bin\Debug\ChessTools.pdb
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\obj\Debug\ChessTools.csproj.CoreCompileInputs.cache
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\obj\Debug\ChessTools.dll
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\obj\Debug\ChessTools.pdb
-C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\ChessTools\obj\Debug\ChessTools.csprojAssemblyReference.cache
