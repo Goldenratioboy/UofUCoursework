@@ -2,6 +2,8 @@ import sys
 
 bstTrees = set()
 
+#Gage I figured it out! All tests passed!
+
 #Node Class to help represent a binary search tree
 class Node:
     def __init__(self, key):
