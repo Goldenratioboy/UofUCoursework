@@ -14,49 +14,50 @@ def distanceTest(x, y, d):
 
 # A is an array of stars, (x,y) coordinates
 def StarCounter(A, d):
-    print(A)
-    print(d)
-    if len(A) is 0:
-        return None    
+    if len(A) is None:
+        return None
     elif len(A) is 1:
-        return A
+        return A[0]
     else:
-        aPrime = []
-        y = []
+        half = round(len(A)/2)
+        A1 = A[:half]
+        A2 = A[half:]
 
-        #Finding A' array of stars and y value?
-        for p1, p2, p3 in zip(*[iter(A)]*3):
-            if distance(p1, p2, d) is True and distance(p1, p3, d) is True:
-                aPrime.append(p1)
-        if len(A) % 3 == 1 or len(A) % 3 == 2:
-            y.append(A[-1])
+        x = StarCounter(A1, d)
+        y = StarCounter(A2, d)
 
-        x = StarCounter(aPrime, d) # call again with smaller list
-        
-        if x is None:
+        if x is None and y is None:
+            return None
+        elif x is None:
             yCount = 0
-            if len(A) % 3 != 0:
-                for star in A:
-                    if distance(star, y, d) is True:
-                        yCount += 1              
-                if yCount >= 2:
-                    return y                
-                else:
-                    return None
-
-            else:
-                return None
-
-                
+            for star in A:
+                if distance(y, star, d):
+                    yCount += 1
+            if yCount > len(A)/2:
+                return y
+        elif y is None:
+            xCount = 0
+            for star in A:
+                if distance(x, star, d):
+                    xCount += 1
+            if xCount > len(A)/2:
+                return x
         else:
             xCount = 0
-            for i in A:
-                if distance(i, x, d) is True:
+            yCount = 0
+            for star in A:
+                if distance(x, star, d):
                     xCount += 1
-            if xCount >= 2:
+                if distance(y, star, d):
+                    yCount += 1
+            if xCount > len(A)/2:
                 return x
+            elif yCount > len(A)/2:
+                return y
             else:
                 return None
+
+
 
 starList = list()
 
@@ -72,17 +73,15 @@ for i in sys.stdin:
 
 d2 = d**2
 
-finalList = StarCounter(starList, d2)
+finalStar = StarCounter(starList, d2)
 
-print('Final List:' + finalList)
-
-if finalList is None:
+if finalStar is None:
     print('NO')
 else:
     count = 0
 
     for star in starList:
-        if distance(finalList[0], star, d) is True:
+        if distance(finalStar, star, d2) is True:
             count += 1
     if count > k/2:
         print(count)
