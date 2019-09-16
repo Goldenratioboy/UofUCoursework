@@ -14,48 +14,46 @@ def distanceTest(x, y, d):
 
 # A is an array of stars, (x,y) coordinates
 def StarCounter(A, d):
-    if len(A) is None:
+    if len(A) is 0:
         return None
     elif len(A) is 1:
         return A[0]
     else:
-        half = round(len(A)/2)
-        A1 = A[:half]
-        A2 = A[half:]
+        APrime = list()
 
-        x = StarCounter(A1, d)
-        y = StarCounter(A2, d)
-
-        if x is None and y is None:
-            return None
-        elif x is None:
-            yCount = 0
-            for star in A:
-                if distance(y, star, d):
-                    yCount += 1
-            if yCount > len(A)/2:
-                return y
-        elif y is None:
-            xCount = 0
-            for star in A:
-                if distance(x, star, d):
-                    xCount += 1
-            if xCount > len(A)/2:
-                return x
+        for p1, p2 in zip(*[iter(A)]*2):
+            if distance(p1, p2, d) is True:
+                APrime.append(p1)
+        if len(A) % 2 != 0:
+            #list is uneven
+            y = A[-1]
         else:
-            xCount = 0
-            yCount = 0
-            for star in A:
-                if distance(x, star, d):
-                    xCount += 1
-                if distance(y, star, d):
-                    yCount += 1
-            if xCount > len(A)/2:
-                return x
-            elif yCount > len(A)/2:
-                return y
+            y = None
+
+        x = StarCounter(APrime, d)
+
+        if x is None:
+            if len(A) % 2 != 0:
+                yCount = 0
+                for star in A:
+                    if distance(star, y, d) is True:
+                        yCount += 1
+                if yCount > len(A)/2:
+                    return y
+                else:
+                    return None
             else:
                 return None
+        else:
+            xCount = 0
+            for star in A:
+                if distance(star, x, d) is True:
+                    xCount += 1
+            if xCount > len(A)/2:
+                return x
+            else:
+                return None
+
 
 
 
