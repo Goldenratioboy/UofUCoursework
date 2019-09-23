@@ -1,49 +1,76 @@
 import sys
 
+from collections import defaultdict
 
-clock = 0
+clock = 1
 
-nCities = int(sys.stdin.readline())
-postVisit = list()
-visited = list()
-cityList = dict()
-adjacencyList = dict(list())
+tList = list()
+
+#graph class to represent DAG
+class graph:
+
+    def __init__(self, vertices):
+        self.V = vertices
+        self.graph = defaultdict(list)
+
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
+
+
+def explore(g, v, visited):
+            visited[v] = True
+            for key in g.graph:
+                for val in g.graph[key]:
+                    if visited[val] is False:
+                        explore(g, val, visited)
+            postvisit(v)
+
+def dfs(g, cityIds):
+    visited = [False] * len(cityIds)
+    for v in cityIds:
+        if visited[cityIds[v]] is False:
+            explore(g, cityIds[v], visited)
 
 def postvisit(v):
-    postVisit[v] = clock
-    clock += 1
+    global clock
+    print(v, clock)
+    ccnum[v] = clock
+    clock+=1
+    return clock
 
-def explore(v):
-    visited[v] = True
-    for u, v in adjacencyList.items():
-        if visited[u] is False:
-            explore(u)
-    postvisit(v)
 
-# build vertex dictionary with costs set to value
+#create graph
+nCities = int(sys.stdin.readline())
+ccnum = [0]*nCities
+dag = graph(nCities)
+
+cityList = dict()
+cityIds = dict()
+idCount = 0
+
+# build vertex dictionary with costs set to value, set vertex to correspond to number value to
 for i in range(nCities):
     params = sys.stdin.readline().split()
     cityList[params[0]] = int(params[1])
+    cityIds[params[0]] = idCount
+    idCount+=1
 
 nHighways = int(sys.stdin.readline())
 
 #get edges for DAG
 for i in range(nHighways):
     params = sys.stdin.readline().split()
+    dag.addEdge(cityIds.get(params[0]),cityIds.get(params[1]))
 
-    # builds dictionary, for every city we append a list of cities it points to
-    if params[0] in adjacencyList:
-        adjacencyList[params[0]].append(params[1])
-    else :
-        adjacencyList[params[0]] = list()
-        adjacencyList[params[0]].append(params[1])
+dfs(dag, cityIds) #This will give us ccnum values for topological sort
 
-#DFS
-for v in cityList:
-    visited[v] = False
-for v in cityList:
-    if visited[v] is False:
-        explore(v)
+# get vertices in topological order
+tOrder = list()
+tOrderDict = dict()
+for i in range(0,len(ccnum)):
+    tOrderDict[i] = ccnum[i]
+
+
 
 nTrips = int(sys.stdin.readline())
 
