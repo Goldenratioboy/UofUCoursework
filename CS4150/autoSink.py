@@ -14,7 +14,7 @@ class graph:
         self.graph = defaultdict(list)
 
     def addEdge(self, u, v):
-        self.graph[u].append(v)
+        self.graph[u].append(v)    
 
 
 def explore(g, v, visited):
@@ -32,11 +32,7 @@ def dfs(g, cityIds):
             explore(g, cityIds[v], visited)
 
 def postvisit(v):
-    global clock
-    print(v, clock)
-    ccnum[v] = clock
-    clock+=1
-    return clock
+    tList.append(v)
 
 
 #create graph
@@ -64,16 +60,25 @@ for i in range(nHighways):
 
 dfs(dag, cityIds) #This will give us ccnum values for topological sort
 
-# get vertices in topological order
-tOrder = list()
-tOrderDict = dict()
-for i in range(0,len(ccnum)):
-    tOrderDict[i] = ccnum[i]
-
-
-
 nTrips = int(sys.stdin.readline())
 
 for i in range(nTrips):
     # This will be the bulk of our program
-    pass
+    params = sys.stdin.readline().split()
+
+    # from point a to point b
+    a = params[0]
+    b = params[1]
+
+    # if point b comes before point a, if idx of point b is less than point a
+    if  tList.index(cityIds[a]) < tList.index(cityIds[b]):
+        print('NO')
+    elif a is b:
+        print('0')
+    elif b in dag.graph[a]:
+        print(cityList[cityIds[a]])
+    else: # calculate min cost between the two from point b to a in tList
+        minCost = 0
+
+
+
