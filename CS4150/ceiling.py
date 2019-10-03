@@ -52,10 +52,11 @@ k = int(params[1]) #Number of Nodes per tree
 #Create our BSTs
 for i in sys.stdin:
     potentialNodes = i.split() # leave as strings for now? Can compare with ASCII for BST placement.
-    root = Node(potentialNodes[0])
+    root = Node(int(potentialNodes[0]))
     
     for x in range(1,k): #skip over first iteration since root is assigned
-        insertIntoTree(root, Node(potentialNodes[x]))
+        insertIntoTree(root, Node(int(potentialNodes[x])))
+        #print(potentialNodes[x])
     
     #After creating a tree we'll compare it with our list of unique trees
     #Unfortunately we'll have to compare this to every tree in the list
