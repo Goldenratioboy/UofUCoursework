@@ -9,21 +9,19 @@ class graph:
 
     def __init__(self, vertices):
         self.V = vertices
-        self.graph = defaultdict(float)
+        self.graph = dict()
 
     def addEdge(self, u, v, w):
         self.graph[u,v] = w
 
-    def Dijkstras(self, sVertex, vList, E, AdjacencyList):
-        dist = list()
+    def Dijkstras(self, sVertex, numVertexes, E, AdjacencyList):
 
-        for idx in vList:
-            dist.append(-1)
+        dist = [-1] * numVertexes
 
         dist[sVertex] = 1
-
+        
         pq = []
-        q.heappush(pq, (sVertex, 0))
+        q.heappush(pq, (sVertex, 1))
         trackPop = dict()
 
         while len(pq) > 0:
@@ -41,6 +39,7 @@ class graph:
 
             for v in AdjacencyList[u[0]]: # Need to optimize this
                 weight = E.graph[u[0],v]
+
                 if dist[v] < dist[u[0]] * weight:
                     dist[v] = dist[u[0]] * weight
                     q.heappush(pq, (v, dist[v]))
@@ -62,7 +61,6 @@ while(inDungeon):
         inDungeon = False
         break
   
-    vList = [None] * n # list of vertices
     G = graph(n)
 
     for i in range(0, m):
@@ -74,7 +72,7 @@ while(inDungeon):
         AdjacencyList[int(params[0])].append(int(params[1])) # Add vertices to AdjacencyList
         AdjacencyList[int(params[1])].append(int(params[0]))
 
-    dist = G.Dijkstras(0, vList, G, AdjacencyList)
+    dist = G.Dijkstras(0, n, G, AdjacencyList)
 
     if dist[n-1] is -1:
         print( "{:.{}f}".format( 1 , 4 ) )
