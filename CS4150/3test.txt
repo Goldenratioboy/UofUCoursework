@@ -1,0 +1,23 @@
+9
+Cam
+Art
+Edy
+Bea
+Dan
+Bob
+Dean
+Ruby
+Sam
+9
+Bea Edy
+Dan Bea
+Art Dan
+Art Bob
+Art Dean
+Bob Sam
+Bob Ruby
+Dean Ruby
+Dean Sam
+2
+Dan
+Cam

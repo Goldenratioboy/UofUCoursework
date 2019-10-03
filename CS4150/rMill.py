@@ -25,7 +25,7 @@ class graph:
         q.append(sVertex)
 
         while len(q) is not 0:
-            u = q.pop()
+            u = q.popleft()
             for v in E.graph[u]:
                 if dist[v] is -1:
                     q.append(v)
@@ -42,10 +42,12 @@ def generateReport(rumorReport): # void method to print out valid rumor report g
             maxDistance = k
 
     for i in range(0, maxDistance+1):
-        print(' '.join(rumorReport[i]), end=" ")
+        print(' '.join(sorted(rumorReport[i])), end=" ")
 
     if -1 in rumorReport.keys():
-        print(' '.join(rumorReport[-1]))
+        print(' '.join(sorted(rumorReport[-1])))
+    else:
+        print() #need new line if the whole BFS is connected
 
     # else our whole graph is connected
 
@@ -76,14 +78,9 @@ for i in range(0,nRumorReports):
     rumorBoy = sys.stdin.readline().rstrip('\n')
     dist, prev = G.BFS(studentID.get(rumorBoy), studentID, G) # call bfs on the name of the student starting a rumor
     
-    print(dist)
-    
     # build the rumorReport
-    for d in dist:
-        rumorReport[d].append(studentNameDict[dist.index(d)])
-
-    for key, val in rumorReport.items():
-        print(key,val)
+    for idx,d in enumerate(dist):
+        rumorReport[d].append(studentNameDict[idx])
 
     generateReport(rumorReport)
 
