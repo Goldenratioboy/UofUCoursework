@@ -9,37 +9,51 @@ class graph:
 
     def __init__(self, vertices):
         self.V = vertices
-        self.graph = defaultdict(list)
+        self.graph = defaultdict(float)
 
     def addEdge(self, u, v, w):
         self.graph[u,v] = w
 
-    def Dijkstras(self, sVertex, vList, E):
+    def Dijkstras(self, sVertex, vList, E, AdjacencyList):
         dist = list()
-        prev = list()
 
         for idx in vList:
             dist.append(-1)
-            prev.append(None)
 
         dist[sVertex] = 1
 
         pq = []
         q.heappush(pq, (sVertex, 0))
+        trackPop = dict()
 
         while len(pq) > 0:
-            u = q.heappop(pq)
-            for u,v in E.graph.keys():
-                if dist[v] < dist[u] * E.graph[u,v]:
-                    dist[v] = dist[u] * E.graph[u,v]
-                    prev[v] = u
-                    q.heappush(pq, (v, dist[u]))
 
-        return dist, prev
+            u = q.heappop(pq)
+
+            # check to see if u has been popped before, go back to beginning of while loop if it has
+            if u[0] not in trackPop:
+                trackPop[u[0]] = u[1]
+            else:
+                if u[1] > trackPop[u[0]]:
+                    trackPop[u[0]] = u[1]
+                else:
+                    continue
+
+            for v in AdjacencyList[u[0]]: # Need to optimize this
+                weight = E.graph[u[0],v]
+                if dist[v] < dist[u[0]] * weight:
+                    dist[v] = dist[u[0]] * weight
+                    q.heappush(pq, (v, dist[v]))
+
+
+        return dist
         
 inDungeon = True
 
 while(inDungeon):
+
+    AdjacencyList = defaultdict(list)
+
     params = sys.stdin.readline().split()
 
     n, m = int(params[0]), int(params[1])
@@ -47,17 +61,21 @@ while(inDungeon):
     if m is 0 and n is 0: # break out if we reach EOF
         inDungeon = False
         break
-
+  
     vList = [None] * n # list of vertices
-
     G = graph(n)
 
     for i in range(0, m):
         params = sys.stdin.readline().split()
         # Add vertices with weight of dmg
         G.addEdge(int(params[0]), int(params[1]), float(params[2]))
+        G.addEdge(int(params[1]), int(params[0]), float(params[2]))
 
-    dist, prev = G.Dijkstras(0, vList, G)
+        AdjacencyList[int(params[0])].append(int(params[1])) # Add vertices to AdjacencyList
+        AdjacencyList[int(params[1])].append(int(params[0]))
+
+    dist = G.Dijkstras(0, vList, G, AdjacencyList)
+
     if dist[n-1] is -1:
         print( "{:.{}f}".format( 1 , 4 ) )
     else:
