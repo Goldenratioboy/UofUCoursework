@@ -1,23 +1,7 @@
-9
-Cam
-Art
-Edy
-Bea
-Dan
-Bob
-Dean
-Ruby
-Sam
-9
-Bea Edy
-Dan Bea
-Art Dan
-Art Bob
-Art Dean
-Bob Sam
-Bob Ruby
-Dean Ruby
-Dean Sam
-2
-Dan
-Cam
+6 5
+0 1 1
+1 2 1
+2 3 1
+3 5 1
+0 5 0.99
+0 0

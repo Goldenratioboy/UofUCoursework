@@ -21,29 +21,26 @@ class graph:
         dist[sVertex] = 1
 
         pq = []
-        q.heappush(pq, (sVertex, 1))
-        trackPop = dict()
+        q.heappush(pq, (-1, sVertex))
+        
+        trackPop = dict() #First item that pops will be the one
 
         while len(pq) > 0:
 
-            u = q.heappop(pq)           
+            u = q.heappop(pq) 
 
-            for v in AdjacencyList[u[0]]: # Need to optimize this
-                weight = E.graph[u[0],v]
+            if trackPop.get(u[1]*-1) is True:
+                continue
 
-                if dist[v] < dist[u[0]] * weight:
-                    dist[v] = dist[u[0]] * weight
-                    q.heappush(pq, (v, dist[v]))
+            trackPop[u[1]*-1] = True
 
-                    # check to see if u has been popped before, go back to beginning of while loop if it has
-                    
-                if u[0] not in trackPop:
-                    trackPop[u[0]] = u[1]
-                else:
-                    if u[1] > trackPop[u[0]]:
-                        trackPop[u[0]] = u[1]
-                    else:
-                        continue
+            for v in AdjacencyList[u[1]]:
+
+                weight = E.graph[u[1],v]
+
+                if dist[v] < dist[u[1]] * weight:
+                    dist[v] = dist[u[1]] * weight
+                    q.heappush(pq, (-1 * dist[v], v))
 
         return dist
         
