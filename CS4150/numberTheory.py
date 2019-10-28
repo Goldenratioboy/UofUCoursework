@@ -30,7 +30,7 @@ def ee(a, b): # extended Euclid's
         return 1, 0, a
     else:
         x, y, d = ee(b, a % b)
-        return y, x - math.floor(a/b)*y, d
+        return y, x - (a//b)*y, d
 
 def inverse(a, N):
     x, y, d = ee(a, N)
@@ -70,5 +70,5 @@ for line in sys.stdin:
         print(isPrime(int(params[1])))
 
     elif params[0] == 'key': # should be key computation
-        mod, public, private = key(int(params[1]), int(params[2]))
-        print(mod, public, private)
+        mod, pub, priv = key(int(params[1]), int(params[2]))
+        print(mod, pub, priv)
