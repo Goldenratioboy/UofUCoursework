@@ -1,4 +1,5 @@
-import sys.stdin
+import sys
+import math
 
 def gcd(a, b):
     if b == 0:
@@ -7,53 +8,67 @@ def gcd(a, b):
         return gcd(b, a % b)
 
 def modexp(x, y, N):
-    if y == 0:
-        return 1
-    else:
-        z = modexp(x, y/2, N)
-        if y % 2 == 0:
-            return z**2 % N # even
+    z = 1
+    y = bin(y)
+    #for each bit b in y
+    for i in range(2, len(y)):
+        if y[i] == "1":
+            z = x * pow(z,2) % N
         else:
-            return x*z**2 % N
+            z = pow(z,2) % N
+    
+    return z
 
 def isPrime(N):
-    if (modexp(2, N-1, N) & modexp(3, N-1, N) & modexp(5, N-1, N)) == 1:
+    if modexp(2, N-1, N) == 1 and modexp(3, N-1, N) == 1 and modexp(5, N-1, N) == 1:
         return "yes"
     else:
         return "no"
 
 def ee(a, b): # extended Euclid's
     if b == 0:
-        return [1, 0, a]
+        return 1, 0, a
     else:
-        [x, y, d] = ee(b, a % b)
-        return [y, x - (a/b)*y, d]
+        x, y, d = ee(b, a % b)
+        return y, x - math.floor(a/b)*y, d
 
 def inverse(a, N):
-    [x, y, d] = ee(a, N)
+    x, y, d = ee(a, N)
     if d == 1:
         return x % N
-    else
-        return "None"
+    else:
+        return "none"
 
+def key(p, q): #prints modolus, public exponent, private exponent
+    N = p*q
+    phi = (p-1) * (q-1)
+    #public exponent e, where gcd(phi, e) = 1
+    for i in range(2, phi):
+        if gcd(i, phi) == 1:
+            e = i
+            break
+    
+    #private exponent d, so that ed = 1 (mod phi)
+    d = inverse(e, phi)
 
-
+    return N, e, d
 
 # main loop
-while(sys.stdin):
-    params = sys.stdin.readline.split()
+for line in sys.stdin:
+    params = line.split()
 
-    if params[0] is 'gcd': # Perform gcd computation
-        print(gcd(params[1], params[2]))
+    if params[0] == "gcd": # Perform gcd computation
+        print(gcd(int(params[1]), int(params[2])))
 
-    elif params[0] is 'exp': # Perform exp computation
-        print(modexp(params[1], params[2], params[3]))
+    elif params[0] == 'exp': # Perform exp computation
+        print(modexp(int(params[1]), int(params[2]), int(params[3])))
 
-    elif params[0] is 'inverse': # Perform inverse computation
-        print(inverse(params[1], params[2]))
+    elif params[0] == 'inverse': # Perform inverse computation
+        print(inverse(int(params[1]), int(params[2])))
 
-    elif params[0] is 'isprime': # Perform isPrime Computation
-        print(isPrime(params[1]))
+    elif params[0] == 'isprime': # Perform isPrime Computation
+        print(isPrime(int(params[1])))
 
-    else: # should be key computation
-
+    elif params[0] == 'key': # should be key computation
+        mod, public, private = key(int(params[1]), int(params[2]))
+        print(mod, public, private)
