@@ -13,31 +13,15 @@ dist = [None] * n
 for i in range(0,n):
     dist[i] = int(sys.stdin.readline())
 
-kValues = []
-kVal = 0
-for i in range(0,len(dist)):
-    if i == 0:
-        pass
-    else:
-        minimumK = math.inf
-        for k in range(i-1, -1, -1):           
-            testVal = penaltyCalculation(dist[i]-dist[k])
-            if minimumK > testVal:
-                minimumK = testVal
-                kVal = k
-        kValues.append(kVal)
-        
-#append value of emerald city
-kValues.append(n-1)       
-finalPenalty = 0
-for i in range(0,len(kValues)):
-    if i == 0:
-        pass
-    else:
-        if kValues[i] - kValues[i-1] == 0: # if k value hasn't changed yet, don't add to final penalty
-            pass
-        else:
-            finalPenalty += penaltyCalculation(dist[kValues[i]]-dist[kValues[i-1]])
+penaltyArray = [0] * n # this array will contain min penalties for each hotel
 
-print(kValues)
-print(finalPenalty)
+for i in range(0, n):
+    currPenalty = (400 - dist[i])**2 # this is current penalty if we drove straight to hotel from munchkinland
+    for j in range(i):
+        if (400 - (dist[i] - dist[j]))**2 + penaltyArray[j] < currPenalty:
+            currPenalty = (400 - (dist[i] - dist[j]))**2 + penaltyArray[j]
+
+    penaltyArray[i] = currPenalty
+
+
+print(penaltyArray[-1])
