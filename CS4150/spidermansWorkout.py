@@ -12,6 +12,9 @@ def climb(dist, i, currPos, maxHeight, spidermanDict):
     # base case
     if i == len(dist) - 1:
         if currPos - dist[i] == 0:
+
+            # add this index to dict for up/down printing
+            spidermanDict[i, currPos, maxHeight] = (0, maxHeight)
             return 0, maxHeight # we are at ground level
         else:
             return math.inf, maxHeight
@@ -50,11 +53,26 @@ for i in range(n):
         print("IMPOSSIBLE")
 
     else:
-        print(result) # need to figure out how to print U/D
-        
+        #print(result) # need to figure out how to print U/D
+        updownresult = list()
+        updownresult.append('D')
+        index = None
         for key, val in spidermanDict.items():
             if val == result:
-                print(key, val)
+                if index == None: # dont do anything first pass
+                    index = key[1]
+                else:
+                    if index > key[1]:
+                        updownresult.append('U')
+                    else:
+                        updownresult.append('D') 
+
+                    index = key[1]
+        result = ""
+        for i in updownresult:
+            result = i + result
+
+        print(result, sep='')
 
 
 
