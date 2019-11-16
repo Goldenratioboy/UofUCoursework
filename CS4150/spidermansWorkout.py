@@ -3,11 +3,22 @@ import math
 
 n = int(sys.stdin.readline()) # number of test scenarios
 
-def climb(dist, i, currPos, maxHeight, spidermanDict):
+bestMaxHeight = math.inf # make a global max best height
+spidermanDict = dict()
+
+def climb(dist, i, currPos, maxHeight):
+
+    global bestMaxHeight
+
+    # alternate base case, end recursion early if we exceed our bestMaxHeight
+    if currPos > bestMaxHeight:
+        return math.inf, maxHeight
 
     # check if we're at new max height
     if currPos > maxHeight:
         maxHeight = currPos
+
+    
 
     # base case
     if i == len(dist) - 1:
@@ -15,6 +26,7 @@ def climb(dist, i, currPos, maxHeight, spidermanDict):
 
             # add this index to dict for up/down printing
             spidermanDict[i, currPos, maxHeight] = (0, maxHeight)
+            bestMaxHeight = maxHeight
             return 0, maxHeight # we are at ground level
         else:
             return math.inf, maxHeight
@@ -24,7 +36,7 @@ def climb(dist, i, currPos, maxHeight, spidermanDict):
         if (i, currPos, maxHeight) in spidermanDict.keys():
             return spidermanDict[i, currPos, maxHeight]
         else:
-            spidermanDict[i, currPos, maxHeight] = climb(dist, i+1, currPos+dist[i], maxHeight, spidermanDict)
+            spidermanDict[i, currPos, maxHeight] = climb(dist, i+1, currPos+dist[i], maxHeight)
         
         return spidermanDict[i, currPos, maxHeight]
 
@@ -32,13 +44,12 @@ def climb(dist, i, currPos, maxHeight, spidermanDict):
         if (i, currPos, maxHeight) in spidermanDict.keys():
             return spidermanDict[i, currPos, maxHeight]
         else:
-            spidermanDict[i, currPos, maxHeight] = min(climb(dist, i+1, currPos - dist[i], maxHeight, spidermanDict), climb(dist, i+1, currPos + dist[i], maxHeight, spidermanDict)) # climb up or down
+            spidermanDict[i, currPos, maxHeight] = min(climb(dist, i+1, currPos - dist[i], maxHeight), climb(dist, i+1, currPos + dist[i], maxHeight)) # climb up or down
         
         return spidermanDict[i, currPos, maxHeight]
 
 for i in range(n):
     array = list() # temp list of distances
-    spidermanDict = dict()
 
     m = int(sys.stdin.readline())
     params = sys.stdin.readline().split()
@@ -48,7 +59,7 @@ for i in range(n):
 
     # call recursive function here
     maxHeight = 0
-    result = climb(array, 0, 0, maxHeight, spidermanDict)
+    result = climb(array, 0, 0, maxHeight)
     if result[0] == math.inf:
         print("IMPOSSIBLE")
 
@@ -73,6 +84,9 @@ for i in range(n):
             result = i + result
 
         print(result, sep='')
+
+        bestMaxHeight = math.inf # reset global var
+        spidermanDict.clear() # reset dictionary
 
 
 
