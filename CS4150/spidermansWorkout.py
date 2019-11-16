@@ -64,26 +64,25 @@ for i in range(n):
         print("IMPOSSIBLE")
 
     else:
-        #print(result) # need to figure out how to print U/D
-        updownresult = list()
-        updownresult.append('D')
-        index = None
+        updownresult = [0]*m
+
         for key, val in spidermanDict.items():
             if val == result:
-                if index == None: # dont do anything first pass
-                    index = key[1]
+                if updownresult[key[0]] == 0:
+                    updownresult[key[0]] = key[1]
                 else:
-                    if index > key[1]:
-                        updownresult.append('U')
-                    else:
-                        updownresult.append('D') 
+                    pass # do not overwrite the value if we've seen this before
 
-                    index = key[1]
-        result = ""
-        for i in updownresult:
-            result = i + result
+        for i in range(0, len(updownresult)):
+            if i == 0:
+                pass
+            else:
+                if updownresult[i] > updownresult[i-1]:
+                    print('U', end='')
+                else:
+                    print('D', end='')
 
-        print(result, sep='')
+        print('D') # sequence always ends with down to the ground
 
         bestMaxHeight = math.inf # reset global var
         spidermanDict.clear() # reset dictionary
