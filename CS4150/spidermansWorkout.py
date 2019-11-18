@@ -1,10 +1,12 @@
 import sys
 import math
 
+from collections import OrderedDict
+
 n = int(sys.stdin.readline()) # number of test scenarios
 
 bestMaxHeight = math.inf # make a global max best height
-spidermanDict = dict()
+spidermanDict = OrderedDict()
 
 def climb(dist, i, currPos, maxHeight):
 
@@ -12,24 +14,22 @@ def climb(dist, i, currPos, maxHeight):
 
     # alternate base case, end recursion early if we exceed our bestMaxHeight
     if currPos > bestMaxHeight:
-        return math.inf, maxHeight
+        return math.inf
 
     # check if we're at new max height
     if currPos > maxHeight:
         maxHeight = currPos
-
-    
 
     # base case
     if i == len(dist) - 1:
         if currPos - dist[i] == 0:
 
             # add this index to dict for up/down printing
-            spidermanDict[i, currPos, maxHeight] = (0, maxHeight)
+            spidermanDict[i, currPos, maxHeight] = 0
             bestMaxHeight = maxHeight
-            return 0, maxHeight # we are at ground level
+            return 0 # we are at ground level
         else:
-            return math.inf, maxHeight
+            return math.inf
 
     if currPos - dist[i] < 0: # cannot climb below ground level
 
@@ -49,43 +49,36 @@ def climb(dist, i, currPos, maxHeight):
         return spidermanDict[i, currPos, maxHeight]
 
 for i in range(n):
-    array = list() # temp list of distances
 
     m = int(sys.stdin.readline())
+    array = [0]*m # temp list of distances
     params = sys.stdin.readline().split()
 
     for j in range(m):
-        array.append(int(params[j]))
+        array[j] = int(params[j])
 
     # call recursive function here
-    maxHeight = 0
-    result = climb(array, 0, 0, maxHeight)
-    if result[0] == math.inf:
+    result = climb(array, 0, 0, 0)
+    if result == math.inf:
         print("IMPOSSIBLE")
 
     else:
-        updownresult = [0]*m
 
-        for key, val in spidermanDict.items():
-            if val == result:
-                if updownresult[key[0]] == 0:
-                    updownresult[key[0]] = key[1]
-                else:
-                    pass # do not overwrite the value if we've seen this before
-
-        for i in range(0, len(updownresult)):
+        for i in range(0,m):
+            key, val = spidermanDict.popitem() # pop m items from dictionary
             if i == 0:
+                prev = key[1]
                 pass
             else:
-                if updownresult[i] > updownresult[i-1]:
+                curr = key[1]
+                if curr > prev:
                     print('U', end='')
                 else:
                     print('D', end='')
 
+                prev = key[1] # save currVal as prev for next iteration
+
         print('D') # sequence always ends with down to the ground
-
-        bestMaxHeight = math.inf # reset global var
-        spidermanDict.clear() # reset dictionary
-
-
-
+ 
+    bestMaxHeight = math.inf # reset global var
+    spidermanDict.clear() # reset dictionary
