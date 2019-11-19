@@ -25,7 +25,7 @@ def climb(dist, i, currPos, maxHeight):
         if currPos - dist[i] == 0:
 
             # add this index to dict for up/down printing
-            spidermanDict[i, currPos, maxHeight] = 0
+            spidermanDict[i, currPos] = 0
             bestMaxHeight = maxHeight
             return 0 # we are at ground level
         else:
@@ -33,20 +33,20 @@ def climb(dist, i, currPos, maxHeight):
 
     if currPos - dist[i] < 0: # cannot climb below ground level
 
-        if (i, currPos, maxHeight) in spidermanDict.keys():
-            return spidermanDict[i, currPos, maxHeight]
+        if (i, currPos) in spidermanDict.keys():
+            return spidermanDict[i, currPos]
         else:
-            spidermanDict[i, currPos, maxHeight] = climb(dist, i+1, currPos+dist[i], maxHeight)
+            spidermanDict[i, currPos] = climb(dist, i+1, currPos+dist[i], maxHeight)
         
-        return spidermanDict[i, currPos, maxHeight]
+        return spidermanDict[i, currPos]
 
     else:
-        if (i, currPos, maxHeight) in spidermanDict.keys():
-            return spidermanDict[i, currPos, maxHeight]
+        if (i, currPos) in spidermanDict.keys():
+            return spidermanDict[i, currPos]
         else:
-            spidermanDict[i, currPos, maxHeight] = min(climb(dist, i+1, currPos - dist[i], maxHeight), climb(dist, i+1, currPos + dist[i], maxHeight)) # climb up or down
+            spidermanDict[i, currPos] = min(climb(dist, i+1, currPos - dist[i], maxHeight), climb(dist, i+1, currPos + dist[i], maxHeight)) # climb up or down
         
-        return spidermanDict[i, currPos, maxHeight]
+        return spidermanDict[i, currPos]
 
 for i in range(n):
 
@@ -63,20 +63,26 @@ for i in range(n):
         print("IMPOSSIBLE")
 
     else:
+        k = 0
+        resultArray = [None]*m
 
-        for i in range(0,m):
-            key, val = spidermanDict.popitem() # pop m items from dictionary
+        while k < m:
+            key, val = spidermanDict.popitem()
+            if val == result:
+                if resultArray[key[0]] == None:
+                    resultArray[key[0]] = key[1]
+                    k+=1
+                else:
+                    pass # don't overwrite values
+        
+        for i in range(m):
             if i == 0:
-                prev = key[1]
                 pass
             else:
-                curr = key[1]
-                if curr > prev:
+                if resultArray[i] > resultArray[i-1]:
                     print('U', end='')
                 else:
                     print('D', end='')
-
-                prev = key[1] # save currVal as prev for next iteration
 
         print('D') # sequence always ends with down to the ground
  
