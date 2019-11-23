@@ -5,39 +5,43 @@ n = int(sys.stdin.readline()) # number of test scenarios
 
 spidermanDict = dict()
 
-def climb(dist, i, currPos, maxHeight):
+def climb(dist, i, currPos, bestHeight, maxHeight):
 
-    if currPos > maxHeight:
+    # alternate base case
+    if currPos > bestHeight: # if we've already climbed higher than an already found optimal solution, return
+        return math.inf, bestHeight
+
+    if currPos > maxHeight: # update current maximum building required
         maxHeight = currPos
 
     # base case
     if i == len(dist) - 1:
 
         if currPos - dist[i] == 0:
-
-            # add this index to dict for up/down printing
-            spidermanDict[i, currPos] = 0, maxHeight
-            return 0, maxHeight # we are at ground level
+            if bestHeight > maxHeight:
+                bestHeight = maxHeight
+                # add this index to dict for up/down printing
+                spidermanDict[i, currPos] = 0, bestHeight
+                return bestHeight # we are at ground level
+            else:
+                return math.inf # we've found a more optimal solution, do not return 0
 
         else:
-            return math.inf, maxHeight
+            return math.inf
 
-    if currPos - dist[i] < 0: # cannot climb below ground level
-
-        if (i, currPos) in spidermanDict.keys():
-            return spidermanDict[i, currPos]
-        else:
-            spidermanDict[i, currPos] = climb(dist, i+1, currPos+dist[i], maxHeight)
-        
+    # reorganized dynamic programming
+    if (i, currPos) in spidermanDict.keys():
+        print("cached val used", i, currPos)
         return spidermanDict[i, currPos]
 
     else:
-        if (i, currPos) in spidermanDict.keys():
+        if currPos - dist[i] < 0:
+            spidermanDict[i, currPos] = climb(dist, i+1, currPos+dist[i], bestHeight, maxHeight)
             return spidermanDict[i, currPos]
         else:
-            spidermanDict[i, currPos] = min(climb(dist, i+1, currPos - dist[i], maxHeight), climb(dist, i+1, currPos + dist[i], maxHeight)) # climb up or down
-        
-        return spidermanDict[i, currPos]
+            spidermanDict[i, currPos] = min(climb(dist, i+1, currPos - dist[i], bestHeight, maxHeight), climb(dist, i+1, currPos + dist[i], bestHeight, maxHeight)) # climb up or down
+            return spidermanDict[i, currPos]
+
 
 for i in range(n):
 
@@ -49,10 +53,9 @@ for i in range(n):
         array[j] = int(params[j])
 
     # call recursive function here
-    result = climb(array, 0, 0, 0)
+    result = climb(array, 0, 0, math.inf, 0)
 
-    print(result)
-    if result[0] == math.inf:
+    if result == math.inf:
         print("IMPOSSIBLE")
 
     else:
@@ -60,7 +63,7 @@ for i in range(n):
 
         for key, val in spidermanDict.items():
             if val == result:
-                print(key,val)
+                print(key, val)
                 resultArray[key[0]] = key[1]
 
         letterArray = [0]*m  
