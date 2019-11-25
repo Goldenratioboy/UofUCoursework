@@ -4,6 +4,7 @@ import math
 n = int(sys.stdin.readline()) # number of test scenarios
 
 spidermanDict = dict()
+resultDict = dict()
 bestHeight = math.inf
 
 def climb(dist, i, currPos, maxHeight):
@@ -25,6 +26,7 @@ def climb(dist, i, currPos, maxHeight):
                 bestHeight = maxHeight
                 # add this index to dict for up/down printing
                 spidermanDict[i, currPos] = bestHeight
+                resultDict[i, bestHeight] = currPos
                 return bestHeight # we are at ground level
             else:
                 return math.inf # we've found a more optimal solution, do not return 0
@@ -39,9 +41,11 @@ def climb(dist, i, currPos, maxHeight):
     else:
         if currPos - dist[i] < 0:
             spidermanDict[i, currPos] = climb(dist, i+1, currPos+dist[i], maxHeight)
+            resultDict[i, bestHeight] = currPos
             return spidermanDict[i, currPos]
         else:
             spidermanDict[i, currPos] = min(climb(dist, i+1, currPos - dist[i], maxHeight), climb(dist, i+1, currPos + dist[i], maxHeight)) # climb up or down
+            resultDict[i, bestHeight] = currPos
             return spidermanDict[i, currPos]
 
 
@@ -63,10 +67,8 @@ for i in range(n):
     else:
         resultArray = [0]*m
 
-        for key, val in spidermanDict.items():
-            if val == result:
-                #print(key, val)
-                resultArray[key[0]] = key[1]
+        for j in range(m):
+            resultArray[j] = resultDict[j, result]
 
         letterArray = [0]*m  
         for i in range(m):
@@ -84,3 +86,4 @@ for i in range(n):
  
     bestHeight = math.inf # reset global var
     spidermanDict.clear() # reset dictionary
+    resultDict.clear()
