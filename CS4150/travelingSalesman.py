@@ -1,3 +1,5 @@
+# Modified to python from Joe Zachary's starting Traveling Salesman code in C#
+
 import sys
 import math
 
