@@ -1,0 +1,18 @@
+
+State Machine - |fibfsm|state
+Name state.reset1 state.fourteenth state.thirteenth state.twelveth state.eleventh state.tenth state.ninth state.eighth state.seventh state.sixth state.fifth state.fourth state.third state.second state.first 
+state.first 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.second 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.third 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.fourth 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.fifth 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.sixth 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.seventh 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.eighth 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.ninth 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.tenth 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.eleventh 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.twelveth 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.thirteenth 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.fourteenth 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.reset1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

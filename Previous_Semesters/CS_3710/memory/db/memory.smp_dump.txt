@@ -1,0 +1,8 @@
+
+State Machine - |memory_fsm|state
+Name state.third state.second state.first state.resets state.fourth 
+state.resets 0 0 0 0 0 
+state.first 0 0 1 1 0 
+state.second 0 1 0 1 0 
+state.third 1 0 0 1 0 
+state.fourth 0 0 0 1 1 

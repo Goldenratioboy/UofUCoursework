@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="d6f181e66cce6ac26958"/>
+  </project>
+  <file_info>
+    <file device="5CSEMA5F31C6" path="tippytop.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="audio_gen_top:audio_gen_top|audio_sample:aud_sample" name="aud_sample">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME audio_sample HAS_SOPCINFO 1 GENERATION_ID 1545024013"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

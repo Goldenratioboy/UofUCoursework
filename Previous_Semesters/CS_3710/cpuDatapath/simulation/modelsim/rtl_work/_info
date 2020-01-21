@@ -1,0 +1,258 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/simulation/modelsim
+v_3710alu
+Z1 !s110 1542151120
+!i10b 1
+!s100 zNg?T9MS]IZi><BR0Sbeg0
+Io<XKZ768;VoT22[kla=n]3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1542139968
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/_3710alu.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/_3710alu.v
+L0 22
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1542151120.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/_3710alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/_3710alu.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work {+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath}
+Z7 tCvgOpt 0
+n@_3710alu
+vcpu_tb
+Z8 !s110 1542151121
+!i10b 1
+!s100 l=4^kmD3O_DcTl:Hf^@mD0
+I]4k=flD:Kkk7[8hJXhhcz2
+R2
+R0
+w1542139394
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpu_tb.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpu_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z9 !s108 1542151121.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpu_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpu_tb.v|
+!i113 1
+R5
+R6
+R7
+vcpuDatapath
+R1
+!i10b 1
+!s100 @kJX;8:^JgB0XD31`NhgQ0
+I1N^BW3KW7A`<H4GlCo4XV0
+R2
+R0
+Z10 w1542140287
+Z11 8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v
+Z12 FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v
+L0 67
+R3
+r1
+!s85 0
+31
+R4
+Z13 !s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v|
+Z14 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v|
+!i113 1
+R5
+R6
+R7
+ncpu@datapath
+vflagsUpdate
+R1
+!i10b 1
+!s100 NTmLgeicaA8ciE[BOK<C?2
+I4b_b3^aB:hh?AQXfWOQcN0
+R2
+R0
+Z15 w1542135817
+Z16 8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/regfile.v
+Z17 FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/regfile.v
+L0 208
+R3
+r1
+!s85 0
+31
+R4
+Z18 !s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/regfile.v|
+Z19 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/regfile.v|
+!i113 1
+R5
+R6
+R7
+nflags@update
+vFSM
+R1
+!i10b 1
+!s100 cb91O6MLf]jUM25^=D<n13
+Ij:5`^C3M=HP?[OLBOghFn2
+R2
+R0
+w1542151078
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v|
+!i113 1
+R5
+R6
+R7
+n@f@s@m
+vmemory
+R8
+!i10b 1
+!s100 FbJ25cagU>WDC2WAEoEa=0
+I8PHl?oS^G[Um0g1EJ>dB01
+R2
+R0
+w1542148573
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/memory.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/memory.v
+L0 24
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath|C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/memory.v|
+!i113 1
+R5
+R6
+R7
+vmux
+R1
+!i10b 1
+!s100 3;BHMZZ?o2ZU<`_:MI@kB3
+I=[molV@V8dLd=QgP_XlAB1
+R2
+R0
+R10
+R11
+R12
+L0 11
+R3
+r1
+!s85 0
+31
+R4
+R13
+R14
+!i113 1
+R5
+R6
+R7
+vMux16to1
+R1
+!i10b 1
+!s100 ejFho1@Se>IA;@o=VDHSV1
+IO4L>HKK^z[_NjC?U]c^_d3
+R2
+R0
+R15
+R16
+R17
+L0 23
+R3
+r1
+!s85 0
+31
+R4
+R18
+R19
+!i113 1
+R5
+R6
+R7
+n@mux16to1
+vpc
+R1
+!i10b 1
+!s100 6Xe84J14;DBk19T?[ihak1
+IP49Uaco8[46_la`X:=2^o0
+R2
+R0
+R10
+R11
+R12
+L0 33
+R3
+r1
+!s85 0
+31
+R4
+R13
+R14
+!i113 1
+R5
+R6
+R7
+vRegBank
+R1
+!i10b 1
+!s100 Q1Fcdd^S9jOHFI`U8ioU=2
+I8W6nKlNIc1oQm7iH8I<K_1
+R2
+R0
+R15
+R16
+R17
+L0 84
+R3
+r1
+!s85 0
+31
+R4
+R18
+R19
+!i113 1
+R5
+R6
+R7
+n@reg@bank
+vregfile
+R1
+!i10b 1
+!s100 bUJLk@h=46<li3gSEz[843
+Ibz3L>mMh2?K7CojmMAYa]2
+R2
+R0
+R15
+R16
+R17
+L0 54
+R3
+r1
+!s85 0
+31
+R4
+R18
+R19
+!i113 1
+R5
+R6
+R7

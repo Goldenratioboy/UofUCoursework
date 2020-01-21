@@ -1,0 +1,381 @@
+Analysis & Synthesis report for vga
+Thu Dec 06 00:20:29 2018
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: vga_640by480:vga_ctrl
+ 11. Port Connectivity Checks: "bitgen_piano:vga_bitgen"
+ 12. Port Connectivity Checks: "vga_640by480:vga_ctrl"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+ 16. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Dec 06 00:20:29 2018       ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                   ; vga                                         ;
+; Top-level Entity Name           ; vga_wrapper                                 ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 46                                          ;
+; Total pins                      ; 30                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; vga_wrapper        ; vga                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+; vga_640by480.v                   ; yes             ; User Verilog HDL File  ; C:/Users/steen/Desktop/ECE-3710/vga/vga_640by480.v ;         ;
+; bitgen_piano.v                   ; yes             ; User Verilog HDL File  ; C:/Users/steen/Desktop/ECE-3710/vga/bitgen_piano.v ;         ;
+; vga_wrapper.v                    ; yes             ; User Verilog HDL File  ; C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v  ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++---------------------------------------------+-------------------------------+
+; Resource                                    ; Usage                         ;
++---------------------------------------------+-------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 65                            ;
+;                                             ;                               ;
+; Combinational ALUT usage for logic          ; 108                           ;
+;     -- 7 input functions                    ; 0                             ;
+;     -- 6 input functions                    ; 21                            ;
+;     -- 5 input functions                    ; 22                            ;
+;     -- 4 input functions                    ; 16                            ;
+;     -- <=3 input functions                  ; 49                            ;
+;                                             ;                               ;
+; Dedicated logic registers                   ; 46                            ;
+;                                             ;                               ;
+; I/O pins                                    ; 30                            ;
+;                                             ;                               ;
+; Total DSP Blocks                            ; 0                             ;
+;                                             ;                               ;
+; Maximum fan-out node                        ; vga_640by480:vga_ctrl|slw_clk ;
+; Maximum fan-out                             ; 45                            ;
+; Total fan-out                               ; 610                           ;
+; Average fan-out                             ; 2.84                          ;
++---------------------------------------------+-------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Entity Name  ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+--------------+--------------+
+; |vga_wrapper                 ; 108 (0)             ; 46 (0)                    ; 0                 ; 0          ; 30   ; 0            ; |vga_wrapper                         ; vga_wrapper  ; work         ;
+;    |bitgen_piano:vga_bitgen| ; 52 (52)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_wrapper|bitgen_piano:vga_bitgen ; bitgen_piano ; work         ;
+;    |vga_640by480:vga_ctrl|   ; 56 (56)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_wrapper|vga_640by480:vga_ctrl   ; vga_640by480 ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 46    ;
+; Number of registers using Synchronous Clear  ; 42    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 13    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |vga_wrapper|vga_640by480:vga_ctrl|HorizontalCounter[7] ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |vga_wrapper|vga_640by480:vga_ctrl|VerticalCounter[9]   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |vga_wrapper|bitgen_piano:vga_bitgen|red[0]             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_640by480:vga_ctrl ;
++--------------------------+------------+----------------------------+
+; Parameter Name           ; Value      ; Type                       ;
++--------------------------+------------+----------------------------+
+; TotalHorizontalPixels    ; 1100100000 ; Unsigned Binary            ;
+; HorizontalSyncWidth      ; 0001100000 ; Unsigned Binary            ;
+; VerticalSyncWidth        ; 0000000010 ; Unsigned Binary            ;
+; TotalVerticalLines       ; 1000001001 ; Unsigned Binary            ;
+; HorizontalBackPorchTime  ; 0010010000 ; Unsigned Binary            ;
+; HorizontalFrontPorchTime ; 1100010000 ; Unsigned Binary            ;
+; VerticalBackPorchTime    ; 0000011111 ; Unsigned Binary            ;
+; VerticalFrontPorchTime   ; 0111111111 ; Unsigned Binary            ;
++--------------------------+------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "bitgen_piano:vga_bitgen" ;
++-----------+-------+----------+----------------------+
+; Port      ; Type  ; Severity ; Details              ;
++-----------+-------+----------+----------------------+
+; key[4..3] ; Input ; Info     ; Stuck at VCC         ;
+; key[1..0] ; Input ; Info     ; Stuck at VCC         ;
+; key[7..5] ; Input ; Info     ; Stuck at GND         ;
+; key[2]    ; Input ; Info     ; Stuck at GND         ;
++-----------+-------+----------+----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_640by480:vga_ctrl"                                                                                                          ;
++--------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                       ;
++--------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; PixelX ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (10 bits) it drives; bit(s) "PixelX[10..10]" have no fanouts ;
+; PixelY ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (10 bits) it drives; bit(s) "PixelY[10..10]" have no fanouts ;
++--------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 46                          ;
+;     ENA               ; 2                           ;
+;     ENA SCLR          ; 11                          ;
+;     SCLR              ; 31                          ;
+;     plain             ; 2                           ;
+; arriav_io_obuf        ; 1                           ;
+; arriav_lcell_comb     ; 109                         ;
+;     arith             ; 32                          ;
+;         1 data inputs ; 32                          ;
+;     normal            ; 77                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 16                          ;
+;         5 data inputs ; 22                          ;
+;         6 data inputs ; 21                          ;
+; boundary_port         ; 30                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.70                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Thu Dec 06 00:20:06 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga -c vga
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file vga_640by480.v
+    Info (12023): Found entity 1: vga_640by480 File: C:/Users/steen/Desktop/ECE-3710/vga/vga_640by480.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file bitgen_piano.v
+    Info (12023): Found entity 1: bitgen_piano File: C:/Users/steen/Desktop/ECE-3710/vga/bitgen_piano.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_bitgen.v
+    Info (12023): Found entity 1: vga_bitgen File: C:/Users/steen/Desktop/ECE-3710/vga/vga_bitgen.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_tb.v
+    Info (12023): Found entity 1: vga_tb File: C:/Users/steen/Desktop/ECE-3710/vga/vga_tb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_wrapper.v
+    Info (12023): Found entity 1: vga_wrapper File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 1
+Info (12127): Elaborating entity "vga_wrapper" for the top level hierarchy
+Info (12128): Elaborating entity "vga_640by480" for hierarchy "vga_640by480:vga_ctrl" File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 34
+Warning (10230): Verilog HDL assignment warning at vga_640by480.v(76): truncated value with size 32 to match size of target (11) File: C:/Users/steen/Desktop/ECE-3710/vga/vga_640by480.v Line: 76
+Warning (10230): Verilog HDL assignment warning at vga_640by480.v(106): truncated value with size 32 to match size of target (11) File: C:/Users/steen/Desktop/ECE-3710/vga/vga_640by480.v Line: 106
+Info (12128): Elaborating entity "bitgen_piano" for hierarchy "bitgen_piano:vga_bitgen" File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 45
+Warning (10230): Verilog HDL assignment warning at bitgen_piano.v(28): truncated value with size 32 to match size of target (4) File: C:/Users/steen/Desktop/ECE-3710/vga/bitgen_piano.v Line: 28
+Warning (10240): Verilog HDL Always Construct warning at bitgen_piano.v(18): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Users/steen/Desktop/ECE-3710/vga/bitgen_piano.v Line: 18
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "bright" and its non-tri-state driver. File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 12
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "bright" is moved to its source File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 12
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "bright~synth" File: C:/Users/steen/Desktop/ECE-3710/vga/vga_wrapper.v Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/steen/Desktop/ECE-3710/vga/output_files/vga.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 144 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 27 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 114 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Thu Dec 06 00:20:29 2018
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:49
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/steen/Desktop/ECE-3710/vga/output_files/vga.map.smsg.
+
+

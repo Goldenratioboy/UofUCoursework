@@ -1,0 +1,152 @@
+# Reading C:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do regfile_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/hexTo7Seg.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:13 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/hexTo7Seg.v 
+# -- Compiling module hexTo7Seg
+# 
+# Top level modules:
+# 	hexTo7Seg
+# End time: 15:34:13 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/fibfsm.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:13 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/fibfsm.v 
+# -- Compiling module fibfsm
+# 
+# Top level modules:
+# 	fibfsm
+# End time: 15:34:13 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:13 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/_3710alu.v 
+# -- Compiling module _3710alu
+# 
+# Top level modules:
+# 	_3710alu
+# End time: 15:34:13 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/Wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:13 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/Wrapper.v 
+# -- Compiling module cpu_alu_datapath
+# 
+# Top level modules:
+# 	cpu_alu_datapath
+# End time: 15:34:13 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 15:34:14 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical.v 
+# -- Compiling module FSM_Logical
+# 
+# Top level modules:
+# 	FSM_Logical
+# End time: 15:34:14 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical_tb.v 
+# -- Compiling module FSM_Logical_tb
+# 
+# Top level modules:
+# 	FSM_Logical_tb
+# End time: 15:34:14 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/regfile {C:/Users/steen/Desktop/ECE-3710/regfile/Wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:34:14 on Sep 18,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/regfile" C:/Users/steen/Desktop/ECE-3710/regfile/Wrapper.v 
+# -- Compiling module cpu_alu_datapath
+# 
+# Top level modules:
+# 	cpu_alu_datapath
+# End time: 15:34:14 on Sep 18,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  FSM_Logical_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" FSM_Logical_tb 
+# Start time: 15:34:14 on Sep 18,2018
+# Loading work.FSM_Logical_tb
+# Loading work.FSM_Logical
+# Loading work.cpu_alu_datapath
+# Loading work.RegBank
+# Loading work.regfile
+# Loading work.Mux16to1
+# Loading work._3710alu
+# Loading work.flagsUpdate
+# Loading work.hexTo7Seg
+# ** Warning: (vsim-3017) C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical.v(32): [TFMPC] - Too few port connections. Expected 9, found 8.
+#    Time: 0 ps  Iteration: 0  Instance: /FSM_Logical_tb/fsm/datapath File: C:/Users/steen/Desktop/ECE-3710/regfile/Wrapper.v
+# ** Warning: (vsim-3722) C:/Users/steen/Desktop/ECE-3710/regfile/FSM_Logical.v(32): [TFMPC] - Missing connection for port 'flags_output'.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1 sec
+add wave -position insertpoint  \
+sim:/FSM_Logical_tb/fsm/datapath/clk \
+sim:/FSM_Logical_tb/fsm/datapath/reset \
+sim:/FSM_Logical_tb/fsm/datapath/Cin \
+sim:/FSM_Logical_tb/fsm/datapath/regEnable \
+sim:/FSM_Logical_tb/fsm/datapath/inst \
+sim:/FSM_Logical_tb/fsm/datapath/ctrlA \
+sim:/FSM_Logical_tb/fsm/datapath/ctrlB \
+sim:/FSM_Logical_tb/fsm/datapath/r0 \
+sim:/FSM_Logical_tb/fsm/datapath/r1 \
+sim:/FSM_Logical_tb/fsm/datapath/r2 \
+sim:/FSM_Logical_tb/fsm/datapath/r3 \
+sim:/FSM_Logical_tb/fsm/datapath/r4 \
+sim:/FSM_Logical_tb/fsm/datapath/r5 \
+sim:/FSM_Logical_tb/fsm/datapath/r6 \
+sim:/FSM_Logical_tb/fsm/datapath/r7 \
+sim:/FSM_Logical_tb/fsm/datapath/r8 \
+sim:/FSM_Logical_tb/fsm/datapath/r9 \
+sim:/FSM_Logical_tb/fsm/datapath/r10 \
+sim:/FSM_Logical_tb/fsm/datapath/r11 \
+sim:/FSM_Logical_tb/fsm/datapath/r12 \
+sim:/FSM_Logical_tb/fsm/datapath/r13 \
+sim:/FSM_Logical_tb/fsm/datapath/r14 \
+sim:/FSM_Logical_tb/fsm/datapath/r15 \
+sim:/FSM_Logical_tb/fsm/datapath/muxtoALUA \
+sim:/FSM_Logical_tb/fsm/datapath/muxtoALUB \
+sim:/FSM_Logical_tb/fsm/datapath/ALUtoFlags \
+sim:/FSM_Logical_tb/fsm/datapath/bus_output \
+sim:/FSM_Logical_tb/fsm/datapath/flags_output
+# End time: 15:41:56 on Sep 18,2018, Elapsed time: 0:07:42
+# Errors: 0, Warnings: 2

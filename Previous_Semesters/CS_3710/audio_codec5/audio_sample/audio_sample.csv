@@ -1,0 +1,49 @@
+# system info audio_sample on 2018.12.05.15:37:29
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1544049426
+#
+#
+# Files generated for audio_sample on 2018.12.05.15:37:29
+files:
+filepath,kind,attributes,module,is_top
+simulation/audio_sample.v,VERILOG,,audio_sample,true
+simulation/submodules/altera_up_audio_bit_counter.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/altera_up_audio_in_deserializer.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/altera_up_audio_out_serializer.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/altera_up_clock_edge.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/altera_up_sync_fifo.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/audio_sample_audio_0.v,VERILOG,,audio_sample_audio_0,false
+simulation/submodules/altera_up_av_config_serial_bus_controller.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_slow_clock_generator.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_dc2.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_d5m.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_lcm.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ltm.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_de1_soc.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_de2_115.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_de2i_150.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_de10_standard.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_audio.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_adv7180.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/altera_up_av_config_auto_init_ob_adv7181.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/audio_sample_audio_and_video_config_0.v,VERILOG,,audio_sample_audio_and_video_config_0,false
+simulation/submodules/audio_sample_audio_pll_0.v,VERILOG,,audio_sample_audio_pll_0,false
+simulation/submodules/altera_reset_controller.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_synchronizer.v,VERILOG,,altera_reset_controller,false
+simulation/submodules/altera_reset_controller.sdc,SDC,,altera_reset_controller,false
+simulation/submodules/audio_sample_audio_pll_0_audio_pll.vo,VERILOG,,audio_sample_audio_pll_0_audio_pll,false
+simulation/submodules/altera_up_avalon_reset_from_locked_signal.v,VERILOG,,altera_up_avalon_reset_from_locked_signal,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+audio_sample.audio_0,audio_sample_audio_0
+audio_sample.audio_and_video_config_0,audio_sample_audio_and_video_config_0
+audio_sample.audio_pll_0,audio_sample_audio_pll_0
+audio_sample.audio_pll_0.audio_pll,audio_sample_audio_pll_0_audio_pll
+audio_sample.audio_pll_0.reset_from_locked,altera_up_avalon_reset_from_locked_signal
+audio_sample.rst_controller,altera_reset_controller

@@ -1,0 +1,27 @@
+module cpu_tb();
+
+	//Inputs
+	reg clk, reset;
+		
+	
+		//Instatiate the UUT
+		cpuDatapath uut(
+			.clk(clk),
+			.reset(reset),
+		);
+
+initial begin
+clk = 1;
+reset = 1;
+#20
+reset = 0;
+#200
+$finish;
+end
+
+always @(*)
+	begin
+	#5 clk <= ~clk;
+	end
+
+endmodule

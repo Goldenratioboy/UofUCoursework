@@ -1,0 +1,204 @@
+module fibfsm(clk, reset, regEnable, inst, ctrlA, ctrlB);
+
+input clk, reset;
+
+output [15:0] regEnable, inst;
+output [3:0] ctrlA, ctrlB;
+
+reg [3:0] state;
+
+parameter first = 4'b0000;
+parameter second = 4'b0001;
+parameter third = 4'b0010;
+parameter fourth = 4'b0011;
+parameter fifth = 4'b0100;
+parameter sixth = 4'b0101;
+parameter seventh = 4'b0110;
+parameter eighth = 4'b0111;
+parameter ninth = 4'b1000;
+parameter tenth = 4'b1001;
+parameter eleventh = 4'b1010;
+parameter twelveth = 4'b1100;
+parameter thirteenth = 4'b1101;
+parameter fourteenth = 4'b1110;
+
+state = first;
+
+always@ (posedge clk, posedge reset)
+begin
+	case(state)
+	first:
+		if (reset)
+			state = first;
+		else
+		begin
+			regEnable = 16'b0000_0000_0000_0100;
+			ctrlA = 4'b0000;
+			ctrlB = 4'b0001;
+			inst = 16'b0000_0000_0110_0000;
+			state = second;
+		end
+	second:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0000_0000_1000;
+                        ctrlA = 4'b0001;
+                        ctrlB = 4'b0010;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = third;
+                end
+	third:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0000_0001_0000;
+                        ctrlA = 4'b0010;
+                        ctrlB = 4'b0011;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = fourth;
+                end
+
+	fourth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0000_0010_0000;
+                        ctrlA = 4'b0011;
+                        ctrlB = 4'b0100;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = fifth;
+                end
+
+	fifth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0000_0100_0000;
+                        ctrlA = 4'b0100;
+                        ctrlB = 4'b0101;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = sixth;
+                end
+
+	sixth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0000_1000_0000;
+                        ctrlA = 4'b0101;
+                        ctrlB = 4'b0110;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = seventh;
+                end
+
+	seventh:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0001_0000_0000;
+                        ctrlA = 4'b0101;
+                        ctrlB = 4'b0111;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = eighth;
+                end
+
+	eighth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0010_0000_0000;
+                        ctrlA = 4'b0111;
+                        ctrlB = 4'b1000;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = ninth;
+                end
+
+	ninth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_0100_0000_0000;
+                        ctrlA = 4'b1000;
+                        ctrlB = 4'b1001;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = sixth;
+                end
+
+	tenth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0000_1000_0000_0000;
+                        ctrlA = 4'b1001;
+                        ctrlB = 4'b1010;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = eleventh;
+                end
+
+	eleventh:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0001_0000_0000_0000;
+                        ctrlA = 4'b1010;
+                        ctrlB = 4'b1011;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = twelveth;
+                end
+
+	twelveth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0010_0000_0000_0000;
+                        ctrlA = 4'b1011;
+                        ctrlB = 4'b1100;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = thirteenth;
+                end
+
+	thirteenth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b0100_0000_0000_0000;
+                        ctrlA = 4'b1100;
+                        ctrlB = 4'b1101;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = fourteenth;
+                end
+	fourteenth:
+		if (reset)
+                        state = first;
+                else
+                begin
+                        regEnable = 16'b1000_0000_0000_0000;
+                        ctrlA = 4'b1101;
+                        ctrlB = 4'b1110;
+                        inst = 16'b0000_0000_0110_0000;
+                        state = fifteenth;
+                end
+
+	fifteenth:
+		if (reset)
+                        state = first;
+		else
+                        state = fifteenth;
+	
+	default:
+		state = first;
+	endcase
+end

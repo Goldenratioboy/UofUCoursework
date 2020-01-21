@@ -1,0 +1,48 @@
+{C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fibfsm
+
+Top level modules:
+	fibfsm
+
+} {} {}} {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fibfsm_tb
+
+Top level modules:
+	fibfsm_tb
+
+} {} {}} {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module _3710alu
+
+Top level modules:
+	_3710alu
+
+} {} {}} {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module cpu_alu_datapath
+
+Top level modules:
+	cpu_alu_datapath
+
+} {} {}} {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module hexTo7Seg
+
+Top level modules:
+	hexTo7Seg
+
+} {} {}} {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v} {1 {vlog -work work -stats=none {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Mux16to1
+-- Compiling module regfile
+-- Compiling module RegBank
+-- Compiling module flagsUpdate
+
+Top level modules:
+	Mux16to1
+	RegBank
+	flagsUpdate
+
+} {} {}}

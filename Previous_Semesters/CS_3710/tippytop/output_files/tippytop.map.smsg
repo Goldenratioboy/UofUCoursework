@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at cpuDatapath.v(87): object "LD_mux" differs only in case from object "ld_mux" in the same scope File: C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath/cpuDatapath.v Line: 87
+Info (10281): Verilog HDL Declaration information at cpuDatapath.v(87): object "PC_mux" differs only in case from object "pc_mux" in the same scope File: C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath/cpuDatapath.v Line: 87

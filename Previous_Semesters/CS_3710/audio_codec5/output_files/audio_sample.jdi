@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="33b447eba30c8c52e053"/>
+  </project>
+  <file_info>
+    <file device="5CSEMA5F31C6" path="audio_sample.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="audio_sample:aud_sample" name="aud_sample">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME audio_sample HAS_SOPCINFO 1 GENERATION_ID 1544049454"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

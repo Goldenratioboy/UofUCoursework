@@ -1,0 +1,139 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/steen/Desktop/ECE-3710/alu/simulation/modelsim
+v_3710alu
+<<<<<<< HEAD
+!s110 1536685469
+!i10b 1
+!s100 Qn3_^6ZHiC21=Uk8XIRmG1
+Il6Nh5oOI`94n]VmLYTz0]0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1536683730
+8C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v
+FC:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v
+=======
+Z1 !s110 1536688581
+!i10b 1
+!s100 Qn3_^6ZHiC21=Uk8XIRmG1
+I[91KzWNQGHGFY;1D2:jRD0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1536685456
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v
+>>>>>>> master
+L0 5
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+<<<<<<< HEAD
+!s108 1536685468.000000
+!s107 C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/steen/Desktop/ECE-3710/alu|C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v|
+=======
+Z4 !s108 1536688581.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu|C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v|
+>>>>>>> master
+!i113 1
+Z3 o-vlog01compat -work work
+Z4 !s92 -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/alu
+Z5 tCvgOpt 0
+n@_3710alu
+<<<<<<< HEAD
+vtb_alu_rand
+!s110 1536685470
+!i10b 1
+!s100 ;jQkoTJ<gCF4Re5gfk:8E2
+IzJ=R[A1CYle^OOWQDMY;h2
+R1
+R0
+w1536683499
+8C:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v
+FC:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v
+L0 4
+R2
+r1
+!s85 0
+31
+!s108 1536685469.000000
+!s107 C:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/steen/Desktop/ECE-3710/alu|C:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v|
+=======
+vhexTo7Seg
+R1
+!i10b 1
+!s100 eRbXb^2=n5mhAHza@g=`M1
+I<G]dCaT7ocbBF`ZPcE2zm1
+R2
+R0
+w1536687446
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu|C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v|
+!i113 1
+R5
+R6
+R7
+nhex@to7@seg
+vtb_alu_cc
+R1
+!i10b 1
+!s100 F4>:Q:VZIX4>D50HaPS@P3
+I3MIL@5`R9`SOZ]ZdPSC;W3
+R2
+R0
+w1536683324
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu|C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v|
+!i113 1
+R5
+R6
+R7
+vwrap
+R1
+!i10b 1
+!s100 ;nKoL[Cz@4dz2kBBZ<=5z0
+I3[KSUbjj]7=`UNjZ1K_Qf0
+R2
+R0
+w1536687756
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu|C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v|
+>>>>>>> master
+!i113 1
+R3
+R4
+R5

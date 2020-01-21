@@ -1,0 +1,252 @@
+// Written by Jonathan Pilling for group in CS3710
+
+`timescale 1ns / 1ps
+
+module alutest;
+
+	// Inputs
+	reg [3:0] A;
+	reg [3:0] B;
+	reg [1:0] Opcode;
+
+	// Outputs
+	wire [3:0] C;
+	wire [4:0] Flags;
+
+	integer i;
+	// Instantiate the Unit Under Test (UUT)
+	alu uut (
+		.A(A), 
+		.B(B), 
+		.C(C), 
+		.Opcode(Opcode), 
+		.Flags(Flags)
+	);
+
+	initial begin
+//			$monitor("A: %0d, B: %0d, C: %0d, Flags[1:0]:
+%b, time:%0d", A, B, C, Flags[1:0], $time );
+//Instead of the $display stmt in the loop, you could use just this
+//monitor statement which is executed everytime there is an event on any
+//signal in the argument list.
+
+		// Initialize Inputs
+		A = 0;
+		B = 0;
+		Opcode = 2'b11;
+
+		// Wait 100 ns for global reset to finish
+/*****
+		// One vector-by-vector case simulation
+		#10;
+	        Opcode = 2'b11;
+		A = 4'b0010; B = 4'b0011;
+		#10
+		A = 4'b1111; B = 4'b 1110;
+		//$display("A: %b, B: %b, C:%b, Flags[1:0]: %b, time:%d", A, B, C, Flags[1:0], $time);
+****/
+		//Random simulation
+		for( i = 0; i< 10; i = i+ 1)
+		begin
+			#10
+			A = $random % 16;
+			B = $random %16;
+			$display("A: %0d, B: %0d, C: %0d, Flags[1:0]: %b, time:%0d", A, B, C, Flags[1:0], $time );
+		end
+		$finish(2);
+		
+		// Add stimulus here
+		//Written by Jonathan P
+
+//Stimulus
+
+//One by one vector by vector
+                        #10;
+                        Opcode = 2'b11;
+                        A = 4'b0010; B = 4'b1100;
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADD Opcode
+                        #10; 
+                        Opcode = 8'b00000101; //Might need to concatenate here
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time); //Test some signed operations
+                        #10;
+                        A = -16'd500; B=16'd100 //Negative flag should be set
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+                        #10
+                        A = -16'd122; B=-16'd100 //Adding two negative numbers
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDI Opcode
+                        #10; 
+                        Opcode = 8'b01010000;
+                        A = 16'd50; B=16'd75
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDU Opcode
+                        #10; 
+                        Opcode = 8'b00000110;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDUI Opcode
+                        #10; 
+                        Opcode = 8'b01100000;
+                        A = 16'd1001; B=16'd1001
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDC Opcode
+                        #10; 
+                        Opcode = 8'00000111;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDCU Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //? unknown op code
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDCUI Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //? unknown op code
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ADDCI Opcode
+                        #10; 
+                        Opcode = 8'b01110000;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for SUB Opcode
+                        #10; 
+                        Opcode = 8'b00001001;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for SUBI Opcode
+                        #10; 
+                        Opcode = 8'b10010000;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for CMP Opcode
+                        #10; 
+                        Opcode = 8'b00001011;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for CMPI Opcode
+                        #10; 
+                        Opcode = 8'10110000;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for CMPU/I Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //?? No opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for AND Opcode
+                        #10; 
+                        Opcode = 8'b00000001;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for OR Opcode
+                        #10; 
+                        Opcode = 8'b00000010;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for XOR Opcode
+                        #10; 
+                        Opcode = 8'b00000011;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for NOT Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //?? no opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for LSH Opcode
+                        #10; 
+                        Opcode = 8'b10000100; 
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for LSHI Opcode
+                        #10; 
+                        Opcode = 8'b1000000; //Op code ends with a 0 for a positive number
+                        A = 16'd2; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+                        #10; 
+                        Opcode = 8'b1000001; //Op code ends with a 1 for a negative number
+                        A = 16'd3; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for RSH Opcode
+                        #10; 
+                        Opcode = 8'b10000000; //?? no opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for RSHI Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //?? no opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ALSH Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //?? no opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for ARSH Opcode
+                        #10; 
+                        Opcode = 8'b00000110; //?? no opcode
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+
+                        //Testing for NOP/WAIT Opcode
+                        #10; 
+                        Opcode = 8'b00000000;
+                        A = 16'd122; B=16'd100
+                        #10
+                        $display("A: %b, B: %b, C:%b, Flags[4:0]: %b, time: %d", A, B, C, Flags[4:0], $time);
+                                end
+      
+endmodule

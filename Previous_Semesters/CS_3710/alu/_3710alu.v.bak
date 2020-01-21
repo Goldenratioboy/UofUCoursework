@@ -1,0 +1,248 @@
+//timescale 1ns / 1ps
+
+//include "Parameters.v"
+
+module _3710alu(A, B, C, Cin, inst, Flags);
+input [15:0] A, B, inst;
+input Cin;
+output reg [15:0] C;
+output reg [4:0] Flags;
+reg [7:0] Opcode;
+reg [15:0] tempB;
+
+
+//High 4'b0000
+parameter ADD = 8'b0000_0101;
+parameter ADDU = 8'b0000_0110;
+parameter ADDC = 8'b0000_0111;
+parameter ADDCU = 8'b0000_0100;
+parameter ADDCUI = 8'b0000_1000;
+parameter SUB = 8'b0000_1001;
+parameter CMP = 8'b0000_1011;
+parameter AND = 8'b0000_0001;
+parameter OR = 8'b0000_0010;
+parameter XOR = 8'b0000_0011;
+parameter NOT = 8'b0000_1111;
+parameter NOP_WAIT = 8'b0000_0000; // Split into two instructions
+//parameter CMPU_I = 8'b0000_1100; // Not needed right now
+
+//High 4'b1000
+parameter LSH = 8'b1000_0100;
+//parameter LSHI = 8'b1000_000s; // Not needed right now
+parameter RSH = 8'b1000_1111;
+//parameter RSHI = 8'b1000_0101; // Not needed right now
+//parameter ALSH = 8'b1000_0111; // Not needed right now
+//parameter ARSH = 8'b1000_1xxx; // Not needed right now
+
+//High 4'b0101
+parameter ADDI = 8'b0101_xxxx;
+
+//High 4'b0110
+parameter ADDUI = 8'b0110_xxxx;
+
+//High 4'b0111
+parameter ADDCI = 8'b0111_xxxx;
+
+//High 4'b1001
+parameter SUBI = 8'b1001_xxxx;
+
+//High 4'b1011
+//parameter CMPI = 8'b1011_xxxx; // Not needed right now
+
+
+always@ (A, B, Cin, inst)
+begin
+   Opcode = {inst[15:12],inst[7:4]};
+	C = 16'b0;
+	Flags = 5'b0;
+	
+	casex(Opcode)
+		ADD:
+			begin
+			C = A + B;
+			if (C == 16'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			if($signed(A) & $signed(B) & $signed(C)) Flags[2] = 1'b1;
+			else Flags [2] = 1'b0;
+			Flags[1:0] = 2'b00; Flags[4] = 1'b0;
+			tempB = 16'b0;
+			end
+		
+		ADDU:
+			begin
+			{Flags[0], C} = A + B;
+			if ({Flags[0], C} == 17'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			Flags[2:1] = 2'b00; Flags[4] = 1'b0;
+			tempB = 16'b0;
+			
+			end
+		
+		ADDC:
+			begin
+			C = A + B + {15'b0, Cin};
+			if (C == 16'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			if($signed(A) & $signed(B) & $signed(C)) Flags[2] = 1'b1;
+			else Flags[2] = 1'b0;
+			Flags[1:0] = 2'b00; Flags[4] = 1'b0;
+			tempB = 16'b0;
+			
+			end
+
+		ADDCU:
+			begin
+			{Flags[0], C} = A + B + {15'b0, Cin};
+			if ({Flags[0], C} == 17'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			Flags[2:1] = 2'b00; Flags[4] = 1'b0;
+			tempB = 16'b0;
+			
+			end
+
+		ADDCUI:
+			begin
+			if (inst[7] == 1'b1) tempB = {8'b1, inst[7:0]};
+			else tempB = {8'b0, inst[7:0]};
+			{Flags[0], C} = A + tempB + {15'b0, Cin};
+			if ({Flags[0], C} == 17'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			Flags[2:1] = 2'b00; Flags[4] = 1'b0;
+
+			end
+
+		SUB:
+			begin
+			C = A - B;
+			if (C == 16'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			if($signed(A) & $signed(B) & $signed(C)) Flags[2] = 1'b1;
+			else Flags[2] = 1'b0;
+			Flags[1:0] = 2'b00; Flags[4] = 1'b0;
+			tempB = 16'b0;
+			
+			end
+		
+		CMP:
+			begin
+			if ($signed(A) < $signed(B)) begin Flags[4] = 1'b1; Flags[1] = 1'b1; end
+			else begin Flags[4] = 1'b0; Flags[1] = 1'b0; end
+			C = 16'b0;
+			Flags[3:2] = 2'b00; Flags[0] = 1'b0;
+			tempB = 16'b0;
+			
+			end
+		AND:
+			begin
+			C = A & B;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		OR:
+			begin
+			C = A | B;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		XOR:
+			begin
+			C = A ^ B;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		NOT:
+			begin
+			C = ~A;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		NOP_WAIT:
+			begin
+			tempB = 16'b0;
+			
+			end
+
+		LSH:
+			begin
+			C = A << B;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		RSH:
+			begin
+			C = A >> B;
+			Flags = 5'b0;
+			tempB = 16'b0;
+			
+			end
+
+		ADDI:
+			begin
+			if (inst[7] == 1'b1) tempB = {8'b1, inst[7:0]};
+			else tempB = {8'b0, inst[7:0]};
+			C = A + tempB;
+			if (C == 16'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			if ( $signed(A) & $signed(tempB) & $signed(C) ) Flags[2] = 1'b1;
+			else Flags[2] = 1'b0;
+			Flags[4] = 1'b0; Flags[1:0] = 1'b0;
+
+			end
+
+		ADDUI:
+			begin
+			{Flags[0], C} = A + {inst[7:4], inst[3:0]};
+         if ({Flags[0], C} == 17'b0) Flags[3] = 1'b1;
+         else Flags[3] = 1'b0;
+         Flags[2:1] = 2'b00; Flags[4] = 1'b0;
+         tempB = 16'b0;
+			
+			end
+
+		ADDCI:
+			begin
+			if (inst[7] == 1'b1) tempB = {8'b1, inst[7:0]};
+			else tempB = {8'b0, inst[7:0]};
+			C = A + tempB + {15'b0, Cin};
+			if (C == 16'b0) Flags[3] = 1'b1;
+         else Flags[3] = 1'b0;
+         if($signed(A) & $signed(B) & $signed(C)) Flags[2] = 1'b1;
+         else Flags[2] = 1'b0;
+         Flags[1:0] = 2'b00; Flags[4] = 1'b0;
+
+			end
+
+		SUBI:
+			begin
+			if (inst[7] == 1'b0) tempB = {8'b1, inst[7:0]};
+			else tempB = {8'b0, inst[7:0]};
+			C = A - tempB;
+			if (C == 16'b0) Flags[3] = 1'b1;
+			else Flags[3] = 1'b0;
+			if ( $signed(A) & $signed(tempB) & $signed(C) ) Flags[2] = 1'b1;
+			else Flags[2] = 1'b0;
+			Flags[4] = 1'b0; Flags[1:0] = 1'b0;
+	
+			end
+
+		default:
+			begin
+				C = 16'b0;
+				Flags = 5'b0;
+				tempB = 16'b0;
+			end
+		
+		endcase
+	end
+endmodule
+

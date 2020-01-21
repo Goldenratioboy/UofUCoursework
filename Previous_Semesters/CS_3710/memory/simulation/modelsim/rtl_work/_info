@@ -1,0 +1,77 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/delij/Documents/ECE 3710/ECE-3710/memory/simulation/modelsim
+vhexTo7Seg
+Z1 !s110 1538074012
+!i10b 1
+!s100 eRbXb^2=n5mhAHza@g=`M1
+IJ@g`U0BKYDZzJe[zhCDjO3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1536687446
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1538074012.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v|
+!i113 1
+Z5 o-vlog01compat -work work
+!s92 -vlog01compat -work work {+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile}
+Z6 tCvgOpt 0
+nhex@to7@seg
+vmemory
+R1
+!i10b 1
+!s100 @@^CCMK:1Z2oFkRH8OIhf3
+Ih2cQDBaI1;m6`zVj4C:N10
+R2
+R0
+w1538073076
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/memory|C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v|
+!i113 1
+R5
+Z7 !s92 -vlog01compat -work work {+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/memory}
+R6
+vmemory_fsm
+R1
+!i10b 1
+!s100 zjdIjRGTDNRB7;7X=8M_50
+IdA6?A;ha7>Yn9[Q3HiCPQ3
+R2
+R0
+w1538073983
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory_fsm.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory_fsm.v
+L0 21
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory_fsm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/memory|C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory_fsm.v|
+!i113 1
+R5
+R7
+R6

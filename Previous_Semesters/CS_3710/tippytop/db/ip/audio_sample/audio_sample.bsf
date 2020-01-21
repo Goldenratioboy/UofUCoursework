@@ -1,0 +1,170 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 656 416)
+	(text "audio_sample" (rect 288 -1 342 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 400 20 412)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "audio_0_avalon_left_channel_sink_data[15..0]" (rect 0 0 182 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_left_channel_sink_data[15..0]" (rect 4 61 268 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 288 72)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "audio_0_avalon_left_channel_sink_valid" (rect 0 0 160 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_left_channel_sink_valid" (rect 4 77 232 88)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 288 88)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "audio_0_avalon_right_channel_sink_data[15..0]" (rect 0 0 187 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_right_channel_sink_data[15..0]" (rect 4 133 274 144)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 288 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "audio_0_avalon_right_channel_sink_valid" (rect 0 0 165 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_right_channel_sink_valid" (rect 4 149 238 160)(font "Arial" (font_size 8)))
+		(line (pt 0 160)(pt 288 160)(line_width 1))
+	)
+	(port
+		(pt 0 216)
+		(input)
+		(text "audio_0_external_interface_BCLK" (rect 0 0 139 12)(font "Arial" (font_size 8)))
+		(text "audio_0_external_interface_BCLK" (rect 4 205 190 216)(font "Arial" (font_size 8)))
+		(line (pt 0 216)(pt 288 216)(line_width 1))
+	)
+	(port
+		(pt 0 248)
+		(input)
+		(text "audio_0_external_interface_DACLRCK" (rect 0 0 164 12)(font "Arial" (font_size 8)))
+		(text "audio_0_external_interface_DACLRCK" (rect 4 237 208 248)(font "Arial" (font_size 8)))
+		(line (pt 0 248)(pt 288 248)(line_width 1))
+	)
+	(port
+		(pt 0 344)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 333 46 344)(font "Arial" (font_size 8)))
+		(line (pt 0 344)(pt 288 344)(line_width 1))
+	)
+	(port
+		(pt 0 384)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 373 82 384)(font "Arial" (font_size 8)))
+		(line (pt 0 384)(pt 288 384)(line_width 1))
+	)
+	(port
+		(pt 0 104)
+		(output)
+		(text "audio_0_avalon_left_channel_sink_ready" (rect 0 0 166 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_left_channel_sink_ready" (rect 4 93 232 104)(font "Arial" (font_size 8)))
+		(line (pt 0 104)(pt 288 104)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(output)
+		(text "audio_0_avalon_right_channel_sink_ready" (rect 0 0 171 12)(font "Arial" (font_size 8)))
+		(text "audio_0_avalon_right_channel_sink_ready" (rect 4 165 238 176)(font "Arial" (font_size 8)))
+		(line (pt 0 176)(pt 288 176)(line_width 1))
+	)
+	(port
+		(pt 0 232)
+		(output)
+		(text "audio_0_external_interface_DACDAT" (rect 0 0 156 12)(font "Arial" (font_size 8)))
+		(text "audio_0_external_interface_DACDAT" (rect 4 221 202 232)(font "Arial" (font_size 8)))
+		(line (pt 0 232)(pt 288 232)(line_width 1))
+	)
+	(port
+		(pt 0 304)
+		(output)
+		(text "audio_and_video_config_0_external_interface_SCLK" (rect 0 0 215 12)(font "Arial" (font_size 8)))
+		(text "audio_and_video_config_0_external_interface_SCLK" (rect 4 293 292 304)(font "Arial" (font_size 8)))
+		(line (pt 0 304)(pt 288 304)(line_width 1))
+	)
+	(port
+		(pt 656 72)
+		(output)
+		(text "audio_pll_0_audio_clk_clk" (rect 0 0 102 12)(font "Arial" (font_size 8)))
+		(text "audio_pll_0_audio_clk_clk" (rect 525 61 675 72)(font "Arial" (font_size 8)))
+		(line (pt 656 72)(pt 368 72)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(bidir)
+		(text "audio_and_video_config_0_external_interface_SDAT" (rect 0 0 217 12)(font "Arial" (font_size 8)))
+		(text "audio_and_video_config_0_external_interface_SDAT" (rect 4 277 292 288)(font "Arial" (font_size 8)))
+		(line (pt 0 288)(pt 288 288)(line_width 1))
+	)
+	(drawing
+		(text "audio_0_avalon_left_channel_sink" (rect 87 43 366 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "data" (rect 293 67 610 144)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 293 83 616 176)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 293 99 616 208)(font "Arial" (color 0 0 0)))
+		(text "audio_0_avalon_right_channel_sink" (rect 80 115 358 243)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "data" (rect 293 139 610 288)(font "Arial" (color 0 0 0)))
+		(text "valid" (rect 293 155 616 320)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 293 171 616 352)(font "Arial" (color 0 0 0)))
+		(text "audio_0_external_interface" (rect 130 187 416 387)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "BCLK" (rect 293 211 610 432)(font "Arial" (color 0 0 0)))
+		(text "DACDAT" (rect 293 227 622 464)(font "Arial" (color 0 0 0)))
+		(text "DACLRCK" (rect 293 243 628 496)(font "Arial" (color 0 0 0)))
+		(text "audio_and_video_config_0_external_interface" (rect 20 259 298 531)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "SDAT" (rect 293 283 610 576)(font "Arial" (color 0 0 0)))
+		(text "SCLK" (rect 293 299 610 608)(font "Arial" (color 0 0 0)))
+		(text "audio_pll_0_audio_clk" (rect 369 43 864 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 353 67 724 144)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 273 315 564 643)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 293 339 604 688)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 259 355 548 723)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 293 379 628 768)(font "Arial" (color 0 0 0)))
+		(text " audio_sample " (rect 595 400 1274 810)(font "Arial" ))
+		(line (pt 288 32)(pt 368 32)(line_width 1))
+		(line (pt 368 32)(pt 368 400)(line_width 1))
+		(line (pt 288 400)(pt 368 400)(line_width 1))
+		(line (pt 288 32)(pt 288 400)(line_width 1))
+		(line (pt 289 52)(pt 289 108)(line_width 1))
+		(line (pt 290 52)(pt 290 108)(line_width 1))
+		(line (pt 289 124)(pt 289 180)(line_width 1))
+		(line (pt 290 124)(pt 290 180)(line_width 1))
+		(line (pt 289 196)(pt 289 252)(line_width 1))
+		(line (pt 290 196)(pt 290 252)(line_width 1))
+		(line (pt 289 268)(pt 289 308)(line_width 1))
+		(line (pt 290 268)(pt 290 308)(line_width 1))
+		(line (pt 367 52)(pt 367 76)(line_width 1))
+		(line (pt 366 52)(pt 366 76)(line_width 1))
+		(line (pt 289 324)(pt 289 348)(line_width 1))
+		(line (pt 290 324)(pt 290 348)(line_width 1))
+		(line (pt 289 364)(pt 289 388)(line_width 1))
+		(line (pt 290 364)(pt 290 388)(line_width 1))
+		(line (pt 0 0)(pt 656 0)(line_width 1))
+		(line (pt 656 0)(pt 656 416)(line_width 1))
+		(line (pt 0 416)(pt 656 416)(line_width 1))
+		(line (pt 0 0)(pt 0 416)(line_width 1))
+	)
+)

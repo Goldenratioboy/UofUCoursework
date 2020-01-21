@@ -1,0 +1,431 @@
+# Reading C:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do 3710alu_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+<<<<<<< HEAD
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/alu {C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:28 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/alu" C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v 
+=======
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/alu {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:56:21 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu" C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/hexTo7Seg.v 
+# -- Compiling module hexTo7Seg
+# 
+# Top level modules:
+# 	hexTo7Seg
+# End time: 11:56:21 on Sep 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/alu {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:56:21 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu" C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v 
+>>>>>>> master
+# -- Compiling module _3710alu
+# 
+# Top level modules:
+# 	_3710alu
+<<<<<<< HEAD
+# End time: 11:04:29 on Sep 11,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/alu {C:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:04:29 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/steen/Desktop/ECE-3710/alu" C:/Users/steen/Desktop/ECE-3710/alu/tb_alu_rand.v 
+# -- Compiling module tb_alu_rand
+# 
+# Top level modules:
+# 	tb_alu_rand
+# End time: 11:04:30 on Sep 11,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_alu_rand
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_alu_rand 
+# Start time: 11:04:31 on Sep 11,2018
+# Loading work.tb_alu_rand
+=======
+# End time: 11:56:21 on Sep 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/alu {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:56:21 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu" C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/wrap.v 
+# -- Compiling module wrap
+# 
+# Top level modules:
+# 	wrap
+# End time: 11:56:21 on Sep 11,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/alu {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:56:21 on Sep 11,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/alu" C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v 
+# -- Compiling module tb_alu_cc
+# ** Warning: C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/tb_alu_cc.v(209): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	tb_alu_cc
+# End time: 11:56:22 on Sep 11,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_alu_cc
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_alu_cc 
+# Start time: 11:56:22 on Sep 11,2018
+# Loading work.tb_alu_cc
+>>>>>>> master
+# Loading work._3710alu
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ADD:
+<<<<<<< HEAD
+# A: 0000000100100100, B: 1111111010000001, C:1111111110100101, Flags[4:0]: 00000, time:                   25
+# ADD:
+# A: 1111111000001001, B: 1111111001100011, C:1111110001101100, Flags[4:0]: 00100, time:                   60
+# ADD:
+# A: 0000001100001101, B: 0000000110001101, C:0000010010011010, Flags[4:0]: 00100, time:                   95
+# ADD:
+# A: 1111110001100101, B: 1111111000010010, C:1111101001110111, Flags[4:0]: 00100, time:                  130
+# ADD:
+# A: 0000001100000001, B: 0000000100001101, C:0000010000001110, Flags[4:0]: 00000, time:                  165
+# ADD:
+# A: 0000000101110110, B: 0000000100111101, C:0000001010110011, Flags[4:0]: 00100, time:                  200
+# ADD:
+# A: 0000001111101101, B: 0000001110001100, C:0000011101111001, Flags[4:0]: 00100, time:                  235
+# ADD:
+# A: 0000000111111001, B: 1111110011000110, C:1111111010111111, Flags[4:0]: 00100, time:                  270
+# ADD:
+# A: 1111110011000101, B: 1111111010101010, C:1111101101101111, Flags[4:0]: 00100, time:                  305
+# ADD:
+# A: 0000001111100101, B: 1111111001110111, C:0000001001011100, Flags[4:0]: 00100, time:                  340
+# ADDU:
+# A: 65042, B:   911, C:  417, Flags[4:0]: 00001, time:                  375
+# ADDU:
+# A:   498, B: 65230, C:  192, Flags[4:0]: 00001, time:                  400
+# ADDU:
+# A: 65256, B: 65221, C:64941, Flags[4:0]: 00001, time:                  425
+# ADDU:
+# A:   348, B: 64701, C:65049, Flags[4:0]: 00000, time:                  450
+# ADDU:
+# A: 64557, B: 65125, C:64146, Flags[4:0]: 00001, time:                  475
+# ADDU:
+# A: 65123, B:   778, C:  365, Flags[4:0]: 00001, time:                  500
+# ADDU:
+# A: 65152, B:   288, C:65440, Flags[4:0]: 00000, time:                  525
+# ADDU:
+# A:   426, B: 64669, C:65095, Flags[4:0]: 00000, time:                  550
+# ADDU:
+# A: 65174, B: 64531, C:64169, Flags[4:0]: 00001, time:                  575
+# ADDU:
+# A: 64525, B: 65107, C:64096, Flags[4:0]: 00001, time:                  600
+# ADDC:
+# A: 0000000101101011, B: 1111111011010101, Cin: 1, C:0000000001000001, Flags[4:0]: 00100, time:                  625
+# ADDC:
+# A: 1111111000000010, B: 1111111010101110, Cin: 1, C:1111110010110001, Flags[4:0]: 00100, time:                  650
+# ADDC:
+# A: 0000000100011101, B: 1111111011001111, Cin: 1, C:1111111111101101, Flags[4:0]: 00100, time:                  675
+# ADDC:
+# A: 0000000100100011, B: 0000000100001010, Cin: 1, C:0000001000101110, Flags[4:0]: 00100, time:                  700
+# ADDC:
+# A: 1111111011001010, B: 1111110000111100, Cin: 1, C:1111101100000111, Flags[4:0]: 00100, time:                  725
+# ADDC:
+# A: 0000000111110010, B: 0000000110001010, Cin: 1, C:0000001101111101, Flags[4:0]: 00100, time:                  750
+# ADDC:
+# A: 0000001101000001, B: 1111110011011000, Cin: 1, C:0000000000011010, Flags[4:0]: 00000, time:                  775
+# ADDC:
+# A: 0000001101111000, B: 1111111010001001, Cin: 1, C:0000001000000010, Flags[4:0]: 00100, time:                  800
+# ADDC:
+# A: 0000000111101011, B: 0000000110110110, Cin: 1, C:0000001110100010, Flags[4:0]: 00100, time:                  825
+# ADDC:
+# A: 0000000111000110, B: 0000001110101110, Cin: 1, C:0000010101110101, Flags[4:0]: 00100, time:                  850
+# ADDCU:
+# A: 65212, B:   298, Cin: 1, C:65511, Flags[4:0]: 00000, time:                  875
+# ADDCU:
+# A: 65035, B: 65137, Cin: 1, C:64637, Flags[4:0]: 00001, time:                  900
+# ADDCU:
+# A:   389, B:   335, Cin: 1, C:  725, Flags[4:0]: 00000, time:                  925
+# ADDCU:
+# A: 64571, B:   826, Cin: 1, C:65398, Flags[4:0]: 00000, time:                  950
+# ADDCU:
+# A: 65150, B:   789, Cin: 1, C:  404, Flags[4:0]: 00001, time:                  975
+# ADDCU:
+# A:  1009, B:   985, Cin: 1, C: 1995, Flags[4:0]: 00000, time:                 1000
+# ADDCU:
+# A:   866, B:   844, Cin: 1, C: 1711, Flags[4:0]: 00000, time:                 1025
+# ADDCU:
+# A:   415, B:   399, Cin: 1, C:  815, Flags[4:0]: 00000, time:                 1050
+=======
+# A:   122, B:   100, C:  222, Flags[4:0]: 00100, time:                   20
+# A: 65036, B:   100, C:65136, Flags[4:0]: 00000, time:                   40
+# A: 65414, B: 65436, C:65314, Flags[4:0]: 00100, time:                   60
+# ADDI:
+# A:    50, Imm: 122, C:  172, Flags[4:0]: 00100, time:                   80
+# A: 65036, Imm: 100, C:65136, Flags[4:0]: 00000, time:                  100
+# A: 65414, Imm: 134, C:  268, Flags[4:0]: 00100, time:                  120
+# ADDU:
+# A:   122, B:   100, C:  222, Flags[4:0]: 00000, time:                  140
+# A: 65493, B:   100, C:   57, Flags[4:0]: 00001, time:                  160
+# A: 65356, B: 65356, C:65176, Flags[4:0]: 00001, time:                  180
+# ADDUI:
+# A:  1001, Imm: 122, C: 1123, Flags[4:0]: 00000, time:                  200
+# A: 65036, Imm: 122, C:65158, Flags[4:0]: 00000, time:                  220
+# A: 65414, Imm: 122, C:    0, Flags[4:0]: 00001, time:                  240
+# ADDC:
+# CarryIn: 0
+# A: 32768, B: 32768, C:    0, Flags[4:0]: 01000, time:                  260
+# ADDUI:
+# A:  1001, B:  1001, C: 2002, Flags[4:0]: 00100, time:                  280
+# A: 65036, B:   100, C:65136, Flags[4:0]: 00000, time:                  300
+# A: 65414, B: 65436, C:65314, Flags[4:0]: 00100, time:                  320
+>>>>>>> master
+# ADDCU:
+# CarryIn: 0
+# A: 32768, B: 32768, C:    0, Flags[4:0]: 00001, time:                  340
+# ADDCU:
+<<<<<<< HEAD
+# A: 65183, B: 64604, Cin: 1, C:64252, Flags[4:0]: 00001, time:                 1100
+# SUB:
+# A: 1111110001011011, B: 0000001110001001, C:1111100011010010, Flags[4:0]: 00000, time:                 1125
+# SUB:
+# A: 1111111001001001, B: 1111111011010000, C:1111111101111001, Flags[4:0]: 00100, time:                 1150
+# SUB:
+# A: 1111110011010111, B: 1111110001010001, C:0000000010000110, Flags[4:0]: 00000, time:                 1175
+# SUB:
+# A: 0000001110010110, B: 0000001100001100, C:0000000010001010, Flags[4:0]: 00000, time:                 1200
+# SUB:
+# A: 1111111011000010, B: 0000000111001000, C:1111110011111010, Flags[4:0]: 00100, time:                 1225
+# SUB:
+# A: 1111111001110111, B: 0000000100111101, C:1111110100111010, Flags[4:0]: 00100, time:                 1250
+# SUB:
+# A: 0000001100010010, B: 1111110001111110, C:0000011010010100, Flags[4:0]: 00100, time:                 1275
+# SUB:
+# A: 0000000101101101, B: 0000001100111001, C:1111111000110100, Flags[4:0]: 00100, time:                 1300
+# SUB:
+# A: 0000001100011111, B: 1111111011010011, C:0000010001001100, Flags[4:0]: 00000, time:                 1325
+# SUB:
+# A: 0000001110000101, B: 1111110001111000, C:0000011100001101, Flags[4:0]: 00000, time:                 1350
+# CMP:
+# A: 0000000101011011, B: 0000001101001001, C:0000000000000000, Flags[4:0]: 10010, time:                 1375
+# CMP:
+# A: 1111111000111111, B: 0000001100101010, C:0000000000000000, Flags[4:0]: 10010, time:                 1400
+# CMP:
+# A: 0000001101011000, B: 1111110010000110, C:0000000000000000, Flags[4:0]: 00000, time:                 1425
+# CMP:
+# A: 1111110010001110, B: 1111111010011100, C:0000000000000000, Flags[4:0]: 10010, time:                 1450
+# CMP:
+# A: 0000000111111010, B: 1111110000100110, C:0000000000000000, Flags[4:0]: 00000, time:                 1475
+# CMP:
+# A: 0000001101110011, B: 1111110010100011, C:0000000000000000, Flags[4:0]: 00000, time:                 1500
+# CMP:
+# A: 1111110000101111, B: 1111111010110011, C:0000000000000000, Flags[4:0]: 10010, time:                 1525
+# CMP:
+# A: 1111111001011111, B: 0000000101000100, C:0000000000000000, Flags[4:0]: 10010, time:                 1550
+# CMP:
+# A: 0000000111110111, B: 1111111011001011, C:0000000000000000, Flags[4:0]: 00000, time:                 1575
+# CMP:
+# A: 1111111011100110, B: 0000001101011010, C:0000000000000000, Flags[4:0]: 10010, time:                 1600
+# AND:
+# A: 0000000100101001, B: 1111111011101101, C:0000000000101001, Flags[4:0]: 00000, time:                 1625
+# AND:
+# A: 1111110011011010, B: 1111111001100101, C:1111110001000000, Flags[4:0]: 00000, time:                 1650
+# AND:
+# A: 1111111010110101, B: 1111110011011111, C:1111110010010101, Flags[4:0]: 00000, time:                 1675
+# AND:
+# A: 0000000101111001, B: 0000001101000100, C:0000000101000000, Flags[4:0]: 00000, time:                 1700
+# AND:
+# A: 1111110011010000, B: 0000001100101010, C:0000000000000000, Flags[4:0]: 00000, time:                 1725
+# AND:
+# A: 0000000110101011, B: 0000001100001110, C:0000000100001010, Flags[4:0]: 00000, time:                 1750
+# AND:
+# A: 0000000111011100, B: 1111110010011010, C:0000000010011000, Flags[4:0]: 00000, time:                 1775
+=======
+# A:  1001, B:  1001, C: 2002, Flags[4:0]: 00000, time:                  350
+# A: 65036, B:   100, C:65136, Flags[4:0]: 00000, time:                  370
+# A: 65414, B: 65436, C:65314, Flags[4:0]: 00001, time:                  390
+# ADDCUI:
+# CarryIn: 0
+# A: 32768, B: 32768, C:    0, Flags[4:0]: 00000, time:                  410
+# ADDCUI:
+# A:  1001, B:  1001, C:    0, Flags[4:0]: 00000, time:                  420
+# A: 65036, B:   100, C:    0, Flags[4:0]: 00000, time:                  440
+# A: 65414, B: 65436, C:    0, Flags[4:0]: 00000, time:                  460
+# ADDCI:
+# CarryIn: 0
+# A: 32768, Imm: 128, C:33152, Flags[4:0]: 00000, time:                  480
+# ADDCI:
+# A:  1001, Imm: 233, C: 1490, Flags[4:0]: 00100, time:                  490
+# A: 65036, Imm: 100, C:65136, Flags[4:0]: 00000, time:                  510
+# A: 65414, Imm: 156, C:  290, Flags[4:0]: 00100, time:                  530
+# SUB:
+# A:   122, B:   100, C:   22, Flags[4:0]: 00000, time:                  550
+# A:   500, B: 65486, C:  550, Flags[4:0]: 00100, time:                  570
+# A:    50, B:   100, C:65486, Flags[4:0]: 00000, time:                  590
+# A: 65414, B: 65436, C:65514, Flags[4:0]: 00100, time:                  610
+# SUBI:
+# A:   122, Imm: 122, C:65280, Flags[4:0]: 00000, time:                  630
+# A:   500, Imm: 206, C:  294, Flags[4:0]: 00100, time:                  650
+# A:    50, Imm: 100, C:65230, Flags[4:0]: 00000, time:                  670
+# A: 65414, Imm: 156, C:65258, Flags[4:0]: 00100, time:                  690
+# CMP:
+# A:     1, B: 65534, C:    0, Flags[4:0]: 00000, time:                  710
+# A:   122, B:   100, C:    0, Flags[4:0]: 00000, time:                  730
+# A:   100, B:   122, C:    0, Flags[4:0]: 10010, time:                  750
+# A:    50, B:    50, C:    0, Flags[4:0]: 00000, time:                  770
+# A: 65491, B: 65491, C:    0, Flags[4:0]: 00000, time:                  790
+>>>>>>> master
+# AND:
+# A: 0000000001001001, B: 0000000001001001, C:0000000001001001, Flags[4:0]: 00000, time:                  820
+# A: 0000000000000101, B: 0000000000000010, C:0000000000000000, Flags[4:0]: 00000, time:                  840
+# A: 1100111001101011, B: 1011010101010010, C:1000010001000010, Flags[4:0]: 00000, time:                  860
+# A: 0000000000000001, B: 0000000000000001, C:0000000000000001, Flags[4:0]: 00000, time:                  880
+# OR:
+# A: 0000000000000101, B: 0000000000000010, C:0000000000000111, Flags[4:0]: 00000, time:                  900
+# A: 0000000000001011, B: 0000000000001011, C:0000000000001011, Flags[4:0]: 00000, time:                  920
+# A: 1001011011010110, B: 1001001001011011, C:1001011011011111, Flags[4:0]: 00000, time:                  940
+# XOR:
+# A: 0000000000000101, B: 0000000000000010, C:0000000000000111, Flags[4:0]: 00000, time:                  960
+# A: 0000000000001011, B: 0000000000001011, C:0000000000000000, Flags[4:0]: 00000, time:                  980
+# A: 1001011011010110, B: 1001001001011011, C:0000010010001101, Flags[4:0]: 00000, time:                 1000
+# NOT:
+# A:   122, B:   100, C:65413, Flags[4:0]: 00000, time:                 1020
+# LSH:
+# A:     1, B:    57, C:    0, Flags[4:0]: 00000, time:                 1040
+# A:     7, B:     1, C:   14, Flags[4:0]: 00000, time:                 1050
+# RSH:
+<<<<<<< HEAD
+# A: 0000000100101010, B: 1111110010001101, C:0000000000000000, Flags[4:0]: 00000, time:                 3000
+# RSH:
+# A: 0000001110011110, B: 1111111000111000, C:0000000000000000, Flags[4:0]: 00000, time:                 3025
+# RSH:
+# A: 1111110001111001, B: 0000001111001000, C:0000000000000000, Flags[4:0]: 00000, time:                 3050
+# RSH:
+# A: 0000000111001010, B: 0000000100010011, C:0000000000000000, Flags[4:0]: 00000, time:                 3075
+# RSH:
+# A: 0000000101101011, B: 1111111011000111, C:0000000000000000, Flags[4:0]: 00000, time:                 3100
+# ADDI:
+# A: 0000000110110110, B: 1111111011000111, C:0000001101110000, Flags[4:0]: 00100, time:                 3125
+# ADDI:
+# A: 0000001111000100, B: 1111111011000111, C:0000010101111101, Flags[4:0]: 00100, time:                 3150
+# ADDI:
+# A: 0000001110010010, B: 1111111011000111, C:0000010101000110, Flags[4:0]: 00100, time:                 3175
+# ADDI:
+# A: 0000001101111111, B: 1111111011000111, C:0000010100000101, Flags[4:0]: 00100, time:                 3200
+# ADDI:
+# A: 0000000111111010, B: 1111111011000111, C:0000001111101100, Flags[4:0]: 00100, time:                 3225
+# ADDI:
+# A: 0000000100110010, B: 1111111011000111, C:0000001011101111, Flags[4:0]: 00100, time:                 3250
+# ADDI:
+# A: 0000000110000100, B: 1111111011000111, C:0000001101101000, Flags[4:0]: 00100, time:                 3275
+# ADDI:
+# A: 0000001111001010, B: 1111111011000111, C:0000010101110011, Flags[4:0]: 00100, time:                 3300
+# ADDI:
+# A: 1111110010100001, B: 1111111011000111, C:1111111000101111, Flags[4:0]: 00000, time:                 3325
+# ADDI:
+# A: 1111111011111011, B: 1111111011000111, C:1111111100000110, Flags[4:0]: 00100, time:                 3350
+# ADDUI:
+# A: 64751, B: 65223, Cin: 1, C:64952, Flags[4:0]: 00000, time:                 3375
+# ADDUI:
+# A:   310, B: 65223, Cin: 1, C:  427, Flags[4:0]: 00000, time:                 3400
+# ADDUI:
+# A: 65167, B: 65223, Cin: 1, C:65274, Flags[4:0]: 00000, time:                 3425
+# ADDUI:
+# A:   904, B: 65223, Cin: 1, C: 1078, Flags[4:0]: 00000, time:                 3450
+# ADDUI:
+# A:   411, B: 65223, Cin: 1, C:  557, Flags[4:0]: 00000, time:                 3475
+# ADDUI:
+# A:   808, B: 65223, Cin: 1, C:  853, Flags[4:0]: 00000, time:                 3500
+# ADDUI:
+# A:   843, B: 65223, Cin: 1, C: 1037, Flags[4:0]: 00000, time:                 3525
+# ADDUI:
+# A: 65054, B: 65223, Cin: 1, C:65067, Flags[4:0]: 00000, time:                 3550
+# ADDUI:
+# A:   492, B: 65223, Cin: 1, C:  516, Flags[4:0]: 00000, time:                 3575
+# ADDUI:
+# A:   977, B: 65223, Cin: 1, C: 1111, Flags[4:0]: 00000, time:                 3600
+# ADDCUI:
+# A: 64577, b: 65223, Cin: 1, C:  646, Flags[4:0]: 00000, time:                 3625
+# ADDCUI:
+# A:   472, b: 65223, Cin: 1, C:  159, Flags[4:0]: 00100, time:                 3650
+# ADDCUI:
+# A: 65110, b: 65223, Cin: 1, C:64797, Flags[4:0]: 00100, time:                 3675
+# ADDCUI:
+# A: 65250, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3700
+# ADDCUI:
+# A:   883, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3725
+# ADDCUI:
+# A:   274, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3750
+# ADDCUI:
+# A: 65081, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3775
+# ADDCUI:
+# A: 64673, b: 65223, Cin: 1, C:65255, Flags[4:0]: 00000, time:                 3800
+# ADDCUI:
+# A:   385, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3825
+# ADDCUI:
+# A:   295, b: 65223, Cin: 1, C:    0, Flags[4:0]: 00000, time:                 3850
+# ADDCI:
+# A: 1111111000011111, B: 1111111011000111, Cin: 1, C:1111111000100100, Flags[4:0]: 00100, time:                 3875
+# ADDCI:
+# A: 0000001101011000, B: 1111111011000111, Cin: 1, C:0000010011101111, Flags[4:0]: 00000, time:                 3900
+# ADDCI:
+# A: 0000001100010100, B: 1111111011000111, Cin: 1, C:0000001100100111, Flags[4:0]: 00000, time:                 3925
+# ADDCI:
+# A: 1111110010010110, B: 1111111011000111, Cin: 1, C:1111111001001000, Flags[4:0]: 00000, time:                 3950
+# ADDCI:
+# A: 0000000101010101, B: 1111111011000111, Cin: 1, C:0000001101000011, Flags[4:0]: 00100, time:                 3975
+# ADDCI:
+# A: 0000001100101011, B: 1111111011000111, Cin: 1, C:0000010100100001, Flags[4:0]: 00100, time:                 4000
+# ADDCI:
+# A: 0000001110101101, B: 1111111011000111, Cin: 1, C:0000001111010101, Flags[4:0]: 00100, time:                 4025
+# ADDCI:
+# A: 0000001110000100, B: 1111111011000111, Cin: 1, C:0000010100101100, Flags[4:0]: 00100, time:                 4050
+# ADDCI:
+# A: 1111111011100111, B: 1111111011000111, Cin: 1, C:0000000010100001, Flags[4:0]: 00100, time:                 4075
+# ADDCI:
+# A: 1111111001001001, B: 1111111011000111, Cin: 1, C:0000000000100101, Flags[4:0]: 00100, time:                 4100
+# SUBI:
+# A: 0000001111001001, B: 1111111011000111, C:0000001001111000, Flags[4:0]: 00100, time:                 4125
+# SUBI:
+# A: 1111111010100001, B: 1111111011000111, C:1111110101110111, Flags[4:0]: 00100, time:                 4150
+# SUBI:
+# A: 0000000111111010, B: 1111111011000111, C:0000000010110101, Flags[4:0]: 00000, time:                 4175
+# SUBI:
+# A: 0000000110000011, B: 1111111011000111, C:0000000000000111, Flags[4:0]: 00000, time:                 4200
+# SUBI:
+# A: 1111110001110010, B: 1111111011000111, C:1111101101110100, Flags[4:0]: 00100, time:                 4225
+# SUBI:
+# A: 1111111001101000, B: 1111111011000111, C:1111110011111001, Flags[4:0]: 00100, time:                 4250
+# SUBI:
+# A: 0000000110000110, B: 1111111011000111, C:0000000010010110, Flags[4:0]: 00100, time:                 4275
+# SUBI:
+# A: 0000001100111000, B: 1111111011000111, C:0000000111111000, Flags[4:0]: 00100, time:                 4300
+# SUBI:
+# A: 1111111000101000, B: 1111111011000111, C:1111110100110010, Flags[4:0]: 00100, time:                 4325
+# SUBI:
+# A: 1111111011000101, B: 1111111011000111, C:1111111000000101, Flags[4:0]: 00000, time:                 4350
+# End time: 11:24:43 on Sep 11,2018, Elapsed time: 0:20:12
+=======
+# A:     1, B:   100, C:    0, Flags[4:0]: 00000, time:                 1070
+# A:     7, B:   128, C:    0, Flags[4:0]: 00000, time:                 1090
+# A:     5, B:   128, C:    0, Flags[4:0]: 00000, time:                 1110
+# A:     3, B:   128, C:    0, Flags[4:0]: 00000, time:                 1130
+# NOP/WAIT:
+# A:   122, B:   100, C:    0, Flags[4:0]: 00000, time:                 1150
+# End time: 12:05:13 on Sep 11,2018, Elapsed time: 0:08:51
+>>>>>>> master
+# Errors: 0, Warnings: 0
