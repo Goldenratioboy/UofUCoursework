@@ -1,0 +1,205 @@
+/*Written by Jonathan Pilling for the ECE3710 Group "The Boyz"*/
+
+//I do not account for R_IMM type instructions but I think our ALU handles this already if we give it that Imm-type op codes, will have to test this further.
+
+input clk, reset, data, DOUT [15:0];
+
+output LD_mux, PC_mux, opcode_out [7:0], Reg_en [15:0], Mux_A [15:0], Mux_B [15:0], Mux_imm, Flag_en [4:0], PC_en, wen;
+
+
+reg [3:0] state;
+
+parameter reset1 = 4'b1111; /*This will be the first state, reset switch always zeroes out everything except for pc_mux*/
+
+
+parameter first = 4'b0000; //This is the state where we decide where to go, decoding the instruction determines this
+
+/*R-type intruction states*/
+parameter r1 = 4'b0001;
+parameter r2 = 4'b0010;
+
+/*Store instruction states*/
+parameter store1 = 4'b0011;
+parameter store2 = 4'b0100;
+
+/*Load instruction states*/
+parameter load1 = 4'b0101;
+parameter load2 = 4'b0110;
+
+/*Jump instruction states*/
+parameter jump1 = 4'b0111;
+parameter jump2 = 4'b1000;
+
+
+/*Logic for flowing through the states*/
+always@ (posedge clk)
+begin
+	state <= reset1;
+	case(state)
+	reset1:
+		if (reset)
+			state <= reset1;
+		else
+			state <= first;
+			
+	first:
+		if (reset)
+			state <= reset1;
+		else
+
+		/////////////////////////////////////////////////////////////
+        /*This is the big decoding section*/
+		////////////////////////////////////////////////////////////
+
+			/*This indicates a load/store/jump op*/
+			if(DOUT[15:12] == 4'b0100)
+			begin
+
+				//LOAD
+				if(DOUT[7:4] == 4'b0000)
+				begin
+				  state <= load1;
+				end
+
+				//STORE
+				else if(DOUT[7:4] == 4'b0100)
+				begin
+				  state <= store1;
+				end
+
+				//JUMPS
+				else if(DOUT[7:4] == 4'b1100 || DOUT[7:4] == 4'b1000)
+				begin
+				  state <= jump1;
+				end
+			end
+
+			else /*R-type Instruction, accounts for R_Imm type insts*/
+			begin
+			  state <= r1;
+			end
+
+			/////////////////////////////////////////////////////////////
+
+
+	r1:
+		if (reset)
+			state <= reset1;
+		else
+			state <= r2;
+			
+	r2:
+		if (reset)
+			state <= reset1;
+		else
+			state <= first;
+			
+	store1:
+		if (reset)
+			state <= reset1;
+		else
+			state <= store2;
+			
+	store2:
+		if (reset)
+			state <= reset1;
+		else
+			state <= first;
+			
+	load1:
+		if (reset)
+			state <= reset1;
+		else
+			state <= load2;
+			
+	load2:
+		if (reset)
+			state <= reset1;
+		else
+			state <= first;
+			
+	jump1:
+		if (reset)
+			state <= reset1;
+		else
+			state <= jump2;
+			
+	jump2:
+		if (reset)
+			state <= reset1;
+		else
+			state <= first;
+	default:
+		state <= reset1;
+		
+	endcase	
+end
+
+/*Combinational Logic for the different states, control signals*/
+always@ (state)
+begin
+	case(state)
+
+	reset1:
+		pc_en = 1'b0;
+		Reg_en = 16'b0000_0000_0000_0000;
+		Flag_en = 4'b0000;
+		pc_mux = 1'b1;
+		wen = 1'b0;
+
+    first:
+        pc_en = 1'b0;
+        Reg_en = 16'b0000_0000_0000_0000;
+        Flag_en = 4'b0000;
+        PC_mux = 1'b1;
+
+    r1:
+        Mux_A[DOUT[3:0]] = 1'b1; //SRC
+        Mux_B[DOUT [11:8]] = 1'b1;
+        Reg_en[DOUT[11:8]] = 1'b1; //Passes in destination bit to turn on for 16 bit hot coded reg enable
+        opcode_out = {[15:12],[7:4]}; //Assigns op code to ALU
+
+    r2: 
+        pc_en = 1'b1; //I think this is just an extra buffer state for computing
+
+    store1:
+        pc_mux = 1'b0;
+        Mux_A[DOUT[3:0]] = 1'b1; //R Address
+        Mux_B[DOUT[11:8]] = 1'b1; //Data/SRC
+        wen = 1'b1;
+        Reg_en = 16'b0000_0000_0000_0000;
+        pc_en = 1'b0;
+
+    store2:
+        pc_en = 1'b1;
+        pc_mux = 1'b1;
+        wen = 1'b0;
+
+    load1:
+        pc_en = 1'b0;
+        Mux_A[DOUT[3:0]] = 1'b1;
+        Mux_B = x; //Don't Care
+        wen = 1'b0;
+        ld_mux = 1'b1;
+        PC_mux = 1'b0;
+        Reg_en = 16'b0000_0000_0000_0000;
+
+    load2:
+        ld_mux = 1'b1;
+        Reg_en = DOUT[11:8];
+        pc_en = 1'b1;
+        pc_mux = 1'b1;
+
+    jump1:
+        ld_pc = 1'b1;
+        pc_en = 1'b1;
+        pc_mux = 1'b1;
+        Reg_en = 16'b0000_0000_0000_0000;
+        Flag_en = 4'b0000;
+
+    jump2:
+        pc_en = 1'b0;
+        pc_mux = 1'b1;
+	
+endcase
+end

@@ -1,0 +1,604 @@
+# Reading C:/intelFPGA_lite/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do tippytop_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/tippytop {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:34:14 on Dec 14,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop" C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v 
+# -- Compiling module Keyboard
+# 
+# Top level modules:
+# 	Keyboard
+# End time: 22:34:14 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/cpuDatapath {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:34:14 on Dec 14,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath" C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v 
+# -- Compiling module FSM
+# 
+# Top level modules:
+# 	FSM
+# End time: 22:34:15 on Dec 14,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/vga {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:34:15 on Dec 14,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/vga" C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v 
+# -- Compiling module vga_wrapper
+# ** Error: C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v(11): (vlog-2110) Illegal reference to net "addie".
+# End time: 22:34:15 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./tippytop_run_msim_rtl_verilog.do line 10
+# C:/intelFPGA_lite/18.0/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/delij/Documents/ECE\ 3710/ECE-3710/vga {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v}"
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:20 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v 
+# -- Compiling module tippytop_tb
+# 
+# Top level modules:
+# 	tippytop_tb
+# End time: 22:35:20 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:35:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v 
+# -- Compiling module cpu_alu_datapath
+# 
+# Top level modules:
+# 	cpu_alu_datapath
+# End time: 22:35:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:34 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 22:35:34 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:38 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v 
+# -- Compiling module _3710alu
+# 
+# Top level modules:
+# 	_3710alu
+# End time: 22:35:38 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:56 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:35:56 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:35:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v 
+# -- Compiling module FSM
+# 
+# Top level modules:
+# 	FSM
+# End time: 22:35:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:07 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v 
+# -- Compiling module vga_wrapper
+# 
+# Top level modules:
+# 	vga_wrapper
+# End time: 22:36:07 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:08 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v 
+# -- Compiling module vga_640by480
+# 
+# Top level modules:
+# 	vga_640by480
+# End time: 22:36:08 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:09 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v 
+# -- Compiling module bitgen_piano
+# 
+# Top level modules:
+# 	bitgen_piano
+# End time: 22:36:09 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:26 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v 
+# -- Compiling module _3710alu
+# 
+# Top level modules:
+# 	_3710alu
+# End time: 22:36:26 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:26 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v 
+# -- Compiling module bitgen_piano
+# 
+# Top level modules:
+# 	bitgen_piano
+# End time: 22:36:26 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v 
+# -- Compiling module cpu_alu_datapath
+# 
+# Top level modules:
+# 	cpu_alu_datapath
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v 
+# -- Compiling module FSM
+# 
+# Top level modules:
+# 	FSM
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -vlog01compat -work work {+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop} {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop" C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v 
+# -- Compiling module Keyboard
+# 
+# Top level modules:
+# 	Keyboard
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:36:27 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:27 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v 
+# -- Compiling module tippytop_tb
+# 
+# Top level modules:
+# 	tippytop_tb
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v 
+# -- Compiling module vga_640by480
+# 
+# Top level modules:
+# 	vga_640by480
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:36:28 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v 
+# -- Compiling module vga_wrapper
+# 
+# Top level modules:
+# 	vga_wrapper
+# End time: 22:36:28 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tippytop_tb
+# vsim work.tippytop_tb 
+# Start time: 22:36:30 on Dec 14,2018
+# Loading work.tippytop_tb
+# Loading work.cpuDatapath
+# Loading work.mux
+# Loading work.pc
+# Loading work.FSM
+# Loading work.RegBank
+# Loading work.regfile
+# Loading work.Mux16to1
+# Loading work._3710alu
+# Loading work.flagsUpdate
+# Loading work.memory
+# ** Warning: (vsim-3015) C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v(8): [PCDPC] - Port size (8) does not match connection size (16) for port 'uart'. The port definition is at: C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v(79).
+#    Time: 0 ps  Iteration: 0  Instance: /tippytop_tb/pathTest File: C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v
+add wave -position insertpoint  \
+sim:/tippytop_tb/pathTest/mainFsm/state
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: delij  Hostname: DESKTOP-G5FJKIP  ProcessID: 5032
+#           Attempting to use alternate WLF file "./wlftekiz7z".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftekiz7z
+add wave -position insertpoint  \
+sim:/tippytop_tb/pathTest/DOUT
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:56 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/alu/_3710alu.v 
+# -- Compiling module _3710alu
+# 
+# Top level modules:
+# 	_3710alu
+# End time: 22:46:56 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:56 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/bitgen_piano.v 
+# -- Compiling module bitgen_piano
+# 
+# Top level modules:
+# 	bitgen_piano
+# End time: 22:46:56 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:56 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v 
+# -- Compiling module cpu_alu_datapath
+# 
+# Top level modules:
+# 	cpu_alu_datapath
+# End time: 22:46:56 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:56 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/FSM.v 
+# -- Compiling module FSM
+# 
+# Top level modules:
+# 	FSM
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -vlog01compat -work work {+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop} {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop" C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/Keyboard.v 
+# -- Compiling module Keyboard
+# 
+# Top level modules:
+# 	Keyboard
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/memory/memory.v 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:46:57 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:57 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v 
+# -- Compiling module mux
+# -- Compiling module pc
+# -- Compiling module cpuDatapath
+# 
+# Top level modules:
+# 	cpuDatapath
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:58 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:58 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v 
+# -- Compiling module Mux16to1
+# -- Compiling module regfile
+# -- Compiling module RegBank
+# -- Compiling module flagsUpdate
+# 
+# Top level modules:
+# 	Mux16to1
+# 	RegBank
+# 	flagsUpdate
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:58 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v 
+# -- Compiling module tippytop_tb
+# 
+# Top level modules:
+# 	tippytop_tb
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:58 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_640by480.v 
+# -- Compiling module vga_640by480
+# 
+# Top level modules:
+# 	vga_640by480
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -work work {C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:46:58 on Dec 14,2018
+# vlog -reportprogress 300 -work work C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v 
+# -- Compiling module vga_wrapper
+# 
+# Top level modules:
+# 	vga_wrapper
+# End time: 22:46:58 on Dec 14,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tippytop_tb
+# End time: 22:47:02 on Dec 14,2018, Elapsed time: 0:10:32
+# Errors: 0, Warnings: 3
+# vsim work.tippytop_tb 
+# Start time: 22:47:02 on Dec 14,2018
+# Loading work.tippytop_tb
+# Loading work.cpuDatapath
+# Loading work.mux
+# Loading work.pc
+# Loading work.FSM
+# Loading work.RegBank
+# Loading work.regfile
+# Loading work.Mux16to1
+# Loading work._3710alu
+# Loading work.flagsUpdate
+# Loading work.memory
+# ** Warning: (vsim-3015) C:/Users/delij/Documents/ECE 3710/ECE-3710/tippytop/tippytop_tb.v(8): [PCDPC] - Port size (8) does not match connection size (16) for port 'uart'. The port definition is at: C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v(79).
+#    Time: 0 ps  Iteration: 0  Instance: /tippytop_tb/pathTest File: C:/Users/delij/Documents/ECE 3710/ECE-3710/cpuDatapath/cpuDatapath.v
+add wave -position insertpoint  \
+sim:/tippytop_tb/pathTest/DOUT
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: delij  Hostname: DESKTOP-G5FJKIP  ProcessID: 5032
+#           Attempting to use alternate WLF file "./wlftmgzi3m".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftmgzi3m
+add wave -position insertpoint  \
+sim:/tippytop_tb/pathTest/mainFsm/state
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 22:47:53 on Dec 14,2018, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 3

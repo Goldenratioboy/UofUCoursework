@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at vga_bitgen.v(7): object "red" differs only in case from object "RED" in the same scope File: C:/Users/steen/Desktop/ECE-3710/vga/vga_bitgen.v Line: 7
+Info (10281): Verilog HDL Declaration information at vga_bitgen.v(8): object "green" differs only in case from object "GREEN" in the same scope File: C:/Users/steen/Desktop/ECE-3710/vga/vga_bitgen.v Line: 8
+Info (10281): Verilog HDL Declaration information at vga_bitgen.v(9): object "blue" differs only in case from object "BLUE" in the same scope File: C:/Users/steen/Desktop/ECE-3710/vga/vga_bitgen.v Line: 9

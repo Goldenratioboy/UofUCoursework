@@ -1,0 +1,8 @@
+C:\Users\dkopta\Desktop\ChessBrowser\ChessBrowser\Resources\obj\Debug\Resources.csprojAssemblyReference.cache
+C:\Users\dkopta\Desktop\ChessBrowser\ChessBrowser\Resources\obj\Debug\Resources.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\obj\Debug\Resources.csproj.CoreCompileInputs.cache
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\bin\Debug\Resources.dll.config
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\bin\Debug\Resources.dll
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\bin\Debug\Resources.pdb
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\obj\Debug\Resources.dll
+C:\Users\Jonathan\Documents\School\currentSemester\CS_5530\ChessBrowser\ChessBrowser\Resources\obj\Debug\Resources.pdb

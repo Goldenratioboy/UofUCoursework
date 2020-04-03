@@ -1,0 +1,3 @@
+Admin Controller: When we add a class, the view resets and our professor re-appends.
+
+Common Controller: Logging in as Admin, our DepartmentList only shows Subject Abbrev.

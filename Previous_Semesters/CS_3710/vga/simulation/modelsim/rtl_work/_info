@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/delij/Documents/ECE 3710/ECE-3710/vga/simulation/modelsim
+vvga_bitgen
+!s110 1543345432
+!i10b 1
+!s100 F=?hQ>=`;KF`^KC2F4Ii@1
+IXU1;I6G_g^:AK4=>lD;H41
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1543342538
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_bitgen.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_bitgen.v
+L0 1
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z3 !s108 1543345432.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_bitgen.v|
+!s90 -reportprogress|300|-work|work|C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_bitgen.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vvga_ctrl
+Z6 !s110 1543345433
+!i10b 1
+!s100 :5=d@0caVe1KIBdfM]j5]1
+I2Pe=zkCe2L95YIdLiSTg]3
+R1
+R0
+w1543345370
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_ctrl.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_ctrl.v
+L0 1
+R2
+r1
+!s85 0
+31
+R3
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_ctrl.v|
+!s90 -reportprogress|300|-work|work|C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_ctrl.v|
+!i113 1
+R4
+R5
+vvga_tb
+R6
+!i10b 1
+!s100 1[^QmEWA4amW1MLZakiBX0
+I@LQ2T^cN`Xik>D;4cBejU3
+R1
+R0
+w1542738250
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_tb.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_tb.v
+L0 1
+R2
+r1
+!s85 0
+31
+Z7 !s108 1543345433.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_tb.v|
+!i113 1
+R4
+R5
+vvga_wrapper
+R6
+!i10b 1
+!s100 3>G3[FNeIMJ51okjD>fcf1
+IlOoB8QV3Nl9V=ndYO]5U91
+R1
+R0
+w1543340141
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v
+L0 1
+R2
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v|
+!s90 -reportprogress|300|-work|work|C:/Users/delij/Documents/ECE 3710/ECE-3710/vga/vga_wrapper.v|
+!i113 1
+R4
+R5

@@ -1,0 +1,89 @@
+---
+title: "Homework8"
+author: "Jonathan Pilling"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+Here we test some hypotheses about cardiac measurements.
+You want to test the hypothesis that men are more likely to have hypertension than women.
+Hypertension is the variable hxofHT (be careful, hxofHT = 0 indicates they do have hypertension)
+and gender is male = 0, female = 1. Use the Fisher exact test to get a p value for
+this hypothesis test. Can you reject the null hypothesis at the ?? = 0.05 level?
+
+__Answer:__
+
+```{r}
+cardiac = read.csv("cardiac.txt")
+tab = table(cardiac$hxofHT, cardiac$gender) #Create the contigency table
+fisher.test(tab, conf.int=T, conf.level = 0.95)
+```
+Because in our fisher test the p value is less than 0.05, the Null hypothesis is rejected.
+
+## Problem 2
+
+## Problem 3
+
+## Problem 4
+
+Write an R function my.regression(x, y) that computes the regression of an independent
+variable x and a dependent variable y. It should return the estimated slope and intercept.
+```{r}
+my.regression <- function(x, y){
+  #This function will take in an x and a y value, and return the estimated slope and intercept
+  
+  b = cor(x,y) * (sd(y)/sd(x)) #Slope of regression line
+  
+  a = mean(y) - b * mean(x) #y intercept of regression line
+  
+  return(list(a = a, b = b))
+}
+```
+__(a)__
+
+Run your regression command on the faithful data
+
+__Answer:__
+
+```{r}
+waiting = faithful$waiting
+eruptions = faithful$eruptions
+
+regression_line <- my.regression(waiting, eruptions)
+my.regression(waiting, eruptions) # This repeat is to show the slope and intercept
+
+plot(waiting, eruptions, main = "Eruption vs. Waiting Time : my.regression function")
+abline(regression_line$a, regression_line$b, col= "red", lwd = 3)
+```
+
+__(b)__
+
+From regression model info: $-1.87 + 0.075 * 82 = 4.28$
+
+Estimated at 4.28 min
+
+__(c)__
+
+```{r}
+faithful.model = lm(eruptions ~ waiting, data = faithful)
+plot(faithful$eruptions ~ faithful$waiting, main = "Eruptions vs. Waiting Time : lm function")
+abline(faithful.model, col = "red", lwd = 3)
+
+```
+
+__(d)__
+
+```{r}
+summary(faithful.model)
+```
+
+Because the p value is so small, we can reject the null hypothesis and waiting for eruptions is significant based on whether an eruption will happen soon or not.
+
+
+
+

@@ -1,0 +1,8 @@
+# Compile of _3710alu.v was successful.
+# Compile of fibfsm.v was successful.
+# Compile of fibfsm_tb.v was successful.
+# Compile of hexTo7Seg.v was successful.
+# Compile of regfile.v was successful.
+# Compile of Wrapper.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.fibfsm

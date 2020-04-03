@@ -1,0 +1,204 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/simulation/modelsim
+v_3710alu
+Z1 !s110 1537297194
+!i10b 1
+!s100 jCD@@NZ83a0H80_N]IH<g1
+IbASC^MZEaf<CJ5GMHdEi42
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1537284535
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v
+Z3 L0 22
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1537297194.000000
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@_3710alu
+vcpu_alu_datapath
+R1
+!i10b 1
+!s100 GUR?maZHmhhMCNJ`=Zc=53
+ICol@0Fdia]i2zQBAVACk40
+R2
+R0
+w1537294933
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v|
+!i113 1
+R6
+R7
+vfibfsm
+R1
+!i10b 1
+!s100 IZcnUQLm6kbPlJX17a5Me2
+IYGD337IofLUlRMPCBo]j71
+R2
+R0
+w1537296994
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v|
+!i113 1
+R6
+R7
+vfibfsm_tb
+R1
+!i10b 1
+!s100 c9I_@iF2`]V9zbBDgOa@L3
+IXD8kMdN?1FNaPXNg9fb7I3
+R2
+R0
+w1537293194
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v
+L0 2
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v|
+!i113 1
+R6
+R7
+vflagsUpdate
+R1
+!i10b 1
+!s100 ?cKcMO=zY7PRlW8d6IjgX3
+Ii0i[Z[EMLOIGL1UN<BgGj2
+R2
+R0
+Z8 w1537296201
+Z9 8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v
+Z10 FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v
+L0 206
+R4
+r1
+!s85 0
+31
+R5
+Z11 !s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v|
+Z12 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v|
+!i113 1
+R6
+R7
+nflags@update
+vhexTo7Seg
+R1
+!i10b 1
+!s100 eRbXb^2=n5mhAHza@g=`M1
+I`VzWO`lVBXSSW?G9e8F6`0
+R2
+R0
+w1536687446
+8C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v
+FC:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v|
+!i113 1
+R6
+R7
+nhex@to7@seg
+vMux16to1
+R1
+!i10b 1
+!s100 5TUz?W[YkgOHEokhmWcCU2
+IS@Jfd<O`535D`AI_689b52
+R2
+R0
+R8
+R9
+R10
+R3
+R4
+r1
+!s85 0
+31
+R5
+R11
+R12
+!i113 1
+R6
+R7
+n@mux16to1
+vRegBank
+R1
+!i10b 1
+!s100 R<hSW3O4oC08hAJ=l;j@K1
+I0PRKZ:H_P8=U@YK`Q:8Ub2
+R2
+R0
+R8
+R9
+R10
+L0 83
+R4
+r1
+!s85 0
+31
+R5
+R11
+R12
+!i113 1
+R6
+R7
+n@reg@bank
+vregfile
+R1
+!i10b 1
+!s100 U51HO5h;@IXoR8bk1Xkn=1
+ITejJI1^MIkSCzL=IzjUDn2
+R2
+R0
+R8
+R9
+R10
+L0 52
+R4
+r1
+!s85 0
+31
+R5
+R11
+R12
+!i113 1
+R6
+R7

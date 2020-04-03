@@ -1,0 +1,249 @@
+---
+title: "Homework7"
+author: "Jonathan Pilling"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Problem 1 ##
+
+Problem 19.4 from the book
+
+__Part(a)__
+
+
+__Answer:__
+
+The function $g(x) = 1/x$ is convex, so according to Jensen's inequality: $E[T] = E[\frac{1}{\bar {X}_n}] > \frac{1}{E[\bar{X}_n]}$
+
+Note that $E[\bar{X}_n] = E[X_1] = \frac{1}{p}$ Now we can plug in this value for the right hand side of the inequality, so we get $E[T] > \frac{1}{1/p} = E[T] > p$ This tells us that T is a biased estimator for p because it's not equivalent, and we know because $E[T] > p$ we have positive bias.
+
+__Part(b)__
+
+
+__Answer:__
+
+For each i label $X_i < 3$ as a success, then the total number $Y$ of all successes has a $Bin(n, \theta)$ distribution where $\theta = p + (1-p)p+(1-p)^2p$. This represents the probability that a woman becomes pregnant within three or fewer cycles. This implies that $E[Y] = n\theta$ and therefore $E[S] = E[Y/n] = E[Y]/n = \frac{n\theta}{n} = \theta$
+
+Because these are equal, this means that S is an unbiased estimator.
+
+##Problem 2##
+
+__Part(a)__
+
+Give an unbiased statistic that you would use to estimate n.
+
+__Answer:__
+
+$$
+\bar{X} = \frac{X_1 + X_2 + ... + X_{10}}{10}\\
+\text{Using linearity of expectation}\\
+E[\bar{X}] = 1/10(E[X_1] + E[X_2] + ... + E[X_{10}])\\
+E[X_i] = n * P(H) = n/2\\
+E[\bar{X}] = \frac{1}{10} * 10 * \frac{n}{2} = \frac{n}{2}\\
+\text{Solving for n}\\
+n = E[2\bar{X}]\\
+$$
+Because the probability of flipping a coin is 1/2, the number of heads we get multiplied by 2 should be equivalent to n. This gives us a bias of zero, or an unbiased estimate.
+
+__Part(b),(c),(d)__
+
+Simulate this experiment 10,000 times with n = 25.
+
+__Answer:__
+
+```{r}
+#We'll use 1 for heads and 0 for tails
+#Flip coin function to flip a coin for certain n value
+FlipCoin = function(n) sample(1:0, n, rep = T)
+
+#We will use this to simulate our n value
+n = 25
+nHat = c()
+ExpectedValue = 2 * n/2
+#This represents the expirement, 25 coin flips passed in for n, we do n amount of coin flips 10x
+for (i in 1:10000) {
+  for (j in 1:10) {
+  C = FlipCoin(25)
+  }
+  #Using our equation from part a
+  nHat[i] <-sum(C==1) * 2
+}
+
+#Plotting a boxplot of nHat values
+boxplot(nHat, main="Boxplot of estimated n values")
+abline(h = 25, col = "red")
+
+#Plotting a histogram of nHat values
+hist(nHat, freq = FALSE, main = "Histogram of estimated n values")
+
+#values for mu and sigma hat
+mu.hat = mean(nHat)
+sigma.hat = var(nHat)
+
+#Plotting of Gaussian pdf
+s = seq(mu.hat - 3*sd(nHat), mu.hat + 3*sd(nHat), 0.01*sd(nHat))
+lines(s, dnorm(s, mean(nHat), sd(nHat)), col = 'red', lwd = 2)
+```
+
+Note that for the boxplot, the n values are roughly centered around the red line that represents the true value of n.
+
+##Problem 3##
+
+Exercise 23.3. Caluculate the confidence interval in R using the formula in the notes. You should use qnorm function.
+
+__Answer:__
+
+```{r}
+## Information given in problem
+xBar = 93.5 #Average weight of a bag of cement
+sigma = sqrt(0.75)  ## We square sample standard deviation
+n = 10 #Number of cement bags
+
+lower = xBar - qnorm(0.975) * sigma / sqrt(n)
+upper = xBar + qnorm(0.975) * sigma / sqrt(n)
+```
+
+The 95\% confidence interval is (`r lower`, `r upper`).
+
+##Problem 4##
+
+Exercise 23.10
+
+__(a)__
+
+What is the mean of the unknown dataset?
+
+__Answer:__
+From the confidence interval obtained, we know the sample mean is in the middle.
+$(1.6 + 7.8)/2 = 4.7$
+
+__(b)__
+
+You prefer to have a 99% confidence interval for $\mu$. Construct it.
+
+__Answer:__
+We have the mean and we have the number of observations so we just have to find our sample standard deviation.
+$$
+\text{Finding Sample Variance}\\
+\text{Using } L_n = \bar{X}_n - t_{\alpha/2} * \frac{S_n}{\sqrt{n}}\\
+1.6 = 4.7 - t_{\alpha/2} * S_n/\sqrt{16}\\
+$$
+We need to find $t_{\alpha/2}$
+We can do this in r fairly easily.
+```{r}
+#Since confidence intervals are for 95% and we have 16 observations
+tValue = qt(1 - 0.025, df = 15)
+print(tValue)
+```
+tValue is equal to $2.131$
+Now we can finish solving our equation.
+
+$$
+1.6 = 4.7 -  2.131* S_n/4\\
+-3.1 = -2.131 * S_n/4\\
+1.45 = S_n/4\\
+S_n = 5.819
+$$
+Now we will calculate with R Code
+```{r}
+xBar = 4.7 #Mean that we calculated
+s = 5.819 #Sample Variance we calculated
+n = 16 #This interval is based on 16 observations.
+
+#These will produce 99% Confidence Intervals
+lower = xBar - qt(0.995, df = n - 1) * s / sqrt(n)
+upper = xBar + qt(0.995, df = n - 1) * s / sqrt(n)
+```
+The 99\% confidence interval for the mean is (`r lower`, `r upper`).
+
+##Problem 5##
+In this problem you are going to analyze the built-in R data set iris. 
+
+First we'll extract virginica species and save it
+```{r}
+x = iris$Sepal.Width[iris$Species == "virginica"]
+```
+__(a)__
+
+Using a Gaussian approx., what is the 95% confidence interval for the mean of x?
+
+__Answer:__
+
+```{r}
+## Information given in problem
+xBar = mean(x)
+sigma = sqrt(var(x)) ## standard deviation = sqrt(variance)
+n = length(x)
+
+lower = xBar - qnorm(0.975) * sigma / sqrt(n)
+upper = xBar + qnorm(0.975) * sigma / sqrt(n)
+```
+
+The 95\% confidence interval is (`r lower`, `r upper`).
+
+__(b)__
+
+Using a student t distribution, what is the 95% confidence interval for the mean of x?
+
+__Answer:__
+We need to calculate the sample variance
+
+```{r}
+xBar = mean(x)
+s = sd(x)
+n = length(x)
+
+lower = xBar - qt(0.975, df = n - 1) * s / sqrt(n)
+upper = xBar + qt(0.975, df = n - 1) * s / sqrt(n)
+```
+
+The 95\% confidence interval for the mean is (`r lower`, `r upper`).
+
+__(c)__
+
+Now assume that we have only the first 10 measurements.
+
+__Answer:__
+
+Creates a new vector y with the first 10 elements
+```{r}
+y = x[1:10]
+```
+
+Now we'll repeat parts a and b for our new vector y
+
+```{r}
+## Information given in problem
+xBar = mean(y)
+sigma = sd(y) ## standard deviation = sqrt(variance)
+n = length(y)
+
+lower = xBar - qnorm(0.975) * sigma / sqrt(n)
+upper = xBar + qnorm(0.975) * sigma / sqrt(n)
+```
+
+The 95\% confidence interval is (`r lower`, `r upper`).
+
+```{r}
+xBar = mean(y)
+s = sd(y)
+n = length(y)
+
+lower = xBar - qt(0.975, df = n - 1) * s / sqrt(n)
+upper = xBar + qt(0.975, df = n - 1) * s / sqrt(n)
+```
+
+The 95\% confidence interval for the mean is (`r lower`, `r upper`).
+
+__(d)__
+
+How did the decrease in sample size affect the results?
+
+__Answer:__
+
+The sample size decrease made our confidence interval a little bit wider, but it did not change it that much.
+
+

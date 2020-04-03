@@ -1,0 +1,136 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Design Name: 
+// Module Name:    vga_640by480 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module vga_640by480(input wire CLK,
+input wire clr,
+output reg hsync,
+output reg vsync,
+output reg [10:0] PixelX,
+output reg [10:0] PixelY,
+output reg vidon,
+output reg slw_clk
+    );
+
+
+parameter TotalHorizontalPixels = 10'd800;
+parameter HorizontalSyncWidth = 10'd96;
+parameter VerticalSyncWidth = 10'd2;
+
+parameter TotalVerticalLines = 10'd521;
+parameter HorizontalBackPorchTime = 10'd144 ;
+parameter HorizontalFrontPorchTime = 10'd784 ;
+parameter VerticalBackPorchTime = 10'd31 ;
+parameter VerticalFrontPorchTime = 10'd511;
+
+reg VerticalSyncEnable;
+
+reg [10:0] HorizontalCounter;
+reg [10:0] VerticalCounter;
+
+reg q;
+
+/*This section is a 50 MHz / 2 = 25 MHz clock*/	
+always@(posedge CLK)
+begin
+	if (~clr)
+	begin
+		q <= 1'b0;
+	end
+	else
+	begin
+		q <= ~q;
+		slw_clk <= q;
+	end
+end
+
+//Counter for the horizontal sync signal
+always @(posedge slw_clk)
+begin
+	if(~clr == 1)
+		HorizontalCounter <= 0;
+	else
+		begin
+			if(HorizontalCounter == TotalHorizontalPixels - 1)
+				begin //the counter has hreached the end of a horizontal line
+					HorizontalCounter<=0;
+					VerticalSyncEnable <= 1;
+				end
+			else
+				begin 
+					HorizontalCounter<=HorizontalCounter+1; 
+					VerticalSyncEnable <=0;
+				end
+		end
+end
+
+//Generate the hsync pulse
+//Horizontal Sync is low when HorizontalCounter is 0-127
+
+always @(*)
+begin
+	if((HorizontalCounter<HorizontalSyncWidth))
+		hsync = 0;
+	else
+		hsync = 1;
+end
+
+//Counter for the vertical sync
+
+always @(posedge slw_clk)
+begin
+	if(~clr == 1)
+		VerticalCounter<=0;
+	else
+	begin
+		if(VerticalSyncEnable == 1)
+			begin
+				if(VerticalCounter==TotalVerticalLines-1)
+					VerticalCounter<=0;
+				else
+					VerticalCounter<=VerticalCounter+1;
+			end
+	end
+end
+
+//generate the vsync pulse
+always @(*)
+begin
+	if(VerticalCounter < VerticalSyncWidth)
+		vsync = 0;
+	else
+		vsync = 1;
+end
+
+always @(posedge slw_clk)
+begin
+	if((HorizontalCounter<HorizontalFrontPorchTime) && (HorizontalCounter>HorizontalBackPorchTime) && (VerticalCounter<VerticalFrontPorchTime) && (VerticalCounter>VerticalBackPorchTime))
+		begin
+			vidon <= 1;
+			PixelX<= HorizontalCounter - HorizontalBackPorchTime;
+			PixelY<= VerticalCounter - VerticalBackPorchTime;
+		end
+	else
+		begin
+			vidon <= 0;
+			PixelX<=0;
+			PixelY<=0;
+		end
+end
+
+endmodule

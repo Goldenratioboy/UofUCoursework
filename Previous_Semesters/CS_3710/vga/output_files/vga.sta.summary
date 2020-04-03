@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -2.977
+TNS   : -117.013
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -1.809
+TNS   : -2.296
+
+Type  : Slow 1100mV 85C Model Hold 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.292
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.506
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.834
+TNS   : -2.736
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -0.394
+TNS   : -23.610
+
+Type  : Slow 1100mV 0C Model Setup 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -2.846
+TNS   : -112.848
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -1.755
+TNS   : -2.227
+
+Type  : Slow 1100mV 0C Model Hold 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.488
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.859
+TNS   : -2.873
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -0.394
+TNS   : -23.327
+
+Type  : Fast 1100mV 85C Model Setup 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -1.369
+TNS   : -52.957
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -0.867
+TNS   : -0.867
+
+Type  : Fast 1100mV 85C Model Hold 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.102
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.257
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.761
+TNS   : -2.251
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.103
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'vga_640by480:vga_ctrl|slw_clk'
+Slack : -1.199
+TNS   : -46.410
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -0.723
+TNS   : -0.723
+
+Type  : Fast 1100mV 0C Model Hold 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.087
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : 0.231
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.737
+TNS   : -2.176
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.117
+TNS   : 0.000
+
+------------------------------------------------------------

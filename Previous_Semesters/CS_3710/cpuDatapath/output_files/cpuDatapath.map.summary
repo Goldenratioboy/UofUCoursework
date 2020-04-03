@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Mon Nov 26 21:38:13 2018
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+Revision Name : cpuDatapath
+Top-level Entity Name : cpuDatapath
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 291
+Total pins : 78
+Total virtual pins : 0
+Total block memory bits : 1,048,576
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

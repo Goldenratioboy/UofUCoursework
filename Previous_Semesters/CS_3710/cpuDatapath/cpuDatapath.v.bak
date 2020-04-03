@@ -1,0 +1,218 @@
+//Need to just include .v files regfile, alu etc.
+//Dissasembeled the wrapper
+
+`include "memory/memory_fsm.v"
+// Include wrappers from each part
+`include "regfile/Wrapper.v"
+`include "alu/wrap.v"
+
+/*2 to 1 Mux for data path*//////////////////////////////
+module mux(
+  a,
+  b,
+  sel,
+  out
+);
+
+input a, b, sel;
+output reg [15:0] out;
+
+wire out;
+
+assign out = (sel) ? a : b;
+
+endmodule
+//////////////////////////////////////////////////////////
+
+module pc (clk, reset, PC_en, LD_pc_out, PC_out, LD_PC);
+
+input clk, reset, PC_en, LD_PC;
+input [15:0] LD_pc_out;
+
+output reg [15:0] PC_out;
+
+always @ (*)
+  begin
+    if (reset) PC_out <= 0;
+    // PC is fed input
+    else if(PC_en)
+      begin
+        // Allow data to be set from MUX_A instead of incrementing
+        if(LD_PC)
+          begin
+            PC_out <= LD_pc_out;
+          end
+        else
+          // Simply increment the Program Counter at current address
+          begin
+            PC_out <= PC_out + 1;
+          end
+      end
+    else PC_out <= PC_out;
+  end
+endmodule
+
+
+/*THE BIG DATAPATH*///////////////////////////////////////
+module cpuDatapath(
+  clk, reset
+);
+
+input clk, reset;
+
+/*FSM Wires*/
+wire [15:0] DOUT, regEnable, inst, Mux_A, Mux_B;
+wire LD_mux, PC_mux, we_a, we_b, PC_en, PC_out;
+wire [7:0]  opcode_out;
+wire [4:0] Flag_en;
+
+/*MuxWires*/ //LDMUX PCMUX etc.
+wire LD_PC;
+wire [15:0] memAddr, LD_pc_out;
+
+/* ALU Wires */
+wire [15:0] aluOut, regFileInput;
+
+/*REG BANK Wires*/
+wire [15:0]r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15;
+wire [15:0]muxtoALUA, muxtoALUB;
+wire [3:0] ctrlA, ctrlB;
+wire Cin;
+
+mux ld_mux (
+  .a(DOUT),
+  .b(aluOut),
+  .sel(LD_mux),
+  .out(regFileInput)
+);
+
+mux pc_mux (
+  .a(PC_out),
+  .b(muxtoALUA),
+  .sel(PC_mux),
+  .out(memAddr)
+);
+
+mux ld_pc_mux (
+  .a(muxtoALUA),
+  .b(PC_out),
+  .sel(LD_PC),
+  .out(LD_pc_out)
+);
+
+pc programcounter (
+    .clk(clk),
+    .reset(reset),
+    .PC_en(PC_en),
+    .LD_pc_out(LD_pc_out),
+    .PC_out(PC_out),
+    .LD_PC(LD_PC)
+  );
+
+/* Instantiation of cpuDatapathFSM */
+FSM mainFsm(
+  .clk(clk),
+  .reset(reset),
+  .DOUT(DOUT),
+  .LD_mux(LD_mux),
+  .PC_mux(PC_mux),
+  .PC_en(PC_en),
+  .wen(), //Need a or b here
+  .Mux_A(Mux_A),
+  .Mux_B(Mux_B),
+  .Reg_en(regEnable),
+  .opcode_out(opcode_out),
+  .Flag_en(Flag_en),
+  .LD_PC()
+);
+
+/*Instatiation of REG BANK*/
+RegBank reg_bank(
+  .ALUBus(regFileInput),
+  .regEnable(regEnable),
+  .clk(clk),
+  .reset(reset),
+  .r0(r0),
+  .r1(r1),
+  .r2(r2),
+  .r3(r3),
+  .r4(r4),
+  .r5(r5),
+  .r6(r6),
+  .r7(r7),
+  .r8(r8),
+  .r9(r9),
+  .r10(r10),
+  .r11(r11),
+  .r12(r12),
+  .r13(r13),
+  .r14(r14),
+  .r15(r15)
+);
+
+/* Instantiation of the first Multiplexor or A Multiplexor */
+Mux16to1 muxA(
+	.r0(r0),
+	.r1(r1),
+	.r2(r2),
+	.r3(r3),
+	.r4(r4),
+	.r5(r5),
+	.r6(r6),
+	.r7(r7),
+	.r8(r8),
+	.r9(r9),
+	.r10(r10),
+	.r11(r11),
+	.r12(r12),
+	.r13(r13),
+	.r14(r14),
+	.r15(r15),
+   .ctrl(ctrlA),
+	.Bus_out(muxtoALUA)
+);
+
+/* Instantiation of the second Multiplexor or B Multiplexor */
+Mux16to1 muxB(
+	.r0(r0),
+	.r1(r1),
+	.r2(r2),
+	.r3(r3),
+	.r4(r4),
+	.r5(r5),
+	.r6(r6),
+	.r7(r7),
+	.r8(r8),
+	.r9(r9),
+	.r10(r10),
+	.r11(r11),
+	.r12(r12),
+	.r13(r13),
+	.r14(r14),
+	.r15(r15),
+   .ctrl(ctrlB),
+	.Bus_out(muxtoALUB)
+);
+
+/* Instantiation of the ALU created in Lab 1 *////////////////////////////
+_3710alu alu(
+	.A(muxtoALUA),
+	.B(muxtoALUB),
+	.Cin(Cin),
+	.inst(DOUT),
+	.C(aluOut), //this might need to change to a wire that loops back to reg bank, goes through ld_mux i think
+	.Flags(ALUtoFlags)
+);
+
+/*FLAG REGISTER*/
+flagsUpdate flags(
+	.flagsIn(ALUtoFlags),
+	.flagsOut(flags_output),
+	.clk(clk)
+);
+
+/* Instantiation of memory */
+memory_fsm memory(
+  .clk(clk),
+  .reset(reset),
+);

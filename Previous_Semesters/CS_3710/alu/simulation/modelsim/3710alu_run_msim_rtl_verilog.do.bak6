@@ -1,0 +1,13 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+<<<<<<< Updated upstream
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/alu {C:/Users/Jonathan/Documents/School/ECE-3710/alu/_3710alu.v}
+=======
+vlog -vlog01compat -work work +incdir+C:/Users/steen/Desktop/ECE-3710/alu {C:/Users/steen/Desktop/ECE-3710/alu/_3710alu.v}
+>>>>>>> Stashed changes
+

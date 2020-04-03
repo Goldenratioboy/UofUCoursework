@@ -1,0 +1,498 @@
+Analysis & Synthesis report for regfile
+Mon Dec 03 23:36:58 2018
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |fibfsm|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |fibfsm
+ 13. Parameter Settings for User Entity Instance: cpu_alu_datapath:datapath|_3710alu:alu
+ 14. Port Connectivity Checks: "cpu_alu_datapath:datapath"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Dec 03 23:36:58 2018       ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                   ; regfile                                     ;
+; Top-level Entity Name           ; fibfsm                                      ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 255                                         ;
+; Total pins                      ; 30                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; fibfsm             ; regfile            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------+---------+
+; hexTo7Seg.v                      ; yes             ; User Verilog HDL File  ; C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v ;         ;
+; fibfsm.v                         ; yes             ; User Verilog HDL File  ; C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v    ;         ;
+; _3710alu.v                       ; yes             ; User Verilog HDL File  ; C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v  ;         ;
+; Wrapper.v                        ; yes             ; User Verilog HDL File  ; C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v   ;         ;
+; regfile.v                        ; yes             ; User Verilog HDL File  ; C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v   ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 217         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 269         ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 132         ;
+;     -- 5 input functions                    ; 17          ;
+;     -- 4 input functions                    ; 50          ;
+;     -- <=3 input functions                  ; 70          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 255         ;
+;                                             ;             ;
+; I/O pins                                    ; 30          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 270         ;
+; Total fan-out                               ; 2303        ;
+; Average fan-out                             ; 3.94        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                           ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Entity Name      ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
+; |fibfsm                        ; 269 (30)            ; 255 (15)                  ; 0                 ; 0          ; 30   ; 0            ; |fibfsm                                                           ; fibfsm           ; work         ;
+;    |cpu_alu_datapath:datapath| ; 211 (0)             ; 240 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath                                 ; cpu_alu_datapath ; work         ;
+;       |Mux16to1:muxA|          ; 82 (82)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|Mux16to1:muxA                   ; Mux16to1         ; work         ;
+;       |Mux16to1:muxB|          ; 82 (82)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|Mux16to1:muxB                   ; Mux16to1         ; work         ;
+;       |RegBank:reg_bank|       ; 15 (0)              ; 240 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank                ; RegBank          ; work         ;
+;          |regfile:Inst0|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0  ; regfile          ; work         ;
+;          |regfile:Inst10|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst10 ; regfile          ; work         ;
+;          |regfile:Inst11|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst11 ; regfile          ; work         ;
+;          |regfile:Inst12|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst12 ; regfile          ; work         ;
+;          |regfile:Inst13|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst13 ; regfile          ; work         ;
+;          |regfile:Inst14|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst14 ; regfile          ; work         ;
+;          |regfile:Inst15|      ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst15 ; regfile          ; work         ;
+;          |regfile:Inst2|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst2  ; regfile          ; work         ;
+;          |regfile:Inst3|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst3  ; regfile          ; work         ;
+;          |regfile:Inst4|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst4  ; regfile          ; work         ;
+;          |regfile:Inst5|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst5  ; regfile          ; work         ;
+;          |regfile:Inst6|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst6  ; regfile          ; work         ;
+;          |regfile:Inst7|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst7  ; regfile          ; work         ;
+;          |regfile:Inst8|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst8  ; regfile          ; work         ;
+;          |regfile:Inst9|       ; 1 (1)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst9  ; regfile          ; work         ;
+;       |_3710alu:alu|           ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|cpu_alu_datapath:datapath|_3710alu:alu                    ; _3710alu         ; work         ;
+;    |hexTo7Seg:firstO|          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|hexTo7Seg:firstO                                          ; hexTo7Seg        ; work         ;
+;    |hexTo7Seg:fourthO|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|hexTo7Seg:fourthO                                         ; hexTo7Seg        ; work         ;
+;    |hexTo7Seg:secondO|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|hexTo7Seg:secondO                                         ; hexTo7Seg        ; work         ;
+;    |hexTo7Seg:thirdO|          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |fibfsm|hexTo7Seg:thirdO                                          ; hexTo7Seg        ; work         ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fibfsm|state                                                                                                                                                                                                                            ;
++------------------+--------------+------------------+------------------+----------------+----------------+-------------+-------------+--------------+---------------+-------------+-------------+--------------+-------------+--------------+-------------+
+; Name             ; state.reset1 ; state.fourteenth ; state.thirteenth ; state.twelveth ; state.eleventh ; state.tenth ; state.ninth ; state.eighth ; state.seventh ; state.sixth ; state.fifth ; state.fourth ; state.third ; state.second ; state.first ;
++------------------+--------------+------------------+------------------+----------------+----------------+-------------+-------------+--------------+---------------+-------------+-------------+--------------+-------------+--------------+-------------+
+; state.first      ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 0           ;
+; state.second     ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 1            ; 1           ;
+; state.third      ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 1           ; 0            ; 1           ;
+; state.fourth     ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 1            ; 0           ; 0            ; 1           ;
+; state.fifth      ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 1           ; 0            ; 0           ; 0            ; 1           ;
+; state.sixth      ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 1           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.seventh    ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 1             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.eighth     ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 1            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.ninth      ; 0            ; 0                ; 0                ; 0              ; 0              ; 0           ; 1           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.tenth      ; 0            ; 0                ; 0                ; 0              ; 0              ; 1           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.eleventh   ; 0            ; 0                ; 0                ; 0              ; 1              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.twelveth   ; 0            ; 0                ; 0                ; 1              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.thirteenth ; 0            ; 0                ; 1                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.fourteenth ; 0            ; 1                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
+; state.reset1     ; 1            ; 0                ; 0                ; 0              ; 0              ; 0           ; 0           ; 0            ; 0             ; 0           ; 0           ; 0            ; 0           ; 0            ; 1           ;
++------------------+--------------+------------------+------------------+----------------+----------------+-------------+-------------+--------------+---------------+-------------+-------------+--------------+-------------+--------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                          ;
++----------------------------------------------------------------+----------------------------------------------------------------------------+
+; Register name                                                  ; Reason for Removal                                                         ;
++----------------------------------------------------------------+----------------------------------------------------------------------------+
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[0]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[0]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[1]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[1]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[2]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[2]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[3]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[3]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[4]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[4]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[5]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[5]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[6]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[6]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[7]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[7]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[8]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[8]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[9]  ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[9]  ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[10] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[10] ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[11] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[11] ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[12] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[12] ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[13] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[13] ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[14] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[14] ;
+; cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst1|r[15] ; Merged with cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[15] ;
+; state~15                                                       ; Lost fanout                                                                ;
+; state~16                                                       ; Lost fanout                                                                ;
+; state~17                                                       ; Lost fanout                                                                ;
+; state~18                                                       ; Lost fanout                                                                ;
+; Total Number of Removed Registers = 20                         ;                                                                            ;
++----------------------------------------------------------------+----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 255   ;
+; Number of registers using Synchronous Clear  ; 241   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 240   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst2|r[11]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst3|r[11]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst4|r[7]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst5|r[12]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst6|r[0]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst7|r[2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst8|r[6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst9|r[3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst10|r[7]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst11|r[1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst12|r[8]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst13|r[12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst14|r[7]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst15|r[7]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |fibfsm|cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0|r[2]   ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |fibfsm|cpu_alu_datapath:datapath|Mux16to1:muxB|Mux1                    ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |fibfsm|cpu_alu_datapath:datapath|Mux16to1:muxA|Mux2                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |fibfsm ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; first          ; 0000  ; Unsigned Binary                               ;
+; second         ; 0001  ; Unsigned Binary                               ;
+; third          ; 0010  ; Unsigned Binary                               ;
+; fourth         ; 0011  ; Unsigned Binary                               ;
+; fifth          ; 0100  ; Unsigned Binary                               ;
+; sixth          ; 0101  ; Unsigned Binary                               ;
+; seventh        ; 0110  ; Unsigned Binary                               ;
+; eighth         ; 0111  ; Unsigned Binary                               ;
+; ninth          ; 1000  ; Unsigned Binary                               ;
+; tenth          ; 1001  ; Unsigned Binary                               ;
+; eleventh       ; 1010  ; Unsigned Binary                               ;
+; twelveth       ; 1100  ; Unsigned Binary                               ;
+; thirteenth     ; 1101  ; Unsigned Binary                               ;
+; fourteenth     ; 1110  ; Unsigned Binary                               ;
+; reset1         ; 1111  ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu_alu_datapath:datapath|_3710alu:alu ;
++----------------+----------+---------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                    ;
++----------------+----------+---------------------------------------------------------+
+; ADD            ; 00000101 ; Unsigned Binary                                         ;
+; ADDU           ; 00000110 ; Unsigned Binary                                         ;
+; ADDC           ; 00000111 ; Unsigned Binary                                         ;
+; ADDCU          ; 00000100 ; Unsigned Binary                                         ;
+; SUB            ; 00001001 ; Unsigned Binary                                         ;
+; CMP            ; 00001011 ; Unsigned Binary                                         ;
+; AND            ; 00000001 ; Unsigned Binary                                         ;
+; OR             ; 00000010 ; Unsigned Binary                                         ;
+; XOR            ; 00000011 ; Unsigned Binary                                         ;
+; NOT            ; 00001111 ; Unsigned Binary                                         ;
+; NOP_WAIT       ; 00000000 ; Unsigned Binary                                         ;
+; LSH            ; 10000100 ; Unsigned Binary                                         ;
+; RSH            ; 10001111 ; Unsigned Binary                                         ;
+; ADDI           ; 0101XXXX ; Unsigned Binary                                         ;
+; ADDUI          ; 0110XXXX ; Unsigned Binary                                         ;
+; ADDCI          ; 0111XXXX ; Unsigned Binary                                         ;
+; SUBI           ; 1001XXXX ; Unsigned Binary                                         ;
+; ADDCUI         ; 1011XXXX ; Unsigned Binary                                         ;
++----------------+----------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_alu_datapath:datapath"                                                                                       ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                  ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; inst[15..7]  ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; inst[4..0]   ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; Cin          ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; flags_output ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 255                         ;
+;     ENA SCLR          ; 240                         ;
+;     SCLR              ; 1                           ;
+;     plain             ; 14                          ;
+; arriav_lcell_comb     ; 273                         ;
+;     arith             ; 16                          ;
+;         4 data inputs ; 16                          ;
+;     normal            ; 257                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 48                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 17                          ;
+;         6 data inputs ; 132                         ;
+; boundary_port         ; 30                          ;
+;                       ;                             ;
+; Max LUT depth         ; 10.50                       ;
+; Average LUT depth     ; 7.83                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Mon Dec 03 23:36:48 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off regfile -c regfile
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sub_fsm.v
+    Info (12023): Found entity 1: sub_fsm File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/sub_fsm.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file fsm_logical_tb.v
+    Info (12023): Found entity 1: FSM_Logical_tb File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/FSM_Logical_tb.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file fsm_logical.v
+    Info (12023): Found entity 1: FSM_Logical File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/FSM_Logical.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file hexto7seg.v
+    Info (12023): Found entity 1: hexTo7Seg File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/hexTo7Seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fibfsm.v
+    Info (12023): Found entity 1: fibfsm File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file _3710alu.v
+    Info (12023): Found entity 1: _3710alu File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/_3710alu.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file wrapper_tb.v
+    Info (12023): Found entity 1: Wrapper_tb File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper_tb.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file wrapper.v
+    Info (12023): Found entity 1: cpu_alu_datapath File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v Line: 21
+Info (12021): Found 4 design units, including 4 entities, in source file regfile.v
+    Info (12023): Found entity 1: Mux16to1 File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 23
+    Info (12023): Found entity 2: regfile File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 54
+    Info (12023): Found entity 3: RegBank File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 84
+    Info (12023): Found entity 4: flagsUpdate File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 208
+Info (12021): Found 1 design units, including 1 entities, in source file fibfsm_tb.v
+    Info (12023): Found entity 1: fibfsm_tb File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm_tb.v Line: 21
+Info (12127): Elaborating entity "fibfsm" for the top level hierarchy
+Info (12128): Elaborating entity "cpu_alu_datapath" for hierarchy "cpu_alu_datapath:datapath" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v Line: 60
+Info (12128): Elaborating entity "RegBank" for hierarchy "cpu_alu_datapath:datapath|RegBank:reg_bank" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v Line: 66
+Warning (10036): Verilog HDL or VHDL warning at regfile.v(89): object "in1" assigned a value but never read File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 89
+Warning (10036): Verilog HDL or VHDL warning at regfile.v(90): object "in2" assigned a value but never read File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 90
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu_alu_datapath:datapath|RegBank:reg_bank|regfile:Inst0" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/regfile.v Line: 97
+Info (12128): Elaborating entity "Mux16to1" for hierarchy "cpu_alu_datapath:datapath|Mux16to1:muxA" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v Line: 88
+Info (12128): Elaborating entity "_3710alu" for hierarchy "cpu_alu_datapath:datapath|_3710alu:alu" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v Line: 120
+Info (12128): Elaborating entity "flagsUpdate" for hierarchy "cpu_alu_datapath:datapath|flagsUpdate:flags" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/Wrapper.v Line: 127
+Info (12128): Elaborating entity "hexTo7Seg" for hierarchy "hexTo7Seg:firstO" File: C:/Users/delij/Documents/ECE 3710/ECE-3710/regFile/fibfsm.v Line: 312
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 541 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 511 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 754 megabytes
+    Info: Processing ended: Mon Dec 03 23:36:58 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+
+

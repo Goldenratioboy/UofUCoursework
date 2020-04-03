@@ -1,0 +1,17 @@
+
+State Machine - |cpuDatapath|FSM:mainFsm|state
+Name state.reset1 state.jal3 state.jal2 state.jal1 state.stop state.jump2 state.jump1 state.load2 state.load1 state.store2 state.store1 state.r2 state.r1 state.first 
+state.first 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.r1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.r2 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.store1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.store2 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.load1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.load2 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.jump1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.jump2 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.stop 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.jal1 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.jal2 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.jal3 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.reset1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 

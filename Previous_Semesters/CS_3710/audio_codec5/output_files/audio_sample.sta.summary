@@ -1,0 +1,117 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'tonegen:tg1|slwclk'
+Slack : -5.261
+TNS   : -223.891
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -4.186
+TNS   : -204.763
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.210
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'tonegen:tg1|slwclk'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'tonegen:tg1|slwclk'
+Slack : -0.394
+TNS   : -23.948
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.619
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'tonegen:tg1|slwclk'
+Slack : -5.327
+TNS   : -226.944
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -4.038
+TNS   : -174.590
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -0.149
+TNS   : -0.593
+
+Type  : Slow 1100mV 0C Model Hold 'tonegen:tg1|slwclk'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'tonegen:tg1|slwclk'
+Slack : -0.394
+TNS   : -23.495
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.619
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -3.505
+TNS   : -142.054
+
+Type  : Fast 1100mV 85C Model Setup 'tonegen:tg1|slwclk'
+Slack : -2.523
+TNS   : -108.183
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'tonegen:tg1|slwclk'
+Slack : 0.154
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'tonegen:tg1|slwclk'
+Slack : 0.030
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.720
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -2.957
+TNS   : -104.829
+
+Type  : Fast 1100mV 0C Model Setup 'tonegen:tg1|slwclk'
+Slack : -2.441
+TNS   : -103.793
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -0.099
+TNS   : -0.413
+
+Type  : Fast 1100mV 0C Model Hold 'tonegen:tg1|slwclk'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'tonegen:tg1|slwclk'
+Slack : 0.056
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.748
+TNS   : 0.000
+
+------------------------------------------------------------

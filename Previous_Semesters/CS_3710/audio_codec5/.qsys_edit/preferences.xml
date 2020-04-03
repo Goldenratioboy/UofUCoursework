@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="127" />
+   <irq preferredWidth="34" />
+   <inputclock preferredWidth="299" />
+   <name preferredWidth="325" />
+  </columns>
+ </systemtable>
+ <library
+   expandedCategories="Library/University Program/Audio &amp; Video,Library/Basic Functions/Clocks; PLLs and Resets,Library/University Program,Library/Basic Functions/Clocks; PLLs and Resets/PLL,Project,Library/Basic Functions,Library,Library/University Program/Clock" />
+ <window width="1747" height="969" x="0" y="0" />
+ <generation simulation="VERILOG" />
+</preferences>

@@ -1,0 +1,261 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'Keyboard:Keyboard|flag'
+Slack : -10.889
+TNS   : -254.151
+
+Type  : Slow 1100mV 85C Model Setup 'ps2clk'
+Slack : -7.840
+TNS   : -31.327
+
+Type  : Slow 1100mV 85C Model Setup 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -5.712
+TNS   : -269.406
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -4.699
+TNS   : -266.084
+
+Type  : Slow 1100mV 85C Model Setup 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -2.861
+TNS   : -131.933
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.145
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : 0.241
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'ps2clk'
+Slack : 0.282
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'Keyboard:Keyboard|flag'
+Slack : 0.560
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'ps2clk'
+Slack : -0.445
+TNS   : -10.876
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -0.394
+TNS   : -29.209
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -0.394
+TNS   : -28.087
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'Keyboard:Keyboard|flag'
+Slack : -0.394
+TNS   : -12.732
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'audio_gen_top|aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.632
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'Keyboard:Keyboard|flag'
+Slack : -10.625
+TNS   : -246.928
+
+Type  : Slow 1100mV 0C Model Setup 'ps2clk'
+Slack : -7.778
+TNS   : -30.227
+
+Type  : Slow 1100mV 0C Model Setup 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -5.757
+TNS   : -272.809
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -4.680
+TNS   : -231.514
+
+Type  : Slow 1100mV 0C Model Setup 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -2.830
+TNS   : -128.207
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -0.197
+TNS   : -0.432
+
+Type  : Slow 1100mV 0C Model Hold 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : 0.327
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'ps2clk'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.448
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'Keyboard:Keyboard|flag'
+Slack : 0.554
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'ps2clk'
+Slack : -0.570
+TNS   : -10.400
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -0.394
+TNS   : -28.785
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -0.394
+TNS   : -27.935
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'Keyboard:Keyboard|flag'
+Slack : -0.394
+TNS   : -12.515
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'audio_gen_top|aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.626
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'Keyboard:Keyboard|flag'
+Slack : -6.451
+TNS   : -148.536
+
+Type  : Fast 1100mV 85C Model Setup 'ps2clk'
+Slack : -4.391
+TNS   : -12.971
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -3.828
+TNS   : -184.488
+
+Type  : Fast 1100mV 85C Model Setup 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -3.039
+TNS   : -137.863
+
+Type  : Fast 1100mV 85C Model Setup 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -1.405
+TNS   : -60.780
+
+Type  : Fast 1100mV 85C Model Hold 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : 0.006
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.090
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'ps2clk'
+Slack : 0.161
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'Keyboard:Keyboard|flag'
+Slack : 0.270
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'ps2clk'
+Slack : -0.609
+TNS   : -7.294
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -0.047
+TNS   : -0.546
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'Keyboard:Keyboard|flag'
+Slack : 0.039
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.061
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'audio_gen_top|aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : 8.720
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'Keyboard:Keyboard|flag'
+Slack : -6.128
+TNS   : -141.246
+
+Type  : Fast 1100mV 0C Model Setup 'ps2clk'
+Slack : -4.129
+TNS   : -10.699
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -3.320
+TNS   : -139.278
+
+Type  : Fast 1100mV 0C Model Setup 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -2.867
+TNS   : -130.919
+
+Type  : Fast 1100mV 0C Model Setup 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : -1.241
+TNS   : -53.031
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -0.143
+TNS   : -0.746
+
+Type  : Fast 1100mV 0C Model Hold 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -0.017
+TNS   : -0.256
+
+Type  : Fast 1100mV 0C Model Hold 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'ps2clk'
+Slack : 0.169
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'Keyboard:Keyboard|flag'
+Slack : 0.245
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'ps2clk'
+Slack : -0.626
+TNS   : -7.225
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio_gen_top:audio_gen_top|tonegen:tg1|slwclk'
+Slack : -0.005
+TNS   : -0.048
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'Keyboard:Keyboard|flag'
+Slack : 0.067
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'vga_wrapper:vga_wrapper|vga_640by480:vga_ctrl|slw_clk'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'audio_gen_top|aud_sample|audio_pll_0|audio_pll|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 0.689
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : 8.746
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,30 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/tippytop {C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/Keyboard.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath {C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath/FSM.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/vga {C:/Users/Jonathan/Documents/School/ECE-3710/vga/vga_wrapper.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/vga {C:/Users/Jonathan/Documents/School/ECE-3710/vga/vga_640by480.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/vga {C:/Users/Jonathan/Documents/School/ECE-3710/vga/bitgen_piano.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath {C:/Users/Jonathan/Documents/School/ECE-3710/cpuDatapath/cpuDatapath.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/audio_codec5 {C:/Users/Jonathan/Documents/School/ECE-3710/audio_codec5/tonegen.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/audio_codec5 {C:/Users/Jonathan/Documents/School/ECE-3710/audio_codec5/audio_gen_top.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/alu {C:/Users/Jonathan/Documents/School/ECE-3710/alu/_3710alu.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/regFile {C:/Users/Jonathan/Documents/School/ECE-3710/regFile/regfile.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/tippytop {C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/tippytop.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/tippytop {C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/tippytop_tb.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/memory {C:/Users/Jonathan/Documents/School/ECE-3710/memory/memory.v}
+
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/../cpuDatapath {C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/../cpuDatapath/FSM.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/../cpuDatapath {C:/Users/Jonathan/Documents/School/ECE-3710/tippytop/../cpuDatapath/cpuDatapath.v}
+
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tippytop_tb
+
+add wave *
+view structure
+view signals
+run -all

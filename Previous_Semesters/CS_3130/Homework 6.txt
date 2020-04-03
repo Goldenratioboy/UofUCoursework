@@ -1,0 +1,22 @@
+Homework 6 Jonathan Pilling
+
+Problem (1)
+(a) What is the proportion of people who smoke?
+    Answer: 0.03 + 0.44 = 0.47
+(b) What is the proportion of people who have had a heart attack?
+    Answer: 0.03 + 0.03 = 0.06
+(c)  If a person is a smoker, are they more likely to have had a heart attack than someone
+who is not a smoker? Hint: Be careful what this question is asking!
+    Answer: No, 0.03 = 0.03
+(d) If someone tells you that they have had a heart attack, what is the probability that they
+are also a smoker?
+    Answer: 0.03
+(e) Is smoking independent of having a heart attack?
+    Answer: Yes, the joint probabilities are the same
+(f) Define Bernoulli random variables, S = 0 (non-smoker), S = 1 (smoker), and H = 0 (no
+heart attack), H = 1 (heart attack). What is Cov(S, H)?  
+
+(g) What is ρ(S, H)?
+
+Problem 2:
+

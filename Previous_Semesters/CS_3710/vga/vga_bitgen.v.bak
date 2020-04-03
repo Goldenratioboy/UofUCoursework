@@ -1,0 +1,32 @@
+module VGA_Bitgen(bright,
+	pixelData,
+	hCount, vCount,
+	rgb);
+input bright;
+input [7:0] pixelData,
+input [9:0] hCount, vCount,
+output reg[7:0] rgb;
+
+parameter BLACK = 8’b000_000_00; 
+parameter WHITE = 8’b111_111_11; 
+parameter RED = 8’b111_000_00; 
+parameter GREEN = 8’b000_111_00; 
+parameter BLUE = 8’b000_000_00;
+
+
+always@(*)
+begin
+
+//This will paint a white box with a red background
+  if(~bright) rgb = BLACK;
+  else if((hCount >= 100) && (hCount <= 300)) && ((vCount >= 150) && (vCount <= 350))
+  begin
+	rgb = WHITE;
+  end
+  else
+	rgb = RED;
+
+end
+
+
+endmodule

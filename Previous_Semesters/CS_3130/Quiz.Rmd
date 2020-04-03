@@ -1,0 +1,56 @@
+---
+title: "Quiz"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+## Number of times to repeat the experiment
+numRepeats = 40000
+
+## Sample size of each experiment (number of X_i Gaussians to simulate)
+n = 9
+
+## Mean and standard deviation of the X_i Gaussians
+mu = 200000
+sigma = 30000
+
+## Set up a vector (aka, a 1D array) to hold our Z and T statistics
+zStats = numeric(numRepeats)
+tStats = numeric(numRepeats)
+
+## Simulate!
+for(i in 1:numRepeats) {
+  x = rnorm(n, mean = mu, sd = sigma)
+  ## Compare the code here to the Z and T formulas above
+  zStats[i] = (mean(x) - mu) / (sigma / sqrt(n))
+  tStats[i] = (mean(x) - mu) / (sd(x) / sqrt(n))
+}
+
+## Clamp data just so the histogram function doesn't complain
+zStats = zStats[zStats > -6 & zStats < 6]
+tStats = tStats[tStats > -6 & tStats < 6]
+```
+
+Let's plot the results and see how the $Z$ and $T$ distributions compare.
+```{r}
+## Plot a histogram of the Z statistics
+hist(zStats, freq = FALSE, xlim = c(-6,6), ylim = c(0,0.4),
+     breaks = seq(-6,6,0.2), main = "Normalized Mean: Gaussian Z",
+     col = "lightblue")
+
+## Compare this to a N(0, 1) density
+t = seq(-6, 6, 0.02)
+lines(t, dnorm(t), lwd = 3, col = 'red')
+
+## Plot a histogram of the T statistics
+hist(tStats, freq = FALSE, xlim = c(-6,6), ylim = c(0,0.4),
+     breaks = seq(-6,6,0.2), main = "Normalized Mean: Student's T",
+     col = "lightblue")
+
+## Compare this to a t(n - 1) density
+lines(t, dt(t, df = n - 1), lwd = 3, col = 'red')
+```

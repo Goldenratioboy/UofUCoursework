@@ -1,0 +1,297 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "out0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[5]",
+					"strict" : false
+				},
+				{
+					"name" : "out0[6]",
+					"strict" : false
+				},
+				{
+					"name" : "out1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "out1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "out1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "out2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "out2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "out2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "out3[0]",
+					"strict" : false
+				},
+				{
+<<<<<<< HEAD
+					"name" : "Flags[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[13]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[14]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[5]",
+=======
+					"name" : "out3[1]",
+>>>>>>> master
+					"strict" : false
+				},
+				{
+					"name" : "out3[2]",
+					"strict" : false
+				},
+				{
+<<<<<<< HEAD
+					"name" : "A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "B[0]",
+=======
+					"name" : "out3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out3[4]",
+>>>>>>> master
+					"strict" : false
+				},
+				{
+					"name" : "out3[5]",
+					"strict" : false
+				},
+				{
+<<<<<<< HEAD
+					"name" : "A[2]",
+=======
+					"name" : "out3[6]",
+>>>>>>> master
+					"strict" : false
+				},
+				{
+					"name" : "Flags[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[1]",
+					"strict" : false
+				},
+				{
+<<<<<<< HEAD
+					"name" : "B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A[8]",
+=======
+					"name" : "Flags[2]",
+>>>>>>> master
+					"strict" : false
+				},
+				{
+					"name" : "Flags[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Flags[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Cin",
+					"strict" : false
+				},
+				{
+					"name" : "A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "B[2]",
+					"strict" : false
+				},
+				{
+<<<<<<< HEAD
+					"name" : "B[9]",
+					"strict" : false
+				},
+				{
+					"name" : "B[15]",
+					"strict" : false
+				},
+				{
+					"name" : "B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "B[8]",
+					"strict" : false
+				},
+				{
+					"name" : "B[10]",
+					"strict" : false
+				},
+				{
+					"name" : "B[11]",
+					"strict" : false
+				},
+				{
+					"name" : "B[12]",
+					"strict" : false
+				},
+				{
+					"name" : "B[13]",
+					"strict" : false
+				},
+				{
+					"name" : "B[14]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[15]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[12]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inst[1]",
+=======
+					"name" : "A[3]",
+>>>>>>> master
+					"strict" : false
+				},
+				{
+					"name" : "B[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
