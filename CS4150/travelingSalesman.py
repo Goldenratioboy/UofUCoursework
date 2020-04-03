@@ -38,4 +38,5 @@ for i in range(n):
 
 visited.add(0)
 travel(0, 0, 0)
+print(matrix)
 print(bestSoFar)
